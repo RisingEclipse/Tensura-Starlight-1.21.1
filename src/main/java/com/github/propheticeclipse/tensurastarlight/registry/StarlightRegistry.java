@@ -1,4 +1,4 @@
-package com.github.propheticeclipse.tensurastarlight;
+package com.github.propheticeclipse.tensurastarlight.registry;
 
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 

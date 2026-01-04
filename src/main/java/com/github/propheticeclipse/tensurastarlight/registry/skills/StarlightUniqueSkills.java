@@ -10,7 +10,8 @@ import java.util.function.Supplier;
 
 public class StarlightUniqueSkills {
 
-    public static final RegistrySupplier<LightRemainsSkill> LIGHT_REMAINS = register("light_remains", LightRemainsSkill::new);
+    //public static final RegistrySupplier<ManasSkill> BUTCHER = register("butcher", ButcherSkill::new); (Thanks Myst)
+    public static final RegistrySupplier<ManasSkill> LIGHT_REMAINS = register("light_remains", LightRemainsSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);
