@@ -141,19 +141,13 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation "curse.maven:ApothicAttributes-898963:6751650"
-    implementation "curse.maven:architectury-api-419699:5786327"
-    implementation files("libs/manascore-attribute-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-command-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-config-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-inventory-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-keybind-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-network-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-race-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-skill-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/manascore-storage-neoforge-${ManascoreVersion}.jar")
-    implementation files("libs/tensura-neoforge-${TensuraVersion}.jar")
-    implementation files("libs/mysticism-neoforge-${MysticismVersion}-beta.jar")
+    compileOnly "curse.maven:ApothicAttributes-898963:6751650"
+    compileOnly "curse.maven:architectury-api-419699:5786327"
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
+    
+    localRuntime "curse.maven:ApothicAttributes-898963:6751650"
+    localRuntime "curse.maven:architectury-api-419699:5786327"
+    localRuntime fileTree(dir: 'libs', include: '*.jar')
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
@@ -168,6 +162,9 @@ var generateModMetadata = tasks.register("generateModMetadata", ProcessResources
             mod_name               : mod_name,
             mod_license            : mod_license,
             mod_version            : mod_version,
+            ApothAttributesVer     : ApothAttributesVer,
+            TensuraVersion         : TensuraVersion,
+            MysticismVersion       : MysticismVersion,
     ]
     inputs.properties replaceProperties
     expand replaceProperties
