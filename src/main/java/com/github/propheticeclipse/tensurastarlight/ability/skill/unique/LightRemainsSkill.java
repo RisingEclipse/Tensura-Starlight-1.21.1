@@ -20,7 +20,7 @@ public class LightRemainsSkill extends Skill {
 
         boolean LightLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= 4);
         boolean DarkLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= 4);
-        return LightLord || DarkLord;
+        return (LightLord || DarkLord);
     }
 
     @Override
@@ -66,18 +66,6 @@ public class LightRemainsSkill extends Skill {
         }
 
         return var10000;
-    }
-
-    @Override
-    public Component getModeName(ManasSkillInstance instance, int mode) {
-        MutableComponent name;
-        switch (mode) {
-            case 1 -> name = Component.translatable("trstarlight.skill.light_remains.blinding_light");
-            case 2 -> name = Component.translatable("trstarlight.skill.light_remains.overbearing_light");
-            default -> name = Component.empty();
-        }
-
-        return name;
     }
 
     public int nextMode(LivingEntity entity, ManasSkillInstance instance, int mode, boolean reverse) {

@@ -1,3 +1,6 @@
 {
-  "trstarlight.skill."
+  "trstarlight.skill.light_remains": "Light Remains",
+  "trstarlight.skill.light_remains.description": "§oConcentrate your eyes on darkness, for only amidst dark shall there be light.",
+  "trstarlight.skill.mode.light_remains.blinding_light": "Blinding Light",
+  "trstarlight.skill.mode.light_remains.overbearing_light": "Overbearing Light"
 }
