@@ -142,8 +142,18 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     implementation "curse.maven:ApothicAttributes-898963:6751650"
-    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
-    runtimeOnly fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "curse.maven:architectury-api-419699:5786327"
+    implementation files("libs/manascore-attribute-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-command-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-config-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-inventory-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-keybind-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-network-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-race-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-skill-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/manascore-storage-neoforge-${ManascoreVersion}.jar")
+    implementation files("libs/tensura-neoforge-${TensuraVersion}.jar")
+    implementation files("libs/mysticism-neoforge-${MysticismVersion}-beta.jar")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
