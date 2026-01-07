@@ -188,7 +188,7 @@ public class LightRemainsSkill extends Skill {
             Level level = entity.level();
             double coneAngleDeg = 60; // 60 degrees cone
             double range = 11.0;
-            float damage = this.isMastered(instance, entity) ? 35 : 15; // M:UM // 37.5% : 30%
+            float damage = this.isMastered(instance, entity) ? 20 : 10; // M:UM // 37.5% : 30%
 
             List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class,
                     entity.getBoundingBox().inflate(range),
@@ -215,7 +215,7 @@ public class LightRemainsSkill extends Skill {
         }
         if (mode == 1) {
             CompoundTag tag = instance.getOrCreateTag();
-            float DamageAmount = instance.isMastered(entity) ? 100 : 50; //M:UM
+            float DamageAmount = instance.isMastered(entity) ? 80 : 40; //M:UM
             //Grab target looking at, X SHP Unmastered : Mastered, Bonus EP on kill
             LivingEntity target = ObjectSelectionHelper.getTargetingEntity(entity, 10, false);
             if (target != null) {

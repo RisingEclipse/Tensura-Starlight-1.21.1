@@ -2,5 +2,9 @@
   "trstarlight.skill.light_remains": "Light Remains",
   "trstarlight.skill.light_remains.description": "§oConcentrate your eyes on darkness, for only amidst dark shall there be light.",
   "trstarlight.skill.mode.light_remains.blinding_light": "Blinding Light",
-  "trstarlight.skill.mode.light_remains.overbearing_light": "Overbearing Light"
+  "trstarlight.skill.mode.light_remains.overbearing_light": "Overbearing Light",
+
+  "trstarlight.skill.echo_endures": "Echo Endures",
+  "trstarlight.skill.echo_endures.description": "§oConcentrate your ears on silence, for only in silence is the word.",
+  "trstarlight.skill.mode.echo_endures.sound_burst": "Sound Burst"
 }
