@@ -6,5 +6,11 @@
 
   "trstarlight.skill.echo_endures": "Echo Endures",
   "trstarlight.skill.echo_endures.description": "§oConcentrate your ears on silence, for only in silence is the word.",
-  "trstarlight.skill.mode.echo_endures.sound_burst": "Sound Burst"
+  "trstarlight.skill.mode.echo_endures.sound_burst": "Sound Burst",
+
+  "trstarlight.skill.life_returns": "Life Returns",
+  "trstarlight.skill.life_returns.description": "§oConcentrate your thoughts on death, for only in dying is life.",
+  "trstarlight.skill.mode.life_returns.default": "No Actives",
+
+  "trstarlight.generic.spawnpoint_not_located": "Failed to locate spawnpoint, if issue persist after sleeping, contact Dev of TRStarlight."
 }
