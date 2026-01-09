@@ -10,7 +10,22 @@
 
   "trstarlight.skill.life_returns": "Life Returns",
   "trstarlight.skill.life_returns.description": "§oConcentrate your thoughts on death, for only in dying is life.",
-  "trstarlight.skill.mode.life_returns.default": "No Actives",
 
-  "trstarlight.generic.spawnpoint_not_located": "Failed to locate spawnpoint, if issue persist after sleeping, contact Dev of TRStarlight."
+  "trstarlight.skill.vestiges_of_eidolons": "Vestiges of Eidolons",
+  "trstarlight.skill.vestiges_of_eidolons.description": "§oWhat fades does not vanish. What is gone still lingers. It listens to silence, and weaves truth from what remains.",
+  "trstarlight.skill.mode.vestiges_of_eidolons.solar_echo": "Solar Echo",
+  "trstarlight.skill.mode.vestiges_of_eidolons.judgement_of_past": "Judgement of Past",
+  "trstarlight.skill.mode.vestiges_of_eidolons.death_bypass": "Death Bypass",
+
+  "trstarlight.skill.mode.default": "No Actives",
+  "trstarlight.generic.spawnpoint_not_located": "Failed to locate spawnpoint, if issue persist after sleeping, contact Dev of TRStarlight.",
+  "trstarlight.generic.skill.single_skill.sacrifice": "§fSkill %1$s §fwas §4sacrificed§f.§r",
+  "trstarlight.generic.skill.success": "Success.",
+  "trstarlight.generic.skill.common": "Common Skill %1$s has been acquired.",
+  "trstarlight.generic.skill.intrinsic": "Intrinsic Skill %1$s has been acquired.",
+  "trstarlight.generic.skill.extra": "Extra Skill %1$s has been acquired.",
+  "trstarlight.generic.skill.unique": "Unique Skill %1$s has been acquired.",
+  "trstarlight.generic.skill.unique.evolution": "Unique Skill %1$s will now undergo evolution.",
+  "trstarlight.generic.skill.ultimate": "Ultimate Skill %1$s has been acquired.",
+  "trstarlight.generic.skill.ultimate.evolution": "Ultimate Skill %1$s will now undergo evolution."
 }

@@ -1,5 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
@@ -24,6 +25,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -61,6 +63,21 @@ public class LightRemainsSkill extends Skill {
     @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return 1;
+    }
+
+    @Override
+    public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
+        double auraPercent = 0.75;
+        double manaPercent = 2.25;
+        AttributeInstance aura = owner.getAttribute(TensuraAttributes.AURA_GAIN);
+        if (aura != null && !aura.hasModifier(LIGHT_REMAINS)) {
+            aura.addOrReplacePermanentModifier(new AttributeModifier(LIGHT_REMAINS, auraPercent, AttributeModifier.Operation.ADD_VALUE));
+        }
+
+        AttributeInstance magicule = owner.getAttribute(TensuraAttributes.MAGICULE_GAIN);
+        if (magicule != null && !magicule.hasModifier(LIGHT_REMAINS)) {
+            magicule.addOrReplacePermanentModifier(new AttributeModifier(LIGHT_REMAINS, manaPercent, AttributeModifier.Operation.ADD_VALUE));
+        }
     }
 
     @Override
@@ -150,18 +167,20 @@ public class LightRemainsSkill extends Skill {
         // In Slot]: 1.5x (3x Mastered) Light Damage. Unmastered effect is toggleable when mastered.
         CompoundTag tag = instance.getOrCreateTag();
         double damageBonus = isMastered(instance, owner) ? 3.0 : 1.5; // Mastered : Unmastered
-        if (this.isInSlot(owner, instance)) {
-            if (TensuraDamageHelper.isLightDamage(source)) {
-                Float initDamage = amount.get();
-                if (initDamage != null) {
-                    amount.set((float) (initDamage * damageBonus));
+        if (!SkillUtils.isSkillToggled(owner, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) {
+            if (this.isInSlot(owner, instance)) {
+                if (TensuraDamageHelper.isLightDamage(source)) {
+                    Float initDamage = amount.get();
+                    if (initDamage != null) {
+                        amount.set((float) (initDamage * damageBonus));
+                    }
                 }
-            }
-        } else if ((instance.isToggled()) && instance.isMastered(owner)) {
-            if (TensuraDamageHelper.isLightDamage(source)) {
-                Float initDamage = amount.get();
-                if (initDamage != null) {
-                    amount.set((float) (initDamage * 1.5));
+            } else if ((instance.isToggled()) && instance.isMastered(owner)) {
+                if (TensuraDamageHelper.isLightDamage(source)) {
+                    Float initDamage = amount.get();
+                    if (initDamage != null) {
+                        amount.set((float) (initDamage * 1.5));
+                    }
                 }
             }
         }
@@ -170,7 +189,6 @@ public class LightRemainsSkill extends Skill {
             TensuraDamageHelper.directSpiritualHurt(target, owner, damageNum);
             amount.set((float) 0);
             if (target.isDeadOrDying()) {
-                Level level = target.level();
                 double targetMP = EnergyHelper.getMaxMagicule(target);
                 double currentMP = EnergyHelper.getMaxMagicule(owner);
                 double gainedMP = targetMP * 0.05;

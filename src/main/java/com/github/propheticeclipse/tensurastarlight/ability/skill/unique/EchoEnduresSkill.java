@@ -23,6 +23,7 @@ import io.github.manasmods.tensura.util.EnergyHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -68,9 +69,9 @@ public class EchoEnduresSkill extends Skill {
         boolean senseSoundEffect = entity.hasEffect(TensuraMobEffects.AUDITORY_SENSE);
         boolean darknessEffect = entity.hasEffect(MobEffects.DARKNESS);
         boolean blindnessEffect = entity.hasEffect(MobEffects.BLINDNESS);
-        Skills storage = SkillAPI.getSkillsFrom(entity);
+        boolean lightRemains = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
 
-        return (senseSoundEffect && (blindnessEffect || darknessEffect) && storage.getSkill((ManasSkill) StarlightUniqueSkills.LIGHT_REMAINS.get()).map((instance) -> instance.isMastered(entity)).orElse(false));
+        return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains);
     }
 
     @Override
@@ -135,6 +136,23 @@ public class EchoEnduresSkill extends Skill {
             target.addEffect(effectInstance);
         }
         return true;
+    }
+
+    @Override
+    public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
+        if (instance.isToggled()) {
+            if (instance.isMastered(owner)) {
+                AttributeInstance aura = owner.getAttribute(TensuraAttributes.RESISTANCE_DEGRADATION);
+                if (aura != null && !aura.hasModifier(ECHO_ENDURES)) {
+                    aura.addOrReplacePermanentModifier(new AttributeModifier(ECHO_ENDURES, 1, AttributeModifier.Operation.ADD_VALUE));
+                }
+            } else if (this.isInSlot(owner)) {
+                AttributeInstance aura = owner.getAttribute(TensuraAttributes.RESISTANCE_DEGRADATION);
+                if (aura != null && !aura.hasModifier(ECHO_ENDURES)) {
+                    aura.addOrReplacePermanentModifier(new AttributeModifier(ECHO_ENDURES, 1, AttributeModifier.Operation.ADD_VALUE));
+                }
+            }
+        }
     }
 
     @Override

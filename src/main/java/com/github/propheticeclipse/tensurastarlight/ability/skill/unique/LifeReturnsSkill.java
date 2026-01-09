@@ -27,7 +27,7 @@ public class LifeReturnsSkill extends Skill {
     }
 
     // Acquisition Conditions:
-    //Have Light Remains (Mastered) or Echo Endures (Mastered)
+    //Have Light Remains (Mastered)
     //Have Magicule Poisoning, or >= 200k ep, or Die 10 times.
     //100k MP, or Reincarnation
     //
@@ -72,15 +72,15 @@ public class LifeReturnsSkill extends Skill {
     }
 
     public double getMagiculeCost(LivingEntity entity, ManasSkillInstance instance, int mode) {
-        return 100;
+        return instance.isMastered(entity) ? 50 : 100;
     }
 
     @Override
     public void onTick(ManasSkillInstance instance, LivingEntity entity) {
         IExistence existence = TensuraStorages.getExistenceFrom(entity);
 
-        float healthRegen = isMastered(instance, entity) ? 14 : 7; // Replace with Configured options later
-        float spiritHealthRegen = isMastered(instance, entity) ? 4 : 2;
+        float healthRegen = isMastered(instance, entity) ? 10 : 5; // Replace with Configured options later
+        float spiritHealthRegen = isMastered(instance, entity) ? 2 : 1;
         double maxSHP = entity.getAttributeValue(TensuraAttributes.MAX_SPIRITUAL_HEALTH);
         double curSHP = existence.getSpiritualHealth();
 
