@@ -46,8 +46,8 @@ public class EchoEnduresSkill extends Skill {
     public static final ResourceLocation ECHO_ENDURES;
 
     //Acquisition Conditions:
-    //Have Light Remains (Mastered) or Life Returns (Mastered)
-    //Be affected by Darkness (Or Blindness) and Sense Soundwaves at the same time
+    //Have Light Remains (Mastered) or Life Returns (Mastered), Sense Soundavws
+    //Be affected by Darkness (Or Blindness)
     //100k MP, or Reincarnation
     //
     //Passives
@@ -66,7 +66,7 @@ public class EchoEnduresSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
-        boolean senseSoundEffect = entity.hasEffect(TensuraMobEffects.AUDITORY_SENSE);
+        boolean senseSoundEffect = SkillUtils.hasSkill(entity, ExtraSkills.SENSE_SOUNDWAVE.get());
         boolean darknessEffect = entity.hasEffect(MobEffects.DARKNESS);
         boolean blindnessEffect = entity.hasEffect(MobEffects.BLINDNESS);
         boolean lightRemains = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
