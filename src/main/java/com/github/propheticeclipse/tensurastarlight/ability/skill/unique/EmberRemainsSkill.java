@@ -89,7 +89,6 @@ public class EmberRemainsSkill extends Skill {
     @Override
     public boolean onDeath(ManasSkillInstance instance, LivingEntity owner, DamageSource source) {
         //[Passive - True] Bypass death, set HP to 10% of total and gain Resistance 2, Strengthen 2 for 60s. 600s CD, Costless. Gain 10 Mastery.
-        int cooldown = isMastered(instance, owner) ? 800 : 1200;
         //Additionally, Bypass Death once per day (800s Mastered). When bypassing, recover to 10% of maximum HP and Teleport to your last spawn point.
         if (owner instanceof Player player) {
             double maxHP = player.getMaxHealth();
@@ -102,8 +101,7 @@ public class EmberRemainsSkill extends Skill {
 
                 applyEffects(owner);
 
-                player.level().playSound((Player) null, player.getX(), player.getY(), player.getZ(), SoundEvents.CHORUS_FRUIT_TELEPORT, SoundSource.PLAYERS, 1.0F, 1.0F);
-                instance.setCoolDown(cooldown, 1);
+                instance.setCoolDown(600, 1);
                 return false;
             } else {
                 return true;
@@ -125,10 +123,6 @@ public class EmberRemainsSkill extends Skill {
     @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
         return true;
-    }
-
-    private void effectOnDamage(LivingEntity owner) {
-
     }
 
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {

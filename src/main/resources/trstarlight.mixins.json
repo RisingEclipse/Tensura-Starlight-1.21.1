@@ -6,7 +6,9 @@
   "client": [
     "client.MixinItemRendererFix"
   ],
-  "mixins": [],
+  "mixins": [
+    "MixinEnergyHelper"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

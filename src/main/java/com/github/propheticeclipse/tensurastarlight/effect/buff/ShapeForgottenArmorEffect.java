@@ -13,7 +13,7 @@ public class ShapeForgottenArmorEffect extends TensuraMobEffect {
 
     public ShapeForgottenArmorEffect() {
         super(MobEffectCategory.BENEFICIAL, (new Color(255, 255, 255)).getRGB());
-        this.addAttributeModifier(Attributes.ARMOR, SHAPE_FORGOTTEN_ARMOR, 10, AttributeModifier.Operation.ADD_VALUE);
+        this.addAttributeModifier(Attributes.ARMOR, SHAPE_FORGOTTEN_ARMOR, 5, AttributeModifier.Operation.ADD_VALUE);
     }
 
     static {
