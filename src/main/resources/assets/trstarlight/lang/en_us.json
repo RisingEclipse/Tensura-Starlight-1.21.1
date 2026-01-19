@@ -11,11 +11,25 @@
   "trstarlight.skill.life_returns": "Life Returns",
   "trstarlight.skill.life_returns.description": "§oConcentrate your thoughts on death, for only in dying is life.",
 
+  "trstarlight.skill.ember_remains": "Ember Remains",
+  "trstarlight.skill.ember_remains.description": "§oConcentrate your will upon resistance, for only unyielding fire endures the dark.",
+  "trstarlight.skill.mode.ember_remains.kindle_flames": "Kindle Flames",
+
+  "trstarlight.skill.current_unbroken": "Current Unbroken",
+  "trstarlight.skill.current_unbroken.description": "§oConcentrate your potential upon stillness, for only energy that does not act may never be undone.",
+
+  "trstarlight.skill.shape_forgotten": "Shape Forgotten",
+  "trstarlight.skill.shape_forgotten.description": "§oConcentrate your body upon fracture, for only broken forms learn to adapt.",
+  "trstarlight.skill.mode.shape_forgotten.slippery_form": "Slippery Form",
+
   "trstarlight.skill.vestiges_of_eidolons": "Vestiges of Eidolons",
   "trstarlight.skill.vestiges_of_eidolons.description": "§oWhat fades does not vanish. What is gone still lingers. It listens to silence, and weaves truth from what remains.",
   "trstarlight.skill.mode.vestiges_of_eidolons.solar_echo": "Solar Echo",
   "trstarlight.skill.mode.vestiges_of_eidolons.judgement_of_past": "Judgement of Past",
   "trstarlight.skill.mode.vestiges_of_eidolons.death_bypass": "Death Bypass",
+
+  "effect.trstarlight.ember_attack_improvement": "ER: Combat Flow",
+  "effect.trstarlight.shape_forgotten_armor": "SF: Shifting Armor",
 
   "trstarlight.skill.mode.default": "No Actives",
   "trstarlight.generic.spawnpoint_not_located": "Failed to locate spawnpoint, if issue persist after sleeping, contact Dev of TRStarlight.",

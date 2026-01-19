@@ -10,6 +10,7 @@ import io.github.manasmods.manascore.skill.api.Skills;
 import io.github.manasmods.manascore.storage.ManasCoreStorage;
 import io.github.manasmods.tensura.ability.SkillHelper;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.ability.magic.Element;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.damage.TensuraDamageTypes;
@@ -114,10 +115,12 @@ public class EchoEnduresSkill extends Skill {
         CompoundTag tag = new CompoundTag();
 
         if (!(SkillUtils.hasSkillFully(entity, ExtraSkills.SENSE_SOUNDWAVE.get()) || SkillUtils.hasSkillFully(entity, ExtraSkills.SENSE_HEAT_SOURCE.get()))) {
-            tag.putBoolean("NoMagiculeCost", true);
-            SkillHelper.learnSkill(entity, ExtraSkills.SENSE_SOUNDWAVE.get());
-            SkillHelper.learnSkill(entity, ExtraSkills.SENSE_HEAT_SOURCE.get());
-            tag.putBoolean("NoMagiculeCost", false);
+            TensuraSkillInstance senseSound = new TensuraSkillInstance(ExtraSkills.SENSE_SOUNDWAVE.get());
+            TensuraSkillInstance senseHeat = new TensuraSkillInstance(ExtraSkills.SENSE_HEAT_SOURCE.get());
+            senseSound.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+            senseHeat.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+            SkillHelper.learnSkill(entity, senseSound, instance.getRemoveTime());
+            SkillHelper.learnSkill(entity, senseHeat, instance.getRemoveTime());
         }
     }
 

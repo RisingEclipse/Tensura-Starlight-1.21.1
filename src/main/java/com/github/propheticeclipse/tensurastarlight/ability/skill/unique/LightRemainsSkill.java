@@ -4,9 +4,11 @@ import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUni
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
+import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.SkillHelper;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.ability.magic.Element;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.config.ability.skill.UniqueSkillConfig;
@@ -92,9 +94,9 @@ public class LightRemainsSkill extends Skill {
         }
 
         if (!SkillUtils.hasSkillFully(entity, ExtraSkills.MAGIC_SENSE.get())) {
-            tag.putBoolean("NoMagiculeCost", true);
-            SkillHelper.learnSkill(entity, ExtraSkills.MAGIC_SENSE.get());
-            tag.putBoolean("NoMagiculeCost", false);
+            TensuraSkillInstance magicSense = new TensuraSkillInstance(ExtraSkills.MAGIC_SENSE.get());
+            magicSense.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+            SkillHelper.learnSkill(entity, magicSense);
         }
 
         double auraPercent = 0.75;

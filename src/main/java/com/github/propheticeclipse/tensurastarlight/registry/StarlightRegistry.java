@@ -5,5 +5,6 @@ import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUni
 public class StarlightRegistry {
     public static void init() {
         StarlightUniqueSkills.init();
+        StarlightEffects.init();
     }
 }
