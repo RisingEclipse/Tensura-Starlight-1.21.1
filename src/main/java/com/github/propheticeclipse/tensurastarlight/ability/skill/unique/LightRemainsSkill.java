@@ -54,7 +54,11 @@ public class LightRemainsSkill extends Skill {
 
         boolean LightLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= 4);
         boolean DarkLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= 4);
-        return (LightLord || DarkLord);
+        boolean LightDarkLord = LightLord || DarkLord;
+        boolean greaterLight = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= 3);
+        boolean greaterDark = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= 3);
+        boolean greaterAcquire = greaterLight && greaterDark;
+        return LightDarkLord || greaterAcquire;
     }
 
     @Override

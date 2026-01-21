@@ -29,6 +29,10 @@ public class MixinEnergyHelper {
             original *= 0.95;
         }
 
+        if (SkillUtils.hasSkill(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
+            original *= 0.90;
+        }
+
         return original;
     }
 }

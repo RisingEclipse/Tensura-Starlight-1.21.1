@@ -130,7 +130,7 @@ public class ShapeForgottenSkill extends Skill {
             } else {
                 totalReduction = damageModifier * i;
             }
-
+            addMasteryPoint(instance, owner);
             amount.set((float) (originalDamageNum - totalReduction));
             return true;
         }
@@ -152,6 +152,7 @@ public class ShapeForgottenSkill extends Skill {
                     if (effect.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) {
                         int levels = (effect.getAmplifier() + 1);
                         player.removeEffect(effect.getEffect());
+                        addMasteryPoint(instance, player);
                         effectsRemoved += levels;
                     }
                 }
@@ -160,7 +161,6 @@ public class ShapeForgottenSkill extends Skill {
                 double currentMP = existence.getMagicule();
 
                 existence.setMagicule(currentMP - mpCost);
-                addMasteryPoint(instance, entity);
                 instance.setCoolDown(30, 0);
             }
 

@@ -69,27 +69,18 @@ public class EmberRemainsSkill extends Skill {
 
     public String getModeId(ManasSkillInstance instance, int mode) {
         String var10000;
-        switch (mode) {
-            case 0 -> var10000 = "ember_remains.kindle_flames";
-            case 1 -> var10000 = "ember_remains.death_bypass";
-            default -> var10000 = super.getModeId(instance, mode);
+        if (mode == 0) {
+            var10000 = "ember_remains.kindle_flames";
+        } else {
+            var10000 = super.getModeId(instance, mode);
         }
 
         return var10000;
     }
 
-    public int nextMode(LivingEntity entity, ManasSkillInstance instance, int mode, boolean reverse) {
-        if (reverse) {
-            return mode == 0 ? 1 : mode - 1;
-        } else {
-            return mode == 1 ? 0 : mode + 1; // (0 - 1) total is 2
-        }
-    }
-
     @Override
     public boolean onDeath(ManasSkillInstance instance, LivingEntity owner, DamageSource source) {
         //[Passive - True] Bypass death, set HP to 10% of total and gain Resistance 2, Strengthen 2 for 60s. 600s CD, Costless. Gain 10 Mastery.
-        //Additionally, Bypass Death once per day (800s Mastered). When bypassing, recover to 10% of maximum HP and Teleport to your last spawn point.
         if (owner instanceof Player player) {
             double maxHP = player.getMaxHealth();
             // Place anti-resurrection skill flag here!
@@ -155,6 +146,7 @@ public class EmberRemainsSkill extends Skill {
                         int newDuration = effect.getDuration() + 1200; // +60s
                         MobEffectInstance extended = new MobEffectInstance(effect.getEffect(), newDuration, effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon());
                         player.addEffect(extended);
+                        addMasteryPoint(instance, player);
                         totalDurationExtended += 1;
                     }
                 }
@@ -163,7 +155,6 @@ public class EmberRemainsSkill extends Skill {
                 double currentMP = existence.getMagicule();
 
                 existence.setMagicule(currentMP - mpCost);
-                addMasteryPoint(instance, entity);
                 instance.setCoolDown(30, 0);
             }
 

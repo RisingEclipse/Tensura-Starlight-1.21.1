@@ -53,7 +53,7 @@ public class LifeReturnsSkill extends Skill {
 
     @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
-        return 100000;
+        return 75000;
     }
 
     @Override
