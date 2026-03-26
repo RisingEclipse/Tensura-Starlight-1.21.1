@@ -2,6 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn;
 
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
+import com.github.propheticeclipse.tensurastarlight.race.StarlightRace;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class lesserAspectBornRace extends DefaultRace {
+public class lesserAspectBornRace extends StarlightRace {
     public lesserAspectBornRace(Difficulty difficulty) {
         super(difficulty);
     }
