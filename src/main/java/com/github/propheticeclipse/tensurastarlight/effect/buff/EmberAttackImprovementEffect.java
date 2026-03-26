@@ -21,6 +21,6 @@ public class EmberAttackImprovementEffect extends TensuraMobEffect {
 
     static {
         EMBER_ATTACK_IMPROVEMENT = ResourceLocation.fromNamespaceAndPath("trstarlight", "ember_attack_improvement");
-        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).EmberBuffConf;
+        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).CombatFlow;
     }
 }

@@ -5,9 +5,9 @@ import io.github.manasmods.manascore.config.api.ManasConfig;
 import io.github.manasmods.manascore.config.api.ManasSubConfig;
 
 public class BuffEffectsConfig extends ManasConfig {
-    public CombatFlow EmberBuffConf = new CombatFlow();
-    public ShiftingArmor ShapeBuffConf = new ShiftingArmor();
-    public FlaringForm RemnantBuffConf = new FlaringForm();
+    public CombatFlow CombatFlow = new CombatFlow();
+    public ShiftingArmor ShiftingArmor = new ShiftingArmor();
+    public FlaringForm FlaringForm = new FlaringForm();
 
     public String getFileName() {
         return "tensura/tensura-starlight/effects/buffs";

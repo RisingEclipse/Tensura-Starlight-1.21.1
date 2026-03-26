@@ -247,6 +247,6 @@ public class LightRemainsSkill extends Skill {
 
     static {
         LIGHT_REMAINS = ResourceLocation.fromNamespaceAndPath("trstarlight", "light_remains");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).LightRemainsConf;
+        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).LightRemains;
     }
 }

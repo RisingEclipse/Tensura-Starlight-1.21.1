@@ -8,5 +8,6 @@ public class StarlightRegistry {
         StarlightUniqueSkills.init();
         StarlightEffects.init();
         StarlightConfigs.init();
+        StarlightRaces.init();
     }
 }

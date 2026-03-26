@@ -21,6 +21,6 @@ public class ShapeForgottenArmorEffect extends TensuraMobEffect {
 
     static {
         SHAPE_FORGOTTEN_ARMOR = ResourceLocation.fromNamespaceAndPath("trstarlight", "shape_forgotten_armor");
-        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).ShapeBuffConf;
+        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).ShiftingArmor;
     }
 }

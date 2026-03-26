@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Configuration - Unique Skill: [Light Remains]
+- Configuration - Unique Skill: [Echo Endures]
+- Configuration - Effect: [Combat Flow]
+- Configuration - Effect: [Shifting Armor]
+- Configuration - Effect: [Flaring Form]
+
 - Unique Skill: [Light Remains]
 - Unique Skill: [Echo Endures]
 - Unique Skill: [Life Returns]
@@ -18,9 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Evolved Unique Skill: [Vestiges Of Eidolons]
 - Evolved Unique Skill: [Remnants Of Ascension]
 
-- Effect: [Ember Remains Buff]
-- Effect: [Shape Forgotten Buff]
-- Effect: [Remnants Of Ascension Buff]
+- Effect: [Combat Flow]
+- Effect: [Shifting Armor]
+- Effect: [Flaring Form]
 
 ### Changed
 

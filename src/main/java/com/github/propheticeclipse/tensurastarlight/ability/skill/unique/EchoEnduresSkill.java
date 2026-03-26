@@ -1,7 +1,9 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 
+import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.SkillHelper;
@@ -30,6 +32,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public class EchoEnduresSkill extends Skill {
+    private static final aspectSeriesSkillConfig.EchoEndures CONFIG;
     public EchoEnduresSkill() {
         super(SkillType.UNIQUE);
     }
@@ -67,18 +70,18 @@ public class EchoEnduresSkill extends Skill {
 
     @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
-        return 75000;
+        return CONFIG.magiculeAcquirementCost;
     }
 
     @Override
     public int getAcquirementMastery(LivingEntity entity) {
-        return 1;
+        return CONFIG.acquirementMastery;
     }
 
     public double getMagiculeCost(LivingEntity entity, ManasSkillInstance instance, int mode) {
         double cost;
         if (mode == 0) {
-            cost = 750.0;
+            cost = CONFIG.soundBurstManaCost;
         } else {
             cost = 0.0;
         }
@@ -123,8 +126,8 @@ public class EchoEnduresSkill extends Skill {
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
         // Apply Silence on hit here, 6s mastered, 3s unmastered, amp 0
         if (instance.isToggled()) {
-            int amplifier = 0; // 0 = Level 1 Effect
-            int duration = isMastered(instance, owner) ? 120 : 60; // Mastered : Unmastered Duration is in Ticks (100 = ~5s
+            int amplifier = CONFIG.silenceAmplifier; // 0 = Level 1 Effect
+            int duration = isMastered(instance, owner) ? CONFIG.silenceDurationMastered : CONFIG.silenceDurationUnmastered; // Mastered : Unmastered Duration is in Ticks (100 = ~5s
             MobEffectInstance effectInstance = new MobEffectInstance(TensuraMobEffects.SILENCE, duration, amplifier, false, false, false);
             target.addEffect(effectInstance);
         }
@@ -181,9 +184,9 @@ public class EchoEnduresSkill extends Skill {
         // Doesn’t penetrate walls. 3s CD, 750 MP. Gains 1 mastery.
         if (mode == 0) {
             Level level = entity.level();
-            double coneAngleDeg = 160; // 60 degrees cone
-            double range = 8;
-            float damage = this.isMastered(instance, entity) ? 10 : 5; // M:UM // 37.5% : 30%
+            double coneAngleDeg = CONFIG.soundBurstConeAngle; // 60 degrees cone
+            double range = CONFIG.soundBurstConeLength;
+            float damage = this.isMastered(instance, entity) ? CONFIG.soundBurstMasteredDamage : CONFIG.soundBurstUnmasteredDamage; // M:UM // 37.5% : 30%
 
             List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class,
                     entity.getBoundingBox().inflate(range),
@@ -206,6 +209,7 @@ public class EchoEnduresSkill extends Skill {
     }
 
     static {
+        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).EchoEndures;
         ECHO_ENDURES = ResourceLocation.fromNamespaceAndPath("trstarlight", "echo_endures");
     }
 }

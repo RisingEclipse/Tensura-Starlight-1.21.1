@@ -22,6 +22,6 @@ public class RemnantsOfAscensionArmorEffect extends TensuraMobEffect {
 
     static {
         REMNANT_ASCENSION_ARMOR = ResourceLocation.fromNamespaceAndPath("trstarlight", "remnant_ascension_armor");
-        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).RemnantBuffConf;
+        CONFIG = ConfigRegistry.getConfig(BuffEffectsConfig.class).FlaringForm;
     }
 }
