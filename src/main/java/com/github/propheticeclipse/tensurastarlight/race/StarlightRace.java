@@ -23,7 +23,7 @@ public abstract class StarlightRace extends DefaultRace {
 
     public abstract StarlightCommon.RaceDefault getAttributeDefaultConfig();
 
-    public void applyDefaultAttributeModifiers() {
+    public void applyDefaultCustomAttributeModifiers() {
         //this.addAttributeModifier(Attributes.SCALE, DEFAULT_RACE_ID, this.getDefaultConfig().getSize(), AttributeModifier.Operation.ADD_VALUE);
         // Apotheosis Attributes
         this.addAttributeModifier(ALObjects.Attributes.ARMOR_PIERCE, DEFAULT_RACE_ID, this.getAttributeDefaultConfig().getArmorPierce(), AttributeModifier.Operation.ADD_VALUE);

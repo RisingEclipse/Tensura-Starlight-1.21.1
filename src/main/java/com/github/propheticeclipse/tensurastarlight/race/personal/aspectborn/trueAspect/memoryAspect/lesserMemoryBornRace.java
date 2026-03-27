@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.tr
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.aspectBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.greaterAspectBornRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
@@ -20,13 +21,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class lesserMemoryBornRace extends aspectBornRace {
+public class lesserMemoryBornRace extends greaterAspectBornRace {
     public lesserMemoryBornRace(Difficulty difficulty) {
         super(difficulty);
     }
 
     public lesserMemoryBornRace() {
         this(Difficulty.EXTREME);
+        this.applyDefaultCustomAttributeModifiers();
         this.applyDefaultAttributeModifiers();
     }
 
@@ -43,34 +45,28 @@ public class lesserMemoryBornRace extends aspectBornRace {
     }
 
     public @Nullable ManasRace getDefaultEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.LESSER_CONVERGENCE_BORN.get();
-    }
-
-    public @Nullable ManasRace getAwakeningEvolution(ManasRaceInstance instance, LivingEntity entity) {
         return StarlightRaces.CONVERGENCE_BORN.get();
     }
 
+    public @Nullable ManasRace getAwakeningEvolution(ManasRaceInstance instance, LivingEntity entity) {
+        return StarlightRaces.GREATER_CONVERGENCE_BORN.get();
+    }
+
     public @Nullable ManasRace getHarvestFestivalEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.LESSER_CONVERGENCE_BORN.get();
+        return StarlightRaces.CONVERGENCE_BORN.get();
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        return List.of(StarlightRaces.LESSER_CONVERGENCE_BORN.get());
+        return List.of(StarlightRaces.CONVERGENCE_BORN.get());
     }
 
-    @Override
-    public float getEvolutionProgress(ManasRaceInstance instance, LivingEntity entity, ManasRace evolution) {
-        return super.getEvolutionProgress(instance, entity, evolution);
-    }
-
-    @Override
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return super.getEvolutionRequirements(previous, entity);
+        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserMemoryBorn.epRequirement), 100.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
         return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .greaterAspectBorn.greaterAspectBornIntrinsics.stream()
+                .lesserMemoryBorn.lesserMemoryBornIntrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
                 .toList();

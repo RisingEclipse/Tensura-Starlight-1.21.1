@@ -4,19 +4,27 @@ import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.race.StarlightRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.sammy.malum.common.data.attachment.ProgressionData;
+import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.config.race.RaceConfig;
+import io.github.manasmods.tensura.race.template.EvolutionRequirement;
 import io.github.manasmods.tensura.registry.race.TensuraRaces;
 import io.github.manasmods.tensura.storage.Alignment;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class lesserAspectBornRace extends StarlightRace {
@@ -26,6 +34,7 @@ public class lesserAspectBornRace extends StarlightRace {
 
     public lesserAspectBornRace() {
         this(Difficulty.EXTREME);
+        this.applyDefaultCustomAttributeModifiers();
         this.applyDefaultAttributeModifiers();
     }
 
@@ -54,11 +63,6 @@ public class lesserAspectBornRace extends StarlightRace {
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        if () {
-
-        } else {
-
-        }
         return List.of(StarlightRaces.ASPECT_BORN.get());
     }
 

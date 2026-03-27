@@ -500,6 +500,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class aspectBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)10000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -969,6 +971,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class greaterAspectBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)50000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -1439,6 +1443,8 @@ public class aspectBornRaceConfig extends ManasConfig {
     }
 
     public static class lesserConvergenceBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)100000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -1574,7 +1580,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of();
+        public List<String> lesserConvergenceBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -1908,6 +1914,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class convergenceBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)200000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -2377,6 +2385,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class greaterConvergenceBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)500000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -2846,6 +2856,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class elderConvergenceBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)1000000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -3317,6 +3329,8 @@ public class aspectBornRaceConfig extends ManasConfig {
 
 
     public static class lesserMemoryBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)100000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -3452,7 +3466,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of();
+        public List<String> lesserMemoryBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -3786,6 +3800,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class memoryBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)200000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -4255,6 +4271,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class greaterMemoryBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)500000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -4724,6 +4742,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class grandMemoryBorn extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)1000000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -5194,6 +5214,8 @@ public class aspectBornRaceConfig extends ManasConfig {
     }
 
     public static class falseAspectOfRegression extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)1500000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -5329,7 +5351,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of();
+        public List<String> falseAspectOfRegressionIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -5663,6 +5685,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class aspectOfRegression extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)1500000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
@@ -6132,6 +6156,8 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
     public static class mythos extends StarlightCommon.RaceDefault {
+        @Comment("EP requirement to evolve into this race.")
+        public double epRequirement = (double)3000000.0F;
         @Comment("What should the minimum Aura (AP) of this race be?")
         public double minAura = (double)500.0F;
         @Comment("What should the maximum Aura (AP) of this race be?")
