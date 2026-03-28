@@ -33,11 +33,11 @@ public class lesserMemoryBornRace extends greaterAspectBornRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserMemoryBorn;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserMemoryBorn;
     }
 
     public Alignment getAlignment() {
@@ -45,19 +45,19 @@ public class lesserMemoryBornRace extends greaterAspectBornRace {
     }
 
     public @Nullable ManasRace getDefaultEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.CONVERGENCE_BORN.get();
+        return StarlightRaces.MEMORY_BORN.get();
     }
 
     public @Nullable ManasRace getAwakeningEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.GREATER_CONVERGENCE_BORN.get();
+        return StarlightRaces.MEMORY_BORN.get();
     }
 
     public @Nullable ManasRace getHarvestFestivalEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.CONVERGENCE_BORN.get();
+        return StarlightRaces.MEMORY_BORN.get();
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        return List.of(StarlightRaces.CONVERGENCE_BORN.get());
+        return List.of(StarlightRaces.MEMORY_BORN.get());
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {

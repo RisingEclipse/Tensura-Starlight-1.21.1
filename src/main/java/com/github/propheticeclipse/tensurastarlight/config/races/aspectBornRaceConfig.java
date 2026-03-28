@@ -3327,7 +3327,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         }
     }
 
-
     public static class lesserMemoryBorn extends StarlightCommon.RaceDefault {
         @Comment("EP requirement to evolve into this race.")
         public double epRequirement = (double)100000.0F;
@@ -5227,25 +5226,25 @@ public class aspectBornRaceConfig extends ManasConfig {
 
 
         @Comment("What should the additonal size modifier of this race be?")
-        public double size = 0.0;
+        public double size = -0.75;
 
         @Comment("How much additional Max Health should this race have? (Can be Negative)")
-        public double maxHealth = (double)2.0F;
+        public double maxHealth = (double)-19.0F;
         @Comment("How much additional Max Spiritual Health should this race have? (Can be Negative)")
-        public double maxSpiritualHealth = (double)10.0F;
+        public double maxSpiritualHealth = (double)-55.0F;
 
         @Comment("How much additional Attack Damage should this race have? (Can be Negative)")
-        public double attack = 0.0;
+        public double attack = -1.0;
         @Comment("How much additional Attack Speed should this race have? (Can be Negative)")
-        public double attackSpeed = 0.1;
+        public double attackSpeed = -1.0;
 
         @Comment("How much additional Knockback Resistance should this race have? (Can be Negative)")
-        public double knockbackResistance = 0.0;
+        public double knockbackResistance = -1.0;
 
         @Comment("How much additional Movement Speed should this race have? (Can be Negative), (Default Movement Speed is 0.1)")
-        public double movementSpeed = 0.05;
+        public double movementSpeed = 0.00;
         @Comment("How much additional Swim Speed should this race have? (Can be Negative)")
-        public double swimSpeed = 0.5;
+        public double swimSpeed = 0.0;
 
         // Additional Tensura Attributes
         public double abilityLearnGain = 0.0;
@@ -5286,7 +5285,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double blockInteractionRange = 0.0;
         public double entityInteractionRange = 0.0;
         public double explosionKnockbackResistance = 0.0;
-        public double stepHeight = 0.0;
+        public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
         public double movementEfficiency = 0.0;
         public double waterMovementEfficiency = 0.0;
@@ -5297,7 +5296,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double oxygenBonus = 0.0;
         public double sneakingSpeed = 0.0;
         public double sweepingDamageRatio = 0.0;
-        public double safeFallDistance = 0.0;
+        public double safeFallDistance = 2.0;
         // Additional Ars Nouveau Attributes
         public double drygmyLootingModifier = 0.0;
         public double wixiePotionDuration = 0.0;
@@ -5698,25 +5697,25 @@ public class aspectBornRaceConfig extends ManasConfig {
 
 
         @Comment("What should the additonal size modifier of this race be?")
-        public double size = 0.0;
+        public double size = -0.75;
 
         @Comment("How much additional Max Health should this race have? (Can be Negative)")
-        public double maxHealth = (double)2.0F;
+        public double maxHealth = (double)-19.0F;
         @Comment("How much additional Max Spiritual Health should this race have? (Can be Negative)")
-        public double maxSpiritualHealth = (double)10.0F;
+        public double maxSpiritualHealth = (double)-55.0F;
 
         @Comment("How much additional Attack Damage should this race have? (Can be Negative)")
-        public double attack = 0.0;
+        public double attack = -1.0;
         @Comment("How much additional Attack Speed should this race have? (Can be Negative)")
-        public double attackSpeed = 0.1;
+        public double attackSpeed = -1.0;
 
         @Comment("How much additional Knockback Resistance should this race have? (Can be Negative)")
-        public double knockbackResistance = 0.0;
+        public double knockbackResistance = -1.0;
 
         @Comment("How much additional Movement Speed should this race have? (Can be Negative), (Default Movement Speed is 0.1)")
-        public double movementSpeed = 0.05;
+        public double movementSpeed = 0.00;
         @Comment("How much additional Swim Speed should this race have? (Can be Negative)")
-        public double swimSpeed = 0.5;
+        public double swimSpeed = 0.0;
 
         // Additional Tensura Attributes
         public double abilityLearnGain = 0.0;
@@ -5757,7 +5756,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double blockInteractionRange = 0.0;
         public double entityInteractionRange = 0.0;
         public double explosionKnockbackResistance = 0.0;
-        public double stepHeight = 0.0;
+        public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
         public double movementEfficiency = 0.0;
         public double waterMovementEfficiency = 0.0;
@@ -5768,7 +5767,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double oxygenBonus = 0.0;
         public double sneakingSpeed = 0.0;
         public double sweepingDamageRatio = 0.0;
-        public double safeFallDistance = 0.0;
+        public double safeFallDistance = 2.0;
         // Additional Ars Nouveau Attributes
         public double drygmyLootingModifier = 0.0;
         public double wixiePotionDuration = 0.0;
@@ -5822,7 +5821,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of();
+        public List<String> aspectOfRegressionIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -6172,9 +6171,9 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double size = 0.0;
 
         @Comment("How much additional Max Health should this race have? (Can be Negative)")
-        public double maxHealth = (double)2.0F;
+        public double maxHealth = (double)1780.0F;
         @Comment("How much additional Max Spiritual Health should this race have? (Can be Negative)")
-        public double maxSpiritualHealth = (double)10.0F;
+        public double maxSpiritualHealth = (double)8940.0F;
 
         @Comment("How much additional Attack Damage should this race have? (Can be Negative)")
         public double attack = 0.0;
@@ -6293,7 +6292,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of();
+        public List<String> intrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;

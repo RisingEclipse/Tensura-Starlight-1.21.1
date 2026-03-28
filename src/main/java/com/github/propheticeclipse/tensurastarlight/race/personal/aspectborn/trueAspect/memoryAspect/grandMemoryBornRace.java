@@ -1,4 +1,4 @@
-package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.convergence;
+package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect;
 
 import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolvedUnique.VestigesOfEidolonsSkill;
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
@@ -7,11 +7,8 @@ import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
-import io.github.manasmods.manascore.race.api.RaceAPI;
-import io.github.manasmods.manascore.race.api.Races;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
-import io.github.manasmods.tensura.client.TensuraClient;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.item.misc.ResetScrollItem;
 import io.github.manasmods.tensura.menu.ReincarnationMenu;
@@ -20,40 +17,38 @@ import io.github.manasmods.tensura.storage.Alignment;
 import io.github.manasmods.tensura.storage.TensuraStorages;
 import io.github.manasmods.tensura.storage.ep.IExistence;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class elderConvergenceBornRace extends greaterConvergenceBornRace {
-    public elderConvergenceBornRace(Difficulty difficulty) {
+public class grandMemoryBornRace extends greaterMemoryBornRace {
+    public grandMemoryBornRace(Difficulty difficulty) {
         super(difficulty);
     }
 
-    public elderConvergenceBornRace() {
+    public grandMemoryBornRace() {
         this(Difficulty.EXTREME);
         this.applyDefaultCustomAttributeModifiers();
         this.applyDefaultAttributeModifiers();
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn;
     }
 
     public Alignment getAlignment() {
-        return Alignment.HOLY;
+        return Alignment.MAJIN;
     }
 
     public @Nullable ManasRace getDefaultEvolution(ManasRaceInstance instance, LivingEntity entity) {
@@ -69,14 +64,21 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        return List.of(StarlightRaces.FALSE_ASPECT_OF_REGRESSION.get());
+        return List.of(StarlightRaces.ASPECT_OF_REGRESSION.get());
+    }
+
+    public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
+        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn.epRequirement), 100.0F);
     }
 
     @Override
-    public void onRaceEvolution(ManasRaceInstance raceInstance, LivingEntity entity, ManasRaceInstance evolution) {
-        // Move this function to elder and delay it significantly, maybe add some shlore smore to it? Dunno, Either way, it works, SHIP IT BITCHES!
+    public void onRaceEvolution(ManasRaceInstance instance, LivingEntity entity, ManasRaceInstance evolution) {
         if (entity instanceof ServerPlayer player) {
             IExistence existence = TensuraStorages.getExistenceFrom(entity);
+
+            // Replace logic with a de-obfuscated variant of all of this text.
+            // Expected Results: Reset Name, Owner, Race (To Aspect of Regression), Skills
+
 
             player.displayClientMessage(
                     Component.translatable(
@@ -105,7 +107,7 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                 existence.setPermanentOwner(null);
                 existence.markDirty();
                 ResetScrollItem.resetSkill(player, false);
-                ReincarnationMenu.setRace(player, StarlightRaces.LESSER_ASPECT_BORN.get(), true, false);
+                ReincarnationMenu.setRace(player, StarlightRaces.ASPECT_OF_REGRESSION.get(), true, false);
                 player.displayClientMessage(
                         Component.translatable(
                                 "trstarlight.race.false_aspect3"
@@ -113,18 +115,13 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                         ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                         false
                 );
-                entity.addTag("false_reset");
             });
         }
     }
 
-    public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn.epRequirement), 100.0F);
-    }
-
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
         return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .elderConvergenceBorn.elderConvergenceBornIntrinsics.stream()
+                .grandMemoryBorn.grandMemoryBornIntrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
                 .toList();

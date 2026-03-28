@@ -89,17 +89,8 @@ public class falseAspectOfRegressionRace extends elderConvergenceBornRace {
         return null;
     }
 
-    @Override
-    public void onRaceEvolution(ManasRaceInstance raceInstance, LivingEntity entity, ManasRaceInstance evolution) {
-        // Move this function to elder and delay it significantly, maybe add some shlore smore to it? Dunno, Either way, it works, SHIP IT BITCHES!
-        if (entity instanceof ServerPlayer player) {
-            Races races = RaceAPI.getRaceFrom(player);
-            ResetScrollItem.resetSkill(player, true);
-
-            VestigesOfEidolonsSkill.DelayedTask.run(20, () -> {
-                ReincarnationMenu.setRace(player, StarlightRaces.LESSER_ASPECT_BORN.get(), true, false);
-            });
-        }
+    public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
+        return List.of();
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {

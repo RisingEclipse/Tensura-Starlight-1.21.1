@@ -1,18 +1,15 @@
-package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn;
+package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos;
 
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.grandMemoryBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.greaterMemoryBornRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
-import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
-import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
-import com.sammy.malum.common.data.attachment.ProgressionData;
-import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
-import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
 import io.github.manasmods.tensura.storage.Alignment;
@@ -20,28 +17,27 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class greaterAspectBornRace extends aspectBornRace {
-    public greaterAspectBornRace(Difficulty difficulty) {
+public class aspectOfRegressionRace extends grandMemoryBornRace {
+    public aspectOfRegressionRace(Difficulty difficulty) {
         super(difficulty);
     }
 
-    public greaterAspectBornRace() {
+    public aspectOfRegressionRace() {
         this(Difficulty.EXTREME);
         this.applyDefaultCustomAttributeModifiers();
         this.applyDefaultAttributeModifiers();
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).aspectOfRegression;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).aspectOfRegression;
     }
 
     public Alignment getAlignment() {
@@ -49,38 +45,32 @@ public class greaterAspectBornRace extends aspectBornRace {
     }
 
     public @Nullable ManasRace getDefaultEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.LESSER_CONVERGENCE_BORN.get();
+        return null;
     }
 
     public @Nullable ManasRace getAwakeningEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.CONVERGENCE_BORN.get();
+        return null;
     }
 
     public @Nullable ManasRace getHarvestFestivalEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return StarlightRaces.LESSER_CONVERGENCE_BORN.get();
+        return null;
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        List<ManasRace> list = new ArrayList();
-        if (entity.getTags().contains("false_reset") && StarlightUtils.rejectedByWell(entity)) {
-            if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
-                list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
-            }
-        } else if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) && StarlightUtils.rejectedByWell(entity) && !entity.getTags().contains("false_reset")) {
-            list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
+        if (entity.getMaxHealth() >= 100) {
+            return List.of(StarlightRaces.MYTHOS.get());
+        } else {
+            return List.of();
         }
-
-        list.add(StarlightRaces.LESSER_CONVERGENCE_BORN.get());
-        return list;
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn.epRequirement), 100.0F);
+        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).aspectOfRegression.epRequirement), 100.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
         return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .greaterAspectBorn.greaterAspectBornIntrinsics.stream()
+                .aspectOfRegression.aspectOfRegressionIntrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
                 .toList();

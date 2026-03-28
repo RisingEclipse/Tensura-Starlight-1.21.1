@@ -49,6 +49,11 @@
   "trstarlight.generic.skill.ultimate": "Ultimate Skill %1$s has been acquired.",
   "trstarlight.generic.skill.ultimate.evolution": "Ultimate Skill %1$s will now undergo evolution.",
 
+  "trstarlight.race.false_aspect0": "%1$s, despite getting this far, you have failed. Body and Mind alike crumbling from the seams.",
+  "trstarlight.race.false_aspect1": "Yet, you desire to live. To return once again, in spite of this §kRejection§r and this §kRegression§r.",
+  "trstarlight.race.false_aspect2": "Find the §ksource§r, the fr§kagme§rnts of what you §konce were§r. The §khidden truth§r within your §klegacy§r.",
+  "trstarlight.race.false_aspect3": "Unmake, unwrite, erase the §klines binding§r you with this §knew§r §kregression§r. The we§kepi§rng beckons.",
+
   "trstarlight.race.lesser_aspect_born": "Lesser Aspectborn",
   "trstarlight.race.lesser_aspect_born.description": "A spiritual life-form immersed within the physical plane..\nWeakened to a mere fragment, perhaps capable of amassing once more into a grand aspect of the §kDivine§r.",
   "trstarlight.race.aspect_born": "Aspectborn",

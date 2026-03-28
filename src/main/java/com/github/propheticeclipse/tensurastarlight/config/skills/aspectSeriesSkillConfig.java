@@ -1,6 +1,5 @@
 package com.github.propheticeclipse.tensurastarlight.config.skills;
 
-import com.github.propheticeclipse.tensurastarlight.config.effects.BuffEffectsConfig;
 import io.github.manasmods.manascore.config.api.Comment;
 import io.github.manasmods.manascore.config.api.ManasConfig;
 import io.github.manasmods.manascore.config.api.ManasSubConfig;
@@ -15,6 +14,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
 
     public VestigesOfEidolons VestigesOfEidolons = new VestigesOfEidolons();
     public RemnantsOfAscension RemnantsOfAscension = new RemnantsOfAscension();
+
+    public MemoryRecreation MemoryRecreation = new MemoryRecreation();
 
     public String getFileName() {
         return "tensura/tensura-starlight/skills/aspect-series";
@@ -337,5 +338,27 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int flaringFormBuffDurationBonus = 1200;
         public int flaringFormBuffMPCostPerDurationBonus = 2500;
         public int flaringFormDebuffMPCostPerLevel = 1000;
+    }
+
+    public static class MemoryRecreation extends ManasSubConfig {
+        public int acquirementMastery = 1;
+        public double acquirementCost = 2147483647;
+
+        @Comment("Range in blocks.")
+        public double blockMemoryRange = 15.0;
+        @Comment("1.0 = 100%")
+        public double blockMemorySuccessRate = 1.0;
+        @Comment("1.0 = 100%")
+        public double blockMemoryDestroyRate = 0.0;
+        @Comment("Number of Copies")
+        public int blockMemoryCopies = 1;
+        @Comment("Flat AP Consumption")
+        public double blockMemoryAPCostFlat = 0.0;
+        @Comment("Flat MP Consumption")
+        public double blockMemoryMPCostFlat = 0.0;
+        @Comment("Percentage AP Consumption")
+        public double blockMemoryAPCostPercent = 0.0;
+        @Comment("Percentage MP Consumption")
+        public double blockMemoryMPCostPercent = 0.1;
     }
 }

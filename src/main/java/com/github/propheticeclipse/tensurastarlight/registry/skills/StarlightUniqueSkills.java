@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.registry.skills;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.*;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolvedUnique.RemnantsOfAscensionSkill;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolvedUnique.VestigesOfEidolonsSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.raceUniques.MemoryRecreationSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.impl.SkillRegistry;
@@ -21,6 +22,9 @@ public class StarlightUniqueSkills {
     public static final RegistrySupplier<ManasSkill> SHAPE_FORGOTTEN = register("shape_forgotten", ShapeForgottenSkill::new);
     public static final RegistrySupplier<ManasSkill> VESTIGES_OF_EIDOLONS = register("vestiges_of_eidolons", VestigesOfEidolonsSkill::new);
     public static final RegistrySupplier<ManasSkill> REMNANTS_OF_ASCENSION = register("remnants_of_ascension", RemnantsOfAscensionSkill::new);
+
+    public static final RegistrySupplier<ManasSkill> MEMORY_RECREATION = register("memory_recreation", MemoryRecreationSkill::new);
+
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);
