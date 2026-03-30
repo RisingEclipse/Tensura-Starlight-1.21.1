@@ -5,18 +5,15 @@ import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
-import io.github.manasmods.tensura.damage.TensuraDamageHelper;
-import io.github.manasmods.tensura.enchantment.TensuraEnchantments;
 import io.github.manasmods.tensura.util.EnergyHelper;
-import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
-public class MemoryRecreationSkill extends Skill {
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
-    public static final ResourceLocation MEMORY_RECREATION;
+public class MagiculeEngravementSkill extends Skill {
+    private static final aspectSeriesSkillConfig.MagiculeEngravement CONFIG;
+    public static final ResourceLocation MAGICULE_ENGRAVEMENT;
 
-    public MemoryRecreationSkill() {
+    public MagiculeEngravementSkill() {
         super(SkillType.UNIQUE);
     }
 
@@ -34,7 +31,7 @@ public class MemoryRecreationSkill extends Skill {
     public String getModeId(ManasSkillInstance instance, int mode) {
         String var10000;
         switch (mode) {
-            case 0 -> var10000 = "memory_recreation.block_memory";
+            case 0 -> var10000 = "magicule_engravement.engrave_imbuement";
             default -> var10000 = super.getModeId(instance, mode);
         }
 
@@ -45,9 +42,10 @@ public class MemoryRecreationSkill extends Skill {
         if (mode == 0) {
             double maxAura = EnergyHelper.getMaxAura(entity);
             double maxMana = EnergyHelper.getMaxMagicule(entity);
-            double totalAuraCost = ((maxAura * CONFIG.blockMemoryAPCostPercent) + CONFIG.blockMemoryAPCostFlat);
-            double totalManaCost = ((maxMana * CONFIG.blockMemoryMPCostPercent) + CONFIG.blockMemoryMPCostFlat);
-            StarlightUtils.DupeTargetBlock(entity, CONFIG.blockMemoryRange, CONFIG.blockMemorySuccessRate, CONFIG.blockMemoryDestroyRate, CONFIG.blockMemoryCopies, totalAuraCost, totalManaCost);
+            double totalAuraCost = ((maxAura * CONFIG.engraveAPCostPercent) + CONFIG.engraveAPCostFlat);
+            double totalManaCost = ((maxMana * CONFIG.engraveMPCostPercent) + CONFIG.engraveMPCostFlat);
+            int engraveLevel = isMastered(instance, entity) ? CONFIG.engraveLevelMastered : CONFIG.engraveLevelUnmastered;
+            StarlightUtils.CreateRandomEngraveInHand(entity, engraveLevel, CONFIG.engraveSuccessRate, CONFIG.engraveDestroyRate, CONFIG.engraveCount, totalAuraCost, totalManaCost, CONFIG.engraveBlacklist);
 
             instance.addMasteryPoint(entity);
             instance.setCoolDown(CONFIG.cooldown, 0);
@@ -55,7 +53,7 @@ public class MemoryRecreationSkill extends Skill {
     }
 
     static {
-        MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "memory_recreation");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+        MAGICULE_ENGRAVEMENT = ResourceLocation.fromNamespaceAndPath("trstarlight", "magicule_engravement");
+        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MagiculeEngravement;
     }
 }

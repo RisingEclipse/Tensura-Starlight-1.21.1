@@ -4,6 +4,8 @@ import io.github.manasmods.manascore.config.api.Comment;
 import io.github.manasmods.manascore.config.api.ManasConfig;
 import io.github.manasmods.manascore.config.api.ManasSubConfig;
 
+import java.util.List;
+
 public class aspectSeriesSkillConfig extends ManasConfig {
     public LightRemains LightRemains = new LightRemains();
     public EchoEndures EchoEndures = new EchoEndures();
@@ -16,6 +18,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     public RemnantsOfAscension RemnantsOfAscension = new RemnantsOfAscension();
 
     public MemoryRecreation MemoryRecreation = new MemoryRecreation();
+    public MagiculeEngravement MagiculeEngravement = new MagiculeEngravement();
+    public PhantasmalCreation PhantasmalCreation = new PhantasmalCreation();
 
     public String getFileName() {
         return "tensura/tensura-starlight/skills/aspect-series";
@@ -343,6 +347,7 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     public static class MemoryRecreation extends ManasSubConfig {
         public int acquirementMastery = 1;
         public double acquirementCost = 2147483647;
+        public int cooldown = 5;
 
         @Comment("Range in blocks.")
         public double blockMemoryRange = 15.0;
@@ -355,10 +360,150 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         @Comment("Flat AP Consumption")
         public double blockMemoryAPCostFlat = 0.0;
         @Comment("Flat MP Consumption")
-        public double blockMemoryMPCostFlat = 0.0;
+        public double blockMemoryMPCostFlat = 50000.0;
         @Comment("Percentage AP Consumption")
         public double blockMemoryAPCostPercent = 0.0;
         @Comment("Percentage MP Consumption")
         public double blockMemoryMPCostPercent = 0.1;
+    }
+
+    public static class MagiculeEngravement extends ManasSubConfig {
+        public int acquirementMastery = 1;
+        public double acquirementCost = 2147483647;
+        public int cooldown = 5;
+
+        @Comment("1.0 = 100%")
+        public double engraveSuccessRate = 0.8;
+        @Comment("1.0 = 100%")
+        public double engraveDestroyRate = 0.0;
+        @Comment("Number of Copies")
+        public int engraveCount = 2;
+        @Comment("Flat AP Consumption")
+        public double engraveAPCostFlat = 0.0;
+        @Comment("Flat MP Consumption")
+        public double engraveMPCostFlat = 50000.0;
+        @Comment("Percentage AP Consumption")
+        public double engraveAPCostPercent = 0.25;
+        @Comment("Percentage MP Consumption")
+        public double engraveMPCostPercent = 0.1;
+        @Comment("Engrave Level")
+        public int engraveLevelMastered = 3;
+        public int engraveLevelUnmastered = 1;
+        @Comment("Engrave Blacklist")
+        public List<String> engraveBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing");
+    }
+
+    public static class PhantasmalCreation extends ManasSubConfig {
+        public int acquirementMastery = 1;
+        public double acquirementCost = 2147483647;
+
+        public int blockMemoryCooldownMastered = 0;
+        public int blockMemoryCooldownUnmastered = 5;
+
+        public double blockMemoryAPCostPercentMastered = 0.0;
+        public double blockMemoryAPCostPercentUnmastered = 0.0;
+        public double blockMemoryAPCostFlatMastered = 0.0;
+        public double blockMemoryAPCostFlatUnmastered = 0.0;
+
+        public double blockMemoryMPCostPercentMastered = 0.1;
+        public double blockMemoryMPCostPercentUnmastered = 0.1;
+        public double blockMemoryMPCostFlatMastered = 50000.0;
+        public double blockMemoryMPCostFlatUnmastered = 50000.0;
+
+        public double blockMemoryAPPermanentCostPercentMastered = 0.0;
+        public double blockMemoryAPPermanentCostPercentUnmastered = 0.0;
+        public double blockMemoryAPPermanentCostFlatMastered = 0.0;
+        public double blockMemoryAPPermanentCostFlatUnmastered = 0.0;
+
+        public double blockMemoryMPPermanentCostPercentMastered = 0.0;
+        public double blockMemoryMPPermanentCostPercentUnmastered = 0.0;
+        public double blockMemoryMPPermanentCostFlatMastered = 0.0;
+        public double blockMemoryMPPermanentCostFlatUnmastered = 0.0;
+
+        public double blockMemoryRangeMastered = 20.0;
+        public double blockMemoryRangeUnmastered = 10.0;
+
+        public double blockMemorySuccessRateMastered = 1.0;
+        public double blockMemorySuccessRateUnmastered = 0.75;
+
+        public double blockMemoryDestroyRateMastered = 0.0;
+        public double blockMemoryDestroyRateUnmastered = 0.2;
+
+        public int blockMemoryCopiesMastered = 2;
+        public int blockMemoryCopiesUnmastered = 1;
+
+        // Engrave Imbuement
+
+        public int engraveImbuementCooldownMastered = 0;
+        public int engraveImbuementCooldownUnmastered = 5;
+
+        public double engraveImbuementAPCostPercentMastered = 0.0;
+        public double engraveImbuementAPCostPercentUnmastered = 0.0;
+        public double engraveImbuementAPCostFlatMastered = 0.0;
+        public double engraveImbuementAPCostFlatUnmastered = 0.0;
+
+        public double engraveImbuementMPCostPercentMastered = 0.1;
+        public double engraveImbuementMPCostPercentUnmastered = 0.1;
+        public double engraveImbuementMPCostFlatMastered = 50000.0;
+        public double engraveImbuementMPCostFlatUnmastered = 50000.0;
+
+        public double engraveImbuementAPPermanentCostPercentMastered = 0.0;
+        public double engraveImbuementAPPermanentCostPercentUnmastered = 0.0;
+        public double engraveImbuementAPPermanentCostFlatMastered = 0.0;
+        public double engraveImbuementAPPermanentCostFlatUnmastered = 0.0;
+
+        public double engraveImbuementMPPermanentCostPercentMastered = 0.0;
+        public double engraveImbuementMPPermanentCostPercentUnmastered = 0.0;
+        public double engraveImbuementMPPermanentCostFlatMastered = 0.0;
+        public double engraveImbuementMPPermanentCostFlatUnmastered = 0.0;
+
+        public double engraveImbuementSuccessRateMastered = 1.0;
+        public double engraveImbuementSuccessRateUnmastered = 0.75;
+
+        public double engraveImbuementDestroyRateMastered = 0.0;
+        public double engraveImbuementDestroyRateUnmastered = 0.2;
+
+        public int engraveImbuementLevelMastered = 5;
+        public int engraveImbuementLevelUnmastered = 3;
+
+        public int engraveImbuementCopiesMastered = 3;
+        public int engraveImbuementCopiesUnmastered = 1;
+
+        public List<String> engraveImbuementBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing");
+
+        // Item Memory
+
+        public int itemMemoryCooldownMastered = 0;
+        public int itemMemoryCooldownUnmastered = 5;
+
+        public double itemMemoryAPCostPercentMastered = 0.01;
+        public double itemMemoryAPCostPercentUnmastered = 0.1;
+        public double itemMemoryAPCostFlatMastered = 0.0;
+        public double itemMemoryAPCostFlatUnmastered = 0.0;
+
+        public double itemMemoryMPCostPercentMastered = 0.01;
+        public double itemMemoryMPCostPercentUnmastered = 0.1;
+        public double itemMemoryMPCostFlatMastered = 50000.0;
+        public double itemMemoryMPCostFlatUnmastered = 50000.0;
+
+        public double itemMemoryAPPermanentCostPercentMastered = 0.01;
+        public double itemMemoryAPPermanentCostPercentUnmastered = 0.05;
+        public double itemMemoryAPPermanentCostFlatMastered = 0.0;
+        public double itemMemoryAPPermanentCostFlatUnmastered = 10000.0;
+
+        public double itemMemoryMPPermanentCostPercentMastered = 0.01;
+        public double itemMemoryMPPermanentCostPercentUnmastered = 0.05;
+        public double itemMemoryMPPermanentCostFlatMastered = 0.0;
+        public double itemMemoryMPPermanentCostFlatUnmastered = 10000.0;
+
+        public double itemMemorySuccessRateMastered = 0.8;
+        public double itemMemorySuccessRateUnmastered = 0.5;
+
+        public double itemMemoryDestroyRateMastered = 0.1;
+        public double itemMemoryDestroyRateUnmastered = 0.2;
+
+        public int itemMemoryCopiesMastered = 2;
+        public int itemMemoryCopiesUnmastered = 1;
+
     }
 }

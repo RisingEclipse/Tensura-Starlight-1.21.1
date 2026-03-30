@@ -63,10 +63,16 @@ public class deadEndRainbowSkill extends Skill {
         return false;
     }
 
+    public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
+        return true;
+    }
+
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
         // Logic Here
-        // "trstarlight.skill.dead_end_rainbow_skill": "Unleashed Dead End",
-        //  "trstarlight.skill.dead_end_rainbow_skill.description": "To define the limits of endings.",
+        if (!instance.isToggled()) {
+            return true;
+        }
+
         Level level = owner.level();
         Holder<Enchantment> holder = level.registryAccess()
                 .registryOrThrow(Registries.ENCHANTMENT)
