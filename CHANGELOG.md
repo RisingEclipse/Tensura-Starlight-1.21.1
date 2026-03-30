@@ -9,11 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Configuration - Unique Skill: [Memory Recreation]
+- Configuration - Unique Skill: [Magicule Engravement]
+- Configuration - Unique Skill: [Phantasmal Creation]
+
 - Configuration - Unique Skill: [Light Remains]
 - Configuration - Unique Skill: [Echo Endures]
+- Configuration - Unique Skill: [Life Returns]
+- Configuration - Unique Skill: [Ember Remains]
+- Configuration - Unique Skill: [Current Unbroken]
+- Configuration - Unique Skill: [Shape Forgotten]
+
+- Configuration - Evolved Unique Skill: [Vestiges of Eidolons]
+- Configuration - Evolved Unique Skill: [Remnants of Ascension]
+- 
 - Configuration - Effect: [Combat Flow]
 - Configuration - Effect: [Shifting Armor]
 - Configuration - Effect: [Flaring Form]
+
+- Extra Skill: [Unleashed Dead End]
+
+- Unique Skill: [Memory Recreation]
+- Unique Skill: [Magicule Engravement]
+- Unique Skill: [Phantasmal Creation]
 
 - Unique Skill: [Light Remains]
 - Unique Skill: [Echo Endures]
@@ -21,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Unique Skill: [Ember Remains]
 - Unique Skill: [Shape Forgotten]
 - Unique Skill: [Current Unbroken]
+
 - Evolved Unique Skill: [Vestiges Of Eidolons]
 - Evolved Unique Skill: [Remnants Of Ascension]
 

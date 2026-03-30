@@ -5821,7 +5821,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> aspectOfRegressionIntrinsics = List.of();
+        public List<String> aspectOfRegressionIntrinsics = List.of("trstarlight:memory_recreation");
 
         public double getMinAura() {
             return this.minAura;
@@ -6178,15 +6178,15 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("How much additional Attack Damage should this race have? (Can be Negative)")
         public double attack = 0.0;
         @Comment("How much additional Attack Speed should this race have? (Can be Negative)")
-        public double attackSpeed = 0.1;
+        public double attackSpeed = 0.0;
 
         @Comment("How much additional Knockback Resistance should this race have? (Can be Negative)")
         public double knockbackResistance = 0.0;
 
         @Comment("How much additional Movement Speed should this race have? (Can be Negative), (Default Movement Speed is 0.1)")
-        public double movementSpeed = 0.05;
+        public double movementSpeed = 0.0;
         @Comment("How much additional Swim Speed should this race have? (Can be Negative)")
-        public double swimSpeed = 0.5;
+        public double swimSpeed = 0.0;
 
         // Additional Tensura Attributes
         public double abilityLearnGain = 0.0;
@@ -6227,7 +6227,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double blockInteractionRange = 0.0;
         public double entityInteractionRange = 0.0;
         public double explosionKnockbackResistance = 0.0;
-        public double stepHeight = 0.0;
+        public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
         public double movementEfficiency = 0.0;
         public double waterMovementEfficiency = 0.0;
@@ -6238,7 +6238,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double oxygenBonus = 0.0;
         public double sneakingSpeed = 0.0;
         public double sweepingDamageRatio = 0.0;
-        public double safeFallDistance = 0.0;
+        public double safeFallDistance = 2.0;
         // Additional Ars Nouveau Attributes
         public double drygmyLootingModifier = 0.0;
         public double wixiePotionDuration = 0.0;
@@ -6292,7 +6292,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> intrinsics = List.of();
+        public List<String> intrinsics = List.of("trstarlight:magicule_engravement", "trstarlight:memory_recreation");
 
         public double getMinAura() {
             return this.minAura;
