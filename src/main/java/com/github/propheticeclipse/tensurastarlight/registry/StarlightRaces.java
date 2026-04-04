@@ -7,7 +7,13 @@ import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.con
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.convergence.lesserConvergenceBornRace;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.greaterAspectBornRace;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.lesserAspectBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.grandMemoryBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.greaterMemoryBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.lesserMemoryBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.memoryBornRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos.aspectOfRegressionRace;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos.falseAspectOfRegressionRace;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos.mythosRace;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.impl.RaceRegistry;
@@ -25,14 +31,14 @@ public class StarlightRaces {
     public static final RegistrySupplier<ManasRace> GREATER_CONVERGENCE_BORN = register("greater_convergence_born", greaterConvergenceBornRace::new);
     public static final RegistrySupplier<ManasRace> ELDER_CONVERGENCE_BORN = register("elder_convergence_born", elderConvergenceBornRace::new);
 
-    public static final RegistrySupplier<ManasRace> LESSER_MEMORY_BORN = register("lesser_memory_born", lesserAspectBornRace::new);
-    public static final RegistrySupplier<ManasRace> MEMORY_BORN = register("memory_born", lesserAspectBornRace::new);
-    public static final RegistrySupplier<ManasRace> GREATER_MEMORY_BORN = register("greater_memory_born", lesserAspectBornRace::new);
-    public static final RegistrySupplier<ManasRace> GRAND_MEMORY_BORN = register("grand_memory_born", lesserAspectBornRace::new);
+    public static final RegistrySupplier<ManasRace> LESSER_MEMORY_BORN = register("lesser_memory_born", lesserMemoryBornRace::new);
+    public static final RegistrySupplier<ManasRace> MEMORY_BORN = register("memory_born", memoryBornRace::new);
+    public static final RegistrySupplier<ManasRace> GREATER_MEMORY_BORN = register("greater_memory_born", greaterMemoryBornRace::new);
+    public static final RegistrySupplier<ManasRace> GRAND_MEMORY_BORN = register("grand_memory_born", grandMemoryBornRace::new);
 
     public static final RegistrySupplier<ManasRace> FALSE_ASPECT_OF_REGRESSION = register("false_aspect_of_regression", falseAspectOfRegressionRace::new);
-    public static final RegistrySupplier<ManasRace> ASPECT_OF_REGRESSION = register("aspect_of_regression", lesserAspectBornRace::new);
-    public static final RegistrySupplier<ManasRace> MYTHOS = register("mythos", lesserAspectBornRace::new);
+    public static final RegistrySupplier<ManasRace> ASPECT_OF_REGRESSION = register("aspect_of_regression", aspectOfRegressionRace::new);
+    public static final RegistrySupplier<ManasRace> MYTHOS = register("mythos", mythosRace::new);
 
     private static <E extends ManasRace> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return RaceRegistry.RACES.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);
