@@ -1,19 +1,29 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau;
 
+import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import io.github.manasmods.manascore.config.ConfigRegistry;
+import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
+import io.github.manasmods.tensura.ability.SkillHelper;
 import io.github.manasmods.tensura.ability.skill.Skill;
+import io.github.manasmods.tensura.registry.attribute.TensuraAttributes;
+import io.github.manasmods.tensura.util.AttributeHelper;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 
 public class amethystGolemGeneticsSkill extends Skill {
 
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
-    public static final ResourceLocation MEMORY_RECREATION;
+    private static final arsnouveauSeriesSkillConfig.amethystGolemGenetics CONFIG = ConfigRegistry.getConfig(arsnouveauSeriesSkillConfig.class).amethystGolemGenetics;
+    public static final ResourceLocation AMETHYST_GOLEM_GENETICS = ResourceLocation.fromNamespaceAndPath("trstarlight", "amethyst_golem_genetics");
 
     public amethystGolemGeneticsSkill() {
-        super(SkillType.UNIQUE);
+        super(SkillType.INTRINSIC);
     }
 
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
@@ -24,22 +34,44 @@ public class amethystGolemGeneticsSkill extends Skill {
         return CONFIG.acquirementMastery;
     }
 
-    public int getModes(ManasSkillInstance instance) {
-        return 1;
+    public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
+        return true;
+    }
+    // Amethyst Golem Genetics (Increases knockback resistance and knocks back attackers)
+
+    public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
+        double knockBackResist = instance.isMastered(entity) ? CONFIG.kbResistMastered : CONFIG.kbResistUnmastered;
+        AttributeInstance kbResist = entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+        if (kbResist != null) {
+            if (!kbResist.hasModifier(AMETHYST_GOLEM_GENETICS)) {
+                kbResist.addOrReplacePermanentModifier(new AttributeModifier(AMETHYST_GOLEM_GENETICS, knockBackResist, AttributeModifier.Operation.ADD_VALUE));
+            }
+        }
     }
 
-    public String getModeId(ManasSkillInstance instance, int mode) {
-        String var10000;
-        switch (mode) {
-            case 0 -> var10000 = "memory_recreation.block_memory";
-            default -> var10000 = super.getModeId(instance, mode);
+    public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
+        AttributeInstance kbResist = entity.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+        if (kbResist != null) {
+            kbResist.removeModifier(AMETHYST_GOLEM_GENETICS);
+        }
+    }
+
+    public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
+        if (instance.isToggled()) {
+            double knockBackResist = instance.isMastered(owner) ? CONFIG.kbResistMastered : CONFIG.kbResistUnmastered;
+            AttributeInstance kbResist = owner.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+            if (kbResist != null && !kbResist.hasModifier(AMETHYST_GOLEM_GENETICS)) {
+                kbResist.addOrReplacePermanentModifier(new AttributeModifier(AMETHYST_GOLEM_GENETICS, knockBackResist, AttributeModifier.Operation.ADD_VALUE));
+            }
+        }
+    }
+
+    public boolean onTakenDamage(ManasSkillInstance instance, LivingEntity owner, DamageSource source, Changeable<Float> amount) {
+        if (source.getEntity() instanceof LivingEntity target) {
+            float knockbackStrength = CONFIG.knockbackStrength;
+            SkillHelper.knockBack(owner, target, knockbackStrength);
         }
 
-        return var10000;
-    }
-
-    static {
-        MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+        return true;
     }
 }

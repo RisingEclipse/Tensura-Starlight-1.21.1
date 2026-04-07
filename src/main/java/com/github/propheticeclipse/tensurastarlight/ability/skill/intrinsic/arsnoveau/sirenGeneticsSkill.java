@@ -1,16 +1,21 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau;
 
+import com.alexthw.sauce.registry.ModRegistry;
+import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 public class sirenGeneticsSkill extends Skill {
 
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
-    public static final ResourceLocation MEMORY_RECREATION;
+    private static final arsnouveauSeriesSkillConfig.sirenGenetics CONFIG;
+    public static final ResourceLocation SIREN_GENETICS;
 
     public sirenGeneticsSkill() {
         super(SkillType.UNIQUE);
@@ -24,22 +29,64 @@ public class sirenGeneticsSkill extends Skill {
         return CONFIG.acquirementMastery;
     }
 
-    public int getModes(ManasSkillInstance instance) {
-        return 1;
-    }
+    public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
+        double waterSpellBonus = instance.isMastered(entity) ? CONFIG.waterSpellBonusMastered : CONFIG.waterSpellBonusUnmastered;
+        double manaDiscountBonus = instance.isMastered(entity) ? CONFIG.manaDiscountBonusMastered : CONFIG.manaDiscountBonusUnmastered;
 
-    public String getModeId(ManasSkillInstance instance, int mode) {
-        String var10000;
-        switch (mode) {
-            case 0 -> var10000 = "memory_recreation.block_memory";
-            default -> var10000 = super.getModeId(instance, mode);
+        AttributeInstance waterSpell = entity.getAttribute(ModRegistry.WATER_POWER);
+        AttributeInstance manaDiscount = entity.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+        if (waterSpell != null) {
+            if (!waterSpell.hasModifier(SIREN_GENETICS)) {
+                waterSpell.addOrReplacePermanentModifier(new AttributeModifier(SIREN_GENETICS, waterSpellBonus, AttributeModifier.Operation.ADD_VALUE));
+            }
         }
 
-        return var10000;
+        if (manaDiscount != null) {
+            if (!manaDiscount.hasModifier(SIREN_GENETICS)) {
+                manaDiscount.addOrReplacePermanentModifier(new AttributeModifier(SIREN_GENETICS, manaDiscountBonus, AttributeModifier.Operation.ADD_VALUE));
+            }
+        }
+
+    }
+
+    public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
+        AttributeInstance waterSpell = entity.getAttribute(ModRegistry.WATER_POWER);
+        AttributeInstance manaDiscount = entity.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+        if (waterSpell != null) {
+            waterSpell.removeModifier(SIREN_GENETICS);
+        }
+
+        if (manaDiscount != null) {
+            manaDiscount.removeModifier(SIREN_GENETICS);
+        }
+    }
+
+    public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
+        if (instance.isToggled()) {
+            double waterSpellBonus = instance.isMastered(owner) ? CONFIG.waterSpellBonusMastered : CONFIG.waterSpellBonusUnmastered;
+            double manaDiscountBonus = instance.isMastered(owner) ? CONFIG.manaDiscountBonusMastered : CONFIG.manaDiscountBonusUnmastered;
+
+            AttributeInstance waterSpell = owner.getAttribute(ModRegistry.WATER_POWER);
+            AttributeInstance manaDiscount = owner.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+            if (waterSpell != null) {
+                if (!waterSpell.hasModifier(SIREN_GENETICS)) {
+                    waterSpell.addOrReplacePermanentModifier(new AttributeModifier(SIREN_GENETICS, waterSpellBonus, AttributeModifier.Operation.ADD_VALUE));
+                }
+            }
+
+            if (manaDiscount != null) {
+                if (!manaDiscount.hasModifier(SIREN_GENETICS)) {
+                    manaDiscount.addOrReplacePermanentModifier(new AttributeModifier(SIREN_GENETICS, manaDiscountBonus, AttributeModifier.Operation.ADD_VALUE));
+                }
+            }
+        }
     }
 
     static {
-        MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+        SIREN_GENETICS = ResourceLocation.fromNamespaceAndPath("trstarlight", "siren_genetics");
+        CONFIG = ConfigRegistry.getConfig(arsnouveauSeriesSkillConfig.class).sirenGenetics;
     }
 }

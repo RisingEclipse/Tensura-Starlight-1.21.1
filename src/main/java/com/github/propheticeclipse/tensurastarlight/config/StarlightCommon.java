@@ -11,9 +11,17 @@ import java.util.List;
 @SyncToClient
 public class StarlightCommon extends ManasConfig {
     public SkillClassification SkillClassification = new SkillClassification();
+    public DangerZone DangerZone = new DangerZone();
 
     public String getFileName() {
         return "tensura/starlight-common";
+    }
+
+    public static class DangerZone extends ManasSubConfig {
+        public boolean redoStarlightConfigs = true;
+        public boolean addAspectSkillsReincarnation = false;
+        public boolean addReincSpellRaces = false;
+        public boolean addReincSpellMasteredRaces = false;
     }
 
     public static class SkillClassification extends ManasSubConfig {

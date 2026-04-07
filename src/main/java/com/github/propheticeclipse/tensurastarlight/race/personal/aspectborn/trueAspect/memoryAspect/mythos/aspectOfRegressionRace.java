@@ -57,7 +57,7 @@ public class aspectOfRegressionRace extends grandMemoryBornRace {
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        if (entity.getMaxHealth() >= 100) {
+        if (entity.getMaxHealth() >= 500) {
             return List.of(StarlightRaces.MYTHOS.get());
         } else {
             return List.of();

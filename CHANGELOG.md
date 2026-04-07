@@ -9,16 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+<details>
+<summary>CONTENT WARNING: Spoilers ahead!</summary>
+Added Mythos' lang to the evolution menu, which fixes it not telling you what you should be doing after obtaining enough raw stats to maintain your existence.
+
+</details>
+
+- Configuration - Intrinsic Skill: [Amethyst Golem Genetics]
+- Configuration - Intrinsic Skill: [Drygmy Genetics]
+- Configuration - Intrinsic Skill: [Flarecannon Genetics]
+- Configuration - Intrinsic Skill: [Flashjack Genetics]
+- Configuration - Intrinsic Skill: [Siren Genetics]
+
+- Intrinsic Skill: [Amethyst Golem Genetics]
+- Intrinsic Skill: [Drygmy Genetics]
+- Intrinsic Skill: [Flarecannon Genetics]
+- Intrinsic Skill: [Flashjack Genetics]
+- Intrinsic Skill: [Siren Genetics]
+
 ### Changed
 
 <details>
-  <summary>Spoiler warning</summary>
-
-Spoiler text. Note that it's important to have a space after the summary tag. You should be able to write any markdown you want inside the `<details>` tag... just make sure you close `<details>` afterward.
-
-  ```javascript
-  console.log("I'm a code block!");
-  ```
+<summary>CONTENT WARNING: Spoilers ahead!</summary>
+Changed Mythos' requirements to reflect the necessary 3 Million EP.
 
 </details>
 

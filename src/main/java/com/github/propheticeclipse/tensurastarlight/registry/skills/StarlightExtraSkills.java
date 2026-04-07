@@ -1,6 +1,7 @@
 package com.github.propheticeclipse.tensurastarlight.registry.skills;
 
 import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.deadEndRainbowSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau.amethystGolemGeneticsSkill;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.raceUniques.MemoryRecreationSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
