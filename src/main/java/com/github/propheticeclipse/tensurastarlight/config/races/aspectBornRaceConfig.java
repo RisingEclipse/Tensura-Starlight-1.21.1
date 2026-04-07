@@ -99,7 +99,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -570,7 +570,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -1041,7 +1041,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -1513,7 +1513,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -1984,7 +1984,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -2455,7 +2455,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -2926,7 +2926,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -3341,7 +3341,7 @@ public class aspectBornRaceConfig extends ManasConfig {
 
 
         @Comment("What should the additonal size modifier of this race be?")
-        public double size = 0.0;
+        public double size = -0.5;
 
         @Comment("How much additional Max Health should this race have? (Can be Negative)")
         public double maxHealth = (double)90.0F;
@@ -3398,7 +3398,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -3869,7 +3869,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -4340,7 +4340,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -4754,7 +4754,7 @@ public class aspectBornRaceConfig extends ManasConfig {
 
 
         @Comment("What should the additonal size modifier of this race be?")
-        public double size = -0.25;
+        public double size = -0.5;
 
         @Comment("How much additional Max Health should this race have? (Can be Negative)")
         public double maxHealth = (double)1020.0F;
@@ -4811,7 +4811,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -5283,7 +5283,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -5754,7 +5754,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;
@@ -6225,7 +6225,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double attackKnockback = 0.0;
         public double blockBreakSpeed = 0.0;
         public double blockInteractionRange = 0.0;
-        public double entityInteractionRange = 0.0;
+        public double entityInteractionRange = 2.0;
         public double explosionKnockbackResistance = 0.0;
         public double stepHeight = 0.4;
         public double miningEfficiency = 0.0;

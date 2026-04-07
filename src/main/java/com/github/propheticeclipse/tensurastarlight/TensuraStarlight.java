@@ -1,5 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight;
 
+import com.github.propheticeclipse.tensurastarlight.config.StarlightConfigs;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRegistry;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
@@ -14,6 +15,7 @@ public final class TensuraStarlight {
 
     public TensuraStarlight(IEventBus modEventBus) {
         StarlightRegistry.init();
+        StarlightConfigs.addToConfig();
     }
 
 }

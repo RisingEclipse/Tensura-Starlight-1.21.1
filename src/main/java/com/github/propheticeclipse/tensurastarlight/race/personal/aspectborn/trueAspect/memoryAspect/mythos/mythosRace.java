@@ -15,6 +15,7 @@ import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.ability.skill.unique.PredatorSkill;
+import io.github.manasmods.tensura.config.race.HumanConfig;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.data.TensuraSkillTags;
 import io.github.manasmods.tensura.entity.TensuraProjectile;
@@ -78,6 +79,7 @@ public class mythosRace extends aspectOfRegressionRace {
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
+        aspectBornRaceConfig.mythos config = (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).mythos;
         return Map.of(new EvolutionRequirement() {
             public float getProgress(ManasRaceInstance raceInstance, LivingEntity entity) {
                 float progress = 0.0F;
@@ -120,7 +122,7 @@ public class mythosRace extends aspectOfRegressionRace {
             public Component getRequirementComponent(ManasRaceInstance instance, LivingEntity entity) {
                 return Component.translatable("trstarlight.evolution_menu.mythos_requirements");
             }
-        }, 100.0F);
+        }, 90.0F, new EvolutionRequirement.EPRequirement(config.epRequirement), 10.0F);
     }
 
     protected boolean ultimateSkillFilter(ManasSkillInstance instance) {

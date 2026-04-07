@@ -6,6 +6,7 @@ import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 public class luckySkill extends Skill {
 
@@ -13,7 +14,7 @@ public class luckySkill extends Skill {
     public static final ResourceLocation MEMORY_RECREATION;
 
     public luckySkill() {
-        super(SkillType.UNIQUE);
+        super(SkillType.INTRINSIC);
     }
 
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
@@ -24,18 +25,8 @@ public class luckySkill extends Skill {
         return CONFIG.acquirementMastery;
     }
 
-    public int getModes(ManasSkillInstance instance) {
-        return 1;
-    }
-
-    public String getModeId(ManasSkillInstance instance, int mode) {
-        String var10000;
-        switch (mode) {
-            case 0 -> var10000 = "memory_recreation.block_memory";
-            default -> var10000 = super.getModeId(instance, mode);
-        }
-
-        return var10000;
+    public boolean checkAcquiringRequirement(Player entity, double newEP) {
+        return false;
     }
 
     static {

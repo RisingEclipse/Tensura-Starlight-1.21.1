@@ -1,5 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau;
 
+import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -9,7 +10,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class wixieGeneticsSkill extends Skill {
 
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
+    private static final arsnouveauSeriesSkillConfig.MemoryRecreation CONFIG;
     public static final ResourceLocation MEMORY_RECREATION;
 
     public wixieGeneticsSkill() {
@@ -40,6 +41,6 @@ public class wixieGeneticsSkill extends Skill {
 
     static {
         MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+        CONFIG = ConfigRegistry.getConfig(arsnouveauSeriesSkillConfig.class).MemoryRecreation;
     }
 }

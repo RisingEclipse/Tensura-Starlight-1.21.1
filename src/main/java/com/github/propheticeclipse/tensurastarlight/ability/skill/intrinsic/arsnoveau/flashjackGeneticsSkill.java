@@ -1,16 +1,21 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau;
 
+import com.alexthw.sauce.registry.ModRegistry;
+import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 
 public class flashjackGeneticsSkill extends Skill {
 
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
-    public static final ResourceLocation MEMORY_RECREATION;
+    private static final arsnouveauSeriesSkillConfig.flashjackGenetics CONFIG;
+    public static final ResourceLocation FLASHJACK_GENETICS;
 
     public flashjackGeneticsSkill() {
         super(SkillType.UNIQUE);
@@ -24,22 +29,64 @@ public class flashjackGeneticsSkill extends Skill {
         return CONFIG.acquirementMastery;
     }
 
-    public int getModes(ManasSkillInstance instance) {
-        return 1;
-    }
+    public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
+        double airSpellBonus = instance.isMastered(entity) ? CONFIG.airSpellBonusMastered : CONFIG.airSpellBonusUnmastered;
+        double manaDiscountBonus = instance.isMastered(entity) ? CONFIG.manaDiscountBonusMastered : CONFIG.manaDiscountBonusUnmastered;
 
-    public String getModeId(ManasSkillInstance instance, int mode) {
-        String var10000;
-        switch (mode) {
-            case 0 -> var10000 = "memory_recreation.block_memory";
-            default -> var10000 = super.getModeId(instance, mode);
+        AttributeInstance airSpell = entity.getAttribute(ModRegistry.AIR_POWER);
+        AttributeInstance manaDiscount = entity.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+        if (airSpell != null) {
+            if (!airSpell.hasModifier(FLASHJACK_GENETICS)) {
+                airSpell.addOrReplacePermanentModifier(new AttributeModifier(FLASHJACK_GENETICS, airSpellBonus, AttributeModifier.Operation.ADD_VALUE));
+            }
         }
 
-        return var10000;
+        if (manaDiscount != null) {
+            if (!manaDiscount.hasModifier(FLASHJACK_GENETICS)) {
+                manaDiscount.addOrReplacePermanentModifier(new AttributeModifier(FLASHJACK_GENETICS, manaDiscountBonus, AttributeModifier.Operation.ADD_VALUE));
+            }
+        }
+
+    }
+
+    public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
+        AttributeInstance airSpell = entity.getAttribute(ModRegistry.AIR_POWER);
+        AttributeInstance manaDiscount = entity.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+        if (airSpell != null) {
+            airSpell.removeModifier(FLASHJACK_GENETICS);
+        }
+
+        if (manaDiscount != null) {
+            manaDiscount.removeModifier(FLASHJACK_GENETICS);
+        }
+    }
+
+    public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
+        if (instance.isToggled()) {
+            double airSpellBonus = instance.isMastered(owner) ? CONFIG.airSpellBonusMastered : CONFIG.airSpellBonusUnmastered;
+            double manaDiscountBonus = instance.isMastered(owner) ? CONFIG.manaDiscountBonusMastered : CONFIG.manaDiscountBonusUnmastered;
+
+            AttributeInstance airSpell = owner.getAttribute(ModRegistry.AIR_POWER);
+            AttributeInstance manaDiscount = owner.getAttribute(ModRegistry.MANA_DISCOUNT);
+
+            if (airSpell != null) {
+                if (!airSpell.hasModifier(FLASHJACK_GENETICS)) {
+                    airSpell.addOrReplacePermanentModifier(new AttributeModifier(FLASHJACK_GENETICS, airSpellBonus, AttributeModifier.Operation.ADD_VALUE));
+                }
+            }
+
+            if (manaDiscount != null) {
+                if (!manaDiscount.hasModifier(FLASHJACK_GENETICS)) {
+                    manaDiscount.addOrReplacePermanentModifier(new AttributeModifier(FLASHJACK_GENETICS, manaDiscountBonus, AttributeModifier.Operation.ADD_VALUE));
+                }
+            }
+        }
     }
 
     static {
-        MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+        FLASHJACK_GENETICS = ResourceLocation.fromNamespaceAndPath("trstarlight", "flashjack_genetics");
+        CONFIG = ConfigRegistry.getConfig(arsnouveauSeriesSkillConfig.class).flashjackGenetics;
     }
 }

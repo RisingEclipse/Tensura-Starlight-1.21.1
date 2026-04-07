@@ -47,6 +47,28 @@
   "trstarlight.skill.mode.phantasmal_creation.engrave_imbuement": "Engrave Imbuement",
   "trstarlight.skill.mode.phantasmal_creation.item_creation": "Item Creation",
 
+  "trstarlight.skill.amethyst_golem_genetics": "Amethyst Golem Genetics",
+  "trstarlight.skill.amethyst_golem_genetics.description": "Inherit the genetics of a small golem capable of resisting knockback and returning it to foes.",
+  "trstarlight.skill.drygmy_genetics": "Drygmy Genetics",
+  "trstarlight.skill.drygmy_genetics.description": "Inherit the genetics of a small creature known for its bountiful luck.",
+  "trstarlight.skill.flarecannon_genetics": "Flarecannon Genetics",
+  "trstarlight.skill.flarecannon_genetics.description": "Inherit the genetics of a sizeable creature known for its oven-like body.",
+  "trstarlight.skill.flashjack_genetics": "Flashjack Genetics",
+  "trstarlight.skill.flashjack_genetics.description": "Inherit the genetics of a small creature known for its potent lightning.",
+  "trstarlight.skill.siren_genetics": "Siren Genetics",
+  "trstarlight.skill.siren_genetics.description": "Inherit the genetics of a small creature known for its swift fluid movement.",
+  "trstarlight.skill.starbuncle_genetics": "Starbuncle Genetics",
+  "trstarlight.skill.starbuncle_genetics.description": "Inherit the genetics of a small creature known for its speed.",
+  "trstarlight.skill.whirlisprig_genetics": "Whirlisprig Genetics",
+  "trstarlight.skill.whirlisprig_genetics.description": "Inherit the genetics of a small creature known for its delicious foods.",
+  "trstarlight.skill.wilden_guardian_genetics": "Wilden Guardian Genetics",
+  "trstarlight.skill.wilden_guardian_genetics.description": "Inherit the genetics of a ferocious beast known for being durable.",
+  "trstarlight.skill.wilden_hunter_genetics": "Wilden Hunter Genetics",
+  "trstarlight.skill.wilden_hunter_genetics.description": "Inherit the genetics of a ferocious beast known for being in groups.",
+  "trstarlight.skill.wilden_stalker_genetics": "Wilden Stalker Genetics",
+  "trstarlight.skill.wilden_stalker_genetics.description": "Inherit the genetics of a ferocious beast known for being quick to strike.",
+  "trstarlight.skill.wixie_genetics": "Wixie Genetics",
+  "trstarlight.skill.wixie_genetics.description": "Inherit the genetics of a small creature known for its lasting potions.",
 
   "trstarlight.skill.dead_end_rainbow_skill": "Unleashed Dead End",
   "trstarlight.skill.dead_end_rainbow_skill.description": "To unleash the limits of endings.",
@@ -89,5 +111,6 @@
 
   "trstarlight.race.false_aspect_of_regression": "Regr§kes§rs§kion§r - As§kp§re§kct§r of §kRej§rec§ktion§r",
   "trstarlight.race.aspect_of_regression": "Regression - Aspect of Restoration",
-  "trstarlight.race.mythos": "Mythos - Aspect of Eternity"
+  "trstarlight.race.mythos": "Mythos - Aspect of Eternity",
+  "trstarlight.evolution_menu.mythos_requirements": "Entwine yourself with Myths, mark yourself an Eternal Scourge."
 }
