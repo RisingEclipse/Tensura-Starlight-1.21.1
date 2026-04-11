@@ -75,4 +75,8 @@ public class aspectOfRegressionRace extends grandMemoryBornRace {
                 .filter(Objects::nonNull)
                 .toList();
     }
+
+    @Override
+    public void onRaceEvolution(ManasRaceInstance instance, LivingEntity entity, ManasRaceInstance evolution) {
+    }
 }

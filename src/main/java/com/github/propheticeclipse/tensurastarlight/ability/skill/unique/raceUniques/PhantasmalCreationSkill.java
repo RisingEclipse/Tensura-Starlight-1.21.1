@@ -28,11 +28,11 @@ public class PhantasmalCreationSkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        boolean raceCorrect = RaceAPI.getRaceFrom(entity).equals(StarlightRaces.MYTHOS);
+        //boolean raceCorrect = RaceAPI.getRaceFrom(entity).equals(StarlightRaces.MYTHOS);
         boolean skill1 = (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.MAGICULE_ENGRAVEMENT.get()));
         boolean skill2 = (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.MEMORY_RECREATION.get()));
 
-        if (skill1 && skill2 && raceCorrect) {
+        if (skill1 && skill2) {
             TensuraSkillInstance thisSkillLol = new TensuraSkillInstance(StarlightUniqueSkills.PHANTASMAL_CREATION.get());
             thisSkillLol.getOrCreateTag().putBoolean("NoMagiculeCost", true);
             SkillHelper.learnSkill(entity, thisSkillLol);
@@ -65,6 +65,14 @@ public class PhantasmalCreationSkill extends Skill {
         return var10000;
     }
 
+    public int nextMode(LivingEntity entity, ManasSkillInstance instance, int mode, boolean reverse) {
+        if (reverse) {
+            return mode == 0 ? 2 : mode - 1;
+        } else {
+            return mode == 2 ? 0 : mode + 1; // (0 - 1) total is 2
+        }
+    }
+
     public void onPressed(ManasSkillInstance instance, LivingEntity entity, int keyNumber, int mode) {
         if (mode == 0) {
 
@@ -76,8 +84,8 @@ public class PhantasmalCreationSkill extends Skill {
             double permanentAuraCost = isMastered(instance, entity) ? ((maxAura * CONFIG.blockMemoryAPPermanentCostPercentMastered) + CONFIG.blockMemoryAPPermanentCostFlatMastered) : ((maxAura * CONFIG.blockMemoryAPPermanentCostPercentUnmastered) + CONFIG.blockMemoryAPPermanentCostFlatUnmastered);
             double permanentManaCost = isMastered(instance, entity) ? ((maxMana * CONFIG.blockMemoryMPPermanentCostPercentMastered) + CONFIG.blockMemoryMPPermanentCostFlatMastered) : ((maxMana * CONFIG.blockMemoryMPPermanentCostPercentUnmastered) + CONFIG.blockMemoryMPPermanentCostFlatUnmastered);
 
-            boolean minimumMana = (permanentManaCost <= 1000 - maxMana);
-            boolean minimumAura = (permanentAuraCost <= 1000 - maxAura);
+            double minimumMana = (maxMana - (permanentManaCost + 1000.0));
+            double minimumAura = (maxAura - (permanentAuraCost + 1000.0));
 
             double blockMemoryRange = isMastered(instance, entity) ? CONFIG.blockMemoryRangeMastered : CONFIG.blockMemoryRangeUnmastered;
             double blockMemorySuccessRate = isMastered(instance, entity) ? CONFIG.blockMemorySuccessRateMastered : CONFIG.blockMemorySuccessRateUnmastered;
@@ -85,7 +93,7 @@ public class PhantasmalCreationSkill extends Skill {
             int blockMemoryCopies = isMastered(instance, entity) ? CONFIG.blockMemoryCopiesMastered : CONFIG.blockMemoryCopiesUnmastered;
             int blockMemoryCooldown = isMastered(instance, entity) ? CONFIG.blockMemoryCooldownMastered : CONFIG.blockMemoryCooldownUnmastered;
 
-            if (minimumAura && minimumMana) {
+            if (minimumMana >= 1000.0 && minimumAura >= 1000.0) {
 
                 StarlightUtils.DupeTargetBlock(entity, blockMemoryRange, blockMemorySuccessRate, blockMemoryDestroyRate, blockMemoryCopies, totalAuraCost, totalManaCost);
 
@@ -104,8 +112,8 @@ public class PhantasmalCreationSkill extends Skill {
             double permanentAuraCost = isMastered(instance, entity) ? ((maxAura * CONFIG.engraveImbuementAPPermanentCostPercentMastered) + CONFIG.engraveImbuementAPPermanentCostFlatMastered) : ((maxAura * CONFIG.engraveImbuementAPPermanentCostPercentUnmastered) + CONFIG.engraveImbuementAPPermanentCostFlatUnmastered);
             double permanentManaCost = isMastered(instance, entity) ? ((maxMana * CONFIG.engraveImbuementMPPermanentCostPercentMastered) + CONFIG.engraveImbuementMPPermanentCostFlatMastered) : ((maxMana * CONFIG.engraveImbuementMPPermanentCostPercentUnmastered) + CONFIG.engraveImbuementMPPermanentCostFlatUnmastered);
 
-            boolean minimumMana = (permanentManaCost <= 1000 - maxMana);
-            boolean minimumAura = (permanentAuraCost <= 1000 - maxAura);
+            double minimumMana = (maxMana - (permanentManaCost + 1000.0));
+            double minimumAura = (maxAura - (permanentAuraCost + 1000.0));
 
             int enchantLevel = isMastered(instance, entity) ? CONFIG.engraveImbuementLevelMastered : CONFIG.engraveImbuementLevelUnmastered;
             double successRate = isMastered(instance, entity) ? CONFIG.engraveImbuementSuccessRateMastered : CONFIG.engraveImbuementSuccessRateUnmastered;
@@ -113,7 +121,7 @@ public class PhantasmalCreationSkill extends Skill {
             int copies = isMastered(instance, entity) ? CONFIG.engraveImbuementCopiesMastered : CONFIG.engraveImbuementCopiesUnmastered;
             int cooldown = isMastered(instance, entity) ? CONFIG.engraveImbuementCooldownMastered : CONFIG.engraveImbuementCooldownUnmastered;
 
-            if (minimumAura && minimumMana) {
+            if (minimumMana >= 1000.0 && minimumAura >= 1000.0) {
 
                 StarlightUtils.CreateRandomEngraveInHand(entity, enchantLevel, successRate, destroyRate, copies, totalAuraCost, totalManaCost, CONFIG.engraveImbuementBlacklist);
 
@@ -133,15 +141,15 @@ public class PhantasmalCreationSkill extends Skill {
             double permanentAuraCost = isMastered(instance, entity) ? ((maxAura * CONFIG.itemMemoryAPPermanentCostPercentMastered) + CONFIG.itemMemoryAPPermanentCostFlatMastered) : ((maxAura * CONFIG.itemMemoryAPPermanentCostPercentUnmastered) + CONFIG.itemMemoryAPPermanentCostFlatUnmastered);
             double permanentManaCost = isMastered(instance, entity) ? ((maxMana * CONFIG.itemMemoryMPPermanentCostPercentMastered) + CONFIG.itemMemoryMPPermanentCostFlatMastered) : ((maxMana * CONFIG.itemMemoryMPPermanentCostPercentUnmastered) + CONFIG.itemMemoryMPPermanentCostFlatUnmastered);
 
-            boolean minimumMana = (permanentManaCost <= 1000 - maxMana);
-            boolean minimumAura = (permanentAuraCost <= 1000 - maxAura);
+            double minimumMana = (maxMana - (permanentManaCost + 1000.0));
+            double minimumAura = (maxAura - (permanentAuraCost + 1000.0));
 
             double successRate = isMastered(instance, entity) ? CONFIG.itemMemorySuccessRateMastered : CONFIG.itemMemorySuccessRateUnmastered;
             double destroyRate = isMastered(instance, entity) ? CONFIG.itemMemoryDestroyRateMastered : CONFIG.itemMemoryDestroyRateUnmastered;
             int copies = isMastered(instance, entity) ? CONFIG.itemMemoryCopiesMastered : CONFIG.itemMemoryCopiesUnmastered;
             int cooldown = isMastered(instance, entity) ? CONFIG.itemMemoryCooldownMastered : CONFIG.itemMemoryCooldownUnmastered;
 
-            if (minimumAura && minimumMana) {
+            if (minimumMana >= 1000.0 && minimumAura >= 1000.0) {
 
                 StarlightUtils.DupeHeldItem(entity, successRate, destroyRate, copies, totalAuraCost, totalManaCost);
 

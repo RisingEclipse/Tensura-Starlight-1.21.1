@@ -20,12 +20,26 @@ Added Mythos' lang to the evolution menu, which fixes it not telling you what yo
 - Configuration - Intrinsic Skill: [Flarecannon Genetics]
 - Configuration - Intrinsic Skill: [Flashjack Genetics]
 - Configuration - Intrinsic Skill: [Siren Genetics]
+- Configuration - Intrinsic Skill: [Starbuncle Genetics]
+- Configuration - Intrinsic Skill: [Whirlisprig Genetics]
+- Configuration - Intrinsic Skill: [Wixie Genetics]
+- Configuration - Intrinsic Skill: [Wilden Guardian Genetics]
+- Configuration - Intrinsic Skill: [Wilden Hunter Genetics]
+- Configuration - Intrinsic Skill: [Wilden Stalker Genetics]
+- Configuration - Intrinsic Skill: [Lucky]
 
 - Intrinsic Skill: [Amethyst Golem Genetics]
 - Intrinsic Skill: [Drygmy Genetics]
 - Intrinsic Skill: [Flarecannon Genetics]
 - Intrinsic Skill: [Flashjack Genetics]
 - Intrinsic Skill: [Siren Genetics]
+- Intrinsic Skill: [Starbuncle Genetics]
+- Intrinsic Skill: [Whirlisprig Genetics]
+- Intrinsic Skill: [Wixie Genetics]
+- Intrinsic Skill: [Wilden Guardian Genetics]
+- Intrinsic Skill: [Wilden Hunter Genetics]
+- Intrinsic Skill: [Wilden Stalker Genetics]
+- Intrinsic Skill: [Lucky]
 
 ### Changed
 

@@ -7,6 +7,7 @@ import com.hollingsworth.arsnouveau.api.perk.PerkAttributes;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -29,6 +30,10 @@ public class drygmyGeneticsSkill extends Skill {
 
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
+    }
+
+    public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
+        return true;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
@@ -94,6 +99,20 @@ public class drygmyGeneticsSkill extends Skill {
                 }
             }
         }
+    }
+
+    public boolean canTick(ManasSkillInstance instance, LivingEntity entity) {
+        return instance.isToggled();
+    }
+
+    public void onTick(ManasSkillInstance instance, LivingEntity living) {
+        CompoundTag tag = instance.getOrCreateTag();
+        int time = tag.getInt("activatedTimes");
+        if (time % 20 == 0) {
+            this.addMasteryPoint(instance, living);
+        }
+
+        tag.putInt("activatedTimes", time + 1);
     }
 
     static {

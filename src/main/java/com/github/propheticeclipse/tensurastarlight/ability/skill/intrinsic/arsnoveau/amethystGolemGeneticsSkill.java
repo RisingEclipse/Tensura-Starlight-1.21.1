@@ -9,6 +9,7 @@ import io.github.manasmods.tensura.ability.SkillHelper;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.registry.attribute.TensuraAttributes;
 import io.github.manasmods.tensura.util.AttributeHelper;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -73,5 +74,19 @@ public class amethystGolemGeneticsSkill extends Skill {
         }
 
         return true;
+    }
+
+    public boolean canTick(ManasSkillInstance instance, LivingEntity entity) {
+        return instance.isToggled();
+    }
+
+    public void onTick(ManasSkillInstance instance, LivingEntity living) {
+        CompoundTag tag = instance.getOrCreateTag();
+        int time = tag.getInt("activatedTimes");
+        if (time % 20 == 0) {
+            this.addMasteryPoint(instance, living);
+        }
+
+        tag.putInt("activatedTimes", time + 1);
     }
 }

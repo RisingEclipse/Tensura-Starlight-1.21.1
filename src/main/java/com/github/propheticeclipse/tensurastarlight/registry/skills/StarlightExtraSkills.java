@@ -1,8 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight.registry.skills;
 
-import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.deadEndRainbowSkill;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau.amethystGolemGeneticsSkill;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.raceUniques.MemoryRecreationSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.*;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.impl.SkillRegistry;
@@ -12,6 +10,11 @@ import java.util.function.Supplier;
 
 public class StarlightExtraSkills {
     public static final RegistrySupplier<ManasSkill> DEAD_END_RAINBOW_SKILL = register("dead_end_rainbow_skill", deadEndRainbowSkill::new);
+    public static final RegistrySupplier<ManasSkill> ABNORMALLY_LUCKY = register("abnormally_lucky", abnormallyLuckySkill::new);
+    public static final RegistrySupplier<ManasSkill> HYPER_METABOLISTIC = register("hyper_metabolistic", hyperMetabolisticSkill::new);
+    public static final RegistrySupplier<ManasSkill> PLASMATIC_SOURCE = register("plasmatic_source", plasmaticSourceSkill::new);
+    public static final RegistrySupplier<ManasSkill> SOURCE_POWERED = register("source_powered", sourcePoweredSkill::new);
+    public static final RegistrySupplier<ManasSkill> WILDEN_STALK = register("wilden_stalk", wildenStalkSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);

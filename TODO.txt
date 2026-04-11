@@ -191,30 +191,38 @@ It should have a combo evolution with Guardian that enhances its ability to bloc
 Collection of Intrinsic/Extra Skills with potential evolution paths? Based around various things and modifying attributes.
 
 // Ars Nouveau //
-Lucky (Increases user's luck, can be obtained by having over 20 luck or ocassionally by predation.)
-Wixie Genetics (Increases potion duration, can be obtained by predation.)
-Whirlisprig Genetics (Increases food saturation, can be obtained by predation.)
-Starbuncle Genetics (Increases user's speed, obtained by predation.)
-Wilden Hunter Genetics (Increases user Arrow Velocity and Draw Speed, obtained by predation.)
-Wilden Guardian Genetics (Reflects small amounts of damage and increases armor. Also, marginally increase health when mastered.)
-Wilden Stalker Genetics (Increase sneaking speed and reduce gravity)
-
 
 
 // Done //
+Lucky (Increases user's luck, can be obtained by having over 20 luck or ocassionally by predation.)
 Amethyst Golem Genetics (Increases knockback resistance and knocks back attackers)
 Drygmy Genetics (Increases user's looting and luck, and earth spell damage, can be obtained by predation.)
 Flashjack Genetics (Lightning Damage Increase, mana cost discount)
 Flarecannon Genetics (Increases Fire Spell damage and mana cost discount)
 Siren Genetics (Increases Water Spell Damage, mana cost discount)
+Starbuncle Genetics (Increases user's speed, obtained by predation.)
+Whirlisprig Genetics (Increases food saturation, can be obtained by predation.)
+Wixie Genetics (Increases potion duration, can be obtained by predation.)
 
-Evolved Variants?
-Lucky + Drygmy == ????
-Drygmy + Wixie + Whirlisprig + Starbuncle + Flashjack + Flarecannon + Siren + Golem == ?????????
-Wilden Hunter, Guardian, Stalker === ????
-Flarecannon, Flash Jack = ????
-Wixie, Whirlsprig = ????
+Wilden Guardian Genetics (Reflects small amounts of damage and increases armor. Also, marginally increase health when mastered.)
+Wilden Hunter Genetics (Increases user Arrow Velocity and Draw Speed, obtained by predation.)
+Wilden Stalker Genetics (Increase sneaking speed and reduce gravity)
 
+// Done //
+Lucky + Drygmy == Abnormally Lucky
+- Increased luck by 5/10% total
+- Increase looting drops by 1/2 (ars drygmy attribute)
+- Increase crit rate (apoth) by 5/10% total
+
+Wixie, Whirlsprig = Hyper Metabolistic
+- Significantly improves your digestion, further increasing wixie and whirlsprig stats by 1/2
+- Increases healing recieved by 10% (base multiplicative)
+
+Flarecannon, Flash Jack, Siren = Plasmatic Source
+- Increases mana regeneration by 10% total
+- Increases max mana by 5% total
+
+Drygmy + Wixie + Whirlisprig + Starbuncle + Flashjack + Flarecannon + Siren + Golem == Source Powered
 
 // Ars Zero //
 (These should provide Mana, Mana Regeneration, Mana Discounts, Spellpower increases, that type of thing.
@@ -247,13 +255,6 @@ Apotheosis Critting Capability or other stats allowance
 Summons several more projectiles (totalling 7, so another 6),
 increased base damage,
 and apothic critting allowance?
-
-// Mowzie's Mobs //
-Frostmaw Genetics (Some sort of attack that deals high physical damage and slows? or cold damage, perhaps a mix?)
-Umuvthi Genetics (Some sort of skill that buffs allies and grants fire/light damage resistance? Or one that summons some mobs under your control?)
-
-// Bosses and Rises //
-I have zero fucking clue, probably wont even do anything here
 
 --------------------
 Implement a config for server owners to add a "Slow EP Mode" to certain users. Alternatively, something for giving specific skills when resetting?
