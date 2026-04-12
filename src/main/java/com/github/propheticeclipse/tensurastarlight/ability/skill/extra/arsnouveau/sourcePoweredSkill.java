@@ -1,8 +1,7 @@
-package com.github.propheticeclipse.tensurastarlight.ability.skill.extra;
+package com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau;
 
 import com.alexthw.sauce.registry.ModRegistry;
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
-import com.github.propheticeclipse.tensurastarlight.config.skills.genericIntrinsicSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightIntrinsicSkills;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -14,7 +13,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 
 public class sourcePoweredSkill extends Skill {

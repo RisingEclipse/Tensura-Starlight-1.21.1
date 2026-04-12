@@ -1,9 +1,8 @@
-package com.github.propheticeclipse.tensurastarlight.ability.skill.extra;
+package com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau;
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightIntrinsicSkills;
 import com.hollingsworth.arsnouveau.api.perk.PerkAttributes;
-import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.SkillUtils;

@@ -1,6 +1,10 @@
 package com.github.propheticeclipse.tensurastarlight.registry.skills;
 
 import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.*;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.hyperMetabolisticSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.plasmaticSourceSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.sourcePoweredSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.wildenStalkSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.impl.SkillRegistry;
