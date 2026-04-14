@@ -2,6 +2,9 @@ package com.github.propheticeclipse.tensurastarlight.registry.skills;
 
 import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.arsnoveau.*;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.luckySkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.malignantBodySkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.soulPlundererSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.wardedSoulSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.impl.SkillRegistry;
@@ -21,6 +24,9 @@ public class StarlightIntrinsicSkills {
     public static final RegistrySupplier<ManasSkill> WILDEN_GUARDIAN_GENETICS = register("wilden_guardian_genetics", wildenGuardianGeneticsSkill::new);
     public static final RegistrySupplier<ManasSkill> WILDEN_HUNTER_GENETICS = register("wilden_hunter_genetics", wildenHunterGeneticsSkill::new);
     public static final RegistrySupplier<ManasSkill> WILDEN_STALKER_GENETICS = register("wilden_stalker_genetics", wildenStalkerGeneticsSkill::new);
+    public static final RegistrySupplier<ManasSkill> WARDED_SOUL = register("warded_soul", wardedSoulSkill::new);
+    public static final RegistrySupplier<ManasSkill> SOUL_PLUNDERER = register("soul_plunderer", soulPlundererSkill::new);
+    public static final RegistrySupplier<ManasSkill> MALIGNANT_BODY = register("malignant_body", malignantBodySkill::new);
 
     public static final RegistrySupplier<ManasSkill> LUCKY = register("lucky", luckySkill::new);
 

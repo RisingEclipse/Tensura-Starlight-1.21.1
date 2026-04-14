@@ -49,26 +49,57 @@
 
   "trstarlight.skill.amethyst_golem_genetics": "Amethyst Golem Genetics",
   "trstarlight.skill.amethyst_golem_genetics.description": "Inherit the genetics of a small golem capable of resisting knockback and returning it to foes.",
+
   "trstarlight.skill.drygmy_genetics": "Drygmy Genetics",
   "trstarlight.skill.drygmy_genetics.description": "Inherit the genetics of a small creature known for its bountiful luck.",
+
   "trstarlight.skill.flarecannon_genetics": "Flarecannon Genetics",
   "trstarlight.skill.flarecannon_genetics.description": "Inherit the genetics of a sizeable creature known for its oven-like body.",
+
   "trstarlight.skill.flashjack_genetics": "Flashjack Genetics",
   "trstarlight.skill.flashjack_genetics.description": "Inherit the genetics of a small creature known for its potent lightning.",
+
   "trstarlight.skill.siren_genetics": "Siren Genetics",
   "trstarlight.skill.siren_genetics.description": "Inherit the genetics of a small creature known for its swift fluid movement.",
+
   "trstarlight.skill.starbuncle_genetics": "Starbuncle Genetics",
   "trstarlight.skill.starbuncle_genetics.description": "Inherit the genetics of a small creature known for its speed.",
+
   "trstarlight.skill.whirlisprig_genetics": "Whirlisprig Genetics",
   "trstarlight.skill.whirlisprig_genetics.description": "Inherit the genetics of a small creature known for its delicious foods.",
+
   "trstarlight.skill.wixie_genetics": "Wixie Genetics",
   "trstarlight.skill.wixie_genetics.description": "Inherit the genetics of a small creature known for its lasting potions.",
+
   "trstarlight.skill.wilden_guardian_genetics": "Wilden Guardian Genetics",
   "trstarlight.skill.wilden_guardian_genetics.description": "Inherit the genetics of a ferocious beast known for being durable.",
+
   "trstarlight.skill.wilden_hunter_genetics": "Wilden Hunter Genetics",
   "trstarlight.skill.wilden_hunter_genetics.description": "Inherit the genetics of a ferocious beast known for being in groups.",
+
   "trstarlight.skill.wilden_stalker_genetics": "Wilden Stalker Genetics",
   "trstarlight.skill.wilden_stalker_genetics.description": "Inherit the genetics of a ferocious beast known for being quick to strike.",
+
+  "trstarlight.skill.hyper_metabolistic": "Hyper Metabolistic",
+  "trstarlight.skill.hyper_metabolistic.description": "Your metabolism is uniquely designed so that food is extra saturating, and potions last noticeably longer.",
+
+  "trstarlight.skill.plasmatic_source": "Plasmatic Source",
+  "trstarlight.skill.plasmatic_source.description": "Source much like plasma, and fluid like blood. Noticeably increases the amount of source your vessel can store and regenerate.",
+
+  "trstarlight.skill.source_powered": "Source Powered",
+  "trstarlight.skill.source_powered.description": "Your body is uniquely powered by source, making you innately resistant to the four elements, and raises your magic's power when using Elemental Magic.",
+
+  "trstarlight.skill.wilden_stalk": "Wilden Stalk",
+  "trstarlight.skill.wilden_stalk.description": "Guard like a wilden, Stalk like a wilden, Hunt like a wilden, your walk is much like a wilden.",
+
+  "trstarlight.skill.warded_soul": "Warded Soul",
+  "trstarlight.skill.warded_soul.description": "Your soul is uniquely warded against damage, allowing you to raise your defenses faster or stronger.",
+
+  "trstarlight.skill.soul_plunderer": "Soul Plunderer",
+  "trstarlight.skill.soul_plunderer.description": "Your soul resonates with others, improving spiritual yields.",
+
+  "trstarlight.skill.malignant_body": "Malignant Body",
+  "trstarlight.skill.malignant_body.description": "Your body started taking on attributes much like that of Malignant Pewter.",
 
   "trstarlight.skill.lucky": "Lucky",
   "trstarlight.skill.lucky.description": "Lucky",

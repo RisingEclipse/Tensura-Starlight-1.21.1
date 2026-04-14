@@ -2,10 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.config;
 
 import com.github.propheticeclipse.tensurastarlight.config.effects.BuffEffectsConfig;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
-import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
-import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
-import com.github.propheticeclipse.tensurastarlight.config.skills.genericIntrinsicSkillConfig;
-import com.github.propheticeclipse.tensurastarlight.config.skills.itemExtraSkillsConfig;
+import com.github.propheticeclipse.tensurastarlight.config.skills.*;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.tensura.config.ReincarnationConfig;
 import io.github.manasmods.tensura.config.ability.skill.UniqueSkillConfig;
@@ -24,6 +21,7 @@ public class StarlightConfigs {
         ConfigRegistry.registerConfig(new itemExtraSkillsConfig());
         ConfigRegistry.registerConfig(new arsnouveauSeriesSkillConfig());
         ConfigRegistry.registerConfig(new genericIntrinsicSkillConfig());
+        ConfigRegistry.registerConfig(new malumSeriesSkillConfig());
         // Races
         ConfigRegistry.registerConfig(new aspectBornRaceConfig());
     }

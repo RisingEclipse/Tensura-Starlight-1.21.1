@@ -232,12 +232,18 @@ Lich Genetics
 Bone Golem Genetics
 
 Some sort of evolved variant of these?
-Spirit Sorcerer (Improved Malum Plundering and Necromancy/Animus benefits? Or perhaps added glyphs?)
+Spirit Sorcerer (Added Necromancy Spellcasting stats, increased scythe proficiency,
+and a mastery effect to do only Spiritual Damage? Maybe have it evolve into a unique eventually:tm:?)
 
 // Malum, Gaze //
-Soul Plunderer (Increase the soul plundering attribute, and maybe something to do with soul damage?)
+Allow malignant body to be earned by absorbing malignant peweter via Absorb and Dissolve.
+Allow Soul Plunderer to be acquired by having a sufficient spirit spoils attribute. >=5
+Allow Warded Soul to be acquired by having a soul thats warded by ??? points.
+
+// Done //
 Warded Soul (Increase Soul Ward Cap, - Soul Ward Charge || Soul Ward Charge ++, -- Soul Ward Cap)
-Malignant Body (Increase Magic Resistance and Malignant Conversion)
+Soul Plunderer (Increase spiritual damage perhaps? Not really relevant, but maybe also spiritual resistance? Or maybe make all damage spiritual?)
+Malignant Body (Increase Magic Resistance and Malignant Conversion (Also reduces Tensura Magic Damage Taken))
 
 Perhaps some weapon-specific ones?
 [Edge of Deliverance]

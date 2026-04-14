@@ -66,7 +66,7 @@ public class greaterAspectBornRace extends aspectBornRace {
             if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
                 list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
             }
-        } else if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) && StarlightUtils.rejectedByWell(entity) && !entity.getTags().contains("false_reset")) {
+        } else if ((SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) && StarlightUtils.rejectedByWell(entity) && !entity.getTags().contains("false_reset")) {
             list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
         }
 

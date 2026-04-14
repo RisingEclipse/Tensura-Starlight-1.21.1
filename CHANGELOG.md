@@ -15,6 +15,27 @@ Added Mythos' lang to the evolution menu, which fixes it not telling you what yo
 
 </details>
 
+<details>
+<summary>Configuration - Auto-Injection</summary>
+Added several options to the Starlight Common file for generating configs.
+
+**redoStarlightConfigs** -> Setting this to true attempts to regenerate all Starlight Configs The following options augment what happens when this applies. THIS MUST BE ENABLED to generate configs on restart.
+
+**addAspectSkillsReincarnation** -> Adds the aspect-series uniques [Light Remains], [Echo Endures], [Life Returns], [Ember Remains], [Current Unbroken], [Shape Forgotten] to the reincarnation pool, disabled by default.
+
+**addReincSpellRaces** -> Adds [Lesser Aspectborn], and any other races I deem fit to the reincarnation spell list.
+
+**addReincSpellMasteredRaces** -> Adds [Lesser Aspectborn], and any other races I deem fit to the mastered reincarnation spell list.
+
+By default, regenerating the configs will always re-add [Lesser Aspectborn], and similar to the racepool.
+</details>
+
+- Configuration - Extra Skill: [Abnormally Lucky]
+- Configuration - Extra Skill: [Hyper Metabolistic]
+- Configuration - Extra Skill: [Plasmatic Source]
+- Configuration - Extra Skill: [Source Powered]
+- Configuration - Extra Skill: [Wilden Stalk]
+
 - Configuration - Intrinsic Skill: [Amethyst Golem Genetics]
 - Configuration - Intrinsic Skill: [Drygmy Genetics]
 - Configuration - Intrinsic Skill: [Flarecannon Genetics]
@@ -27,6 +48,15 @@ Added Mythos' lang to the evolution menu, which fixes it not telling you what yo
 - Configuration - Intrinsic Skill: [Wilden Hunter Genetics]
 - Configuration - Intrinsic Skill: [Wilden Stalker Genetics]
 - Configuration - Intrinsic Skill: [Lucky]
+- Configuration - Intrinsic Skill: [Malignant Body]
+- Configuration - Intrinsic Skill: [Soul Plunderer]
+- Configuration - Intrinsic Skill: [Warded Soul]
+
+- Extra Skill: [Abnormally Lucky]
+- Extra Skill: [Hyper Metabolistic]
+- Extra Skill: [Plasmatic Source]
+- Extra Skill: [Source Powered]
+- Extra Skill: [Wilden Stalk]
 
 - Intrinsic Skill: [Amethyst Golem Genetics]
 - Intrinsic Skill: [Drygmy Genetics]
@@ -40,6 +70,9 @@ Added Mythos' lang to the evolution menu, which fixes it not telling you what yo
 - Intrinsic Skill: [Wilden Hunter Genetics]
 - Intrinsic Skill: [Wilden Stalker Genetics]
 - Intrinsic Skill: [Lucky]
+- Intrinsic Skill: [Malignant Body]
+- Intrinsic Skill: [Soul Plunderer]
+- Intrinsic Skill: [Warded Soul]
 
 ### Changed
 
@@ -49,19 +82,23 @@ Changed Mythos' requirements to reflect the necessary 3 Million EP.
 
 </details>
 
+Edited old changelogs to better fit latest formats, and additionally added additional information.
+
 ### Deprecated
 ### Removed
 ### Security
 
-## [0.0.1-HOTFIX-MEMORYBORN] - 2026-03-04
+## [0.0.1-HOTFIX-MEMORYBORN] - 2026-04-03
 
 ### Changed
 
 - When evolving into Lesser Memory Aspectborn, you would actually evolve into Lesser Aspectborn due to a error with the registries.
 
-## [0.0.1-INITIAL.0.2] - 2026-3-01
+## [0.0.1-INITIAL.0.2] - 2026-04-01
 
 ### Added
+- Configuration - Evolved Unique Skill: [Vestiges of Eidolons]
+- Configuration - Evolved Unique Skill: [Remnants of Ascension]
 
 - Configuration - Unique Skill: [Memory Recreation]
 - Configuration - Unique Skill: [Magicule Engravement]
@@ -74,14 +111,12 @@ Changed Mythos' requirements to reflect the necessary 3 Million EP.
 - Configuration - Unique Skill: [Current Unbroken]
 - Configuration - Unique Skill: [Shape Forgotten]
 
-- Configuration - Evolved Unique Skill: [Vestiges of Eidolons]
-- Configuration - Evolved Unique Skill: [Remnants of Ascension]
-- 
 - Configuration - Effect: [Combat Flow]
 - Configuration - Effect: [Shifting Armor]
 - Configuration - Effect: [Flaring Form]
 
-- Extra Skill: [Unleashed Dead End]
+- Evolved Unique Skill: [Vestiges Of Eidolons]
+- Evolved Unique Skill: [Remnants Of Ascension]
 
 - Unique Skill: [Memory Recreation]
 - Unique Skill: [Magicule Engravement]
@@ -94,8 +129,7 @@ Changed Mythos' requirements to reflect the necessary 3 Million EP.
 - Unique Skill: [Shape Forgotten]
 - Unique Skill: [Current Unbroken]
 
-- Evolved Unique Skill: [Vestiges Of Eidolons]
-- Evolved Unique Skill: [Remnants Of Ascension]
+- Extra Skill: [Unleashed Dead End]
 
 - Effect: [Combat Flow]
 - Effect: [Shifting Armor]

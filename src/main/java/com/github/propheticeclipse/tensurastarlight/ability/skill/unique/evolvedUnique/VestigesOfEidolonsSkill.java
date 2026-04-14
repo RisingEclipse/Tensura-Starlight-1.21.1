@@ -23,6 +23,7 @@ import io.github.manasmods.tensura.registry.effect.TensuraMobEffects;
 import io.github.manasmods.tensura.storage.TensuraStorages;
 import io.github.manasmods.tensura.storage.ep.IExistence;
 import io.github.manasmods.tensura.util.AttributeHelper;
+import io.github.manasmods.tensura.util.EnergyHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -335,9 +336,7 @@ public class VestigesOfEidolonsSkill extends Skill {
             }
         }
 
-        if (existence.getMagicule() < (entity.getAttributeValue(TensuraAttributes.MAX_MAGICULE) * 1.24)) {
-            ExistenceRegeneration(entity);
-        }
+        ExistenceRegeneration(entity);
 
         CompoundTag tag = instance.getOrCreateTag();
         int time = tag.getInt("activatedTimes");
@@ -354,8 +353,12 @@ public class VestigesOfEidolonsSkill extends Skill {
         double maxMP = entity.getAttributeValue(TensuraAttributes.MAX_MAGICULE);
         double maxAP = entity.getAttributeValue(TensuraAttributes.MAX_AURA);
 
-        existence.setMagicule(existence.getMagicule() + maxMP * CONFIG.immutableBeingMPRegenPercent);
-        existence.setAura(existence.getAura() + maxAP * CONFIG.immutableBeingAPRegenPercent);
+        if (existence.getMagicule() <= maxMP * 1.24) {
+            existence.setMagicule(existence.getMagicule() + maxMP * CONFIG.immutableBeingMPRegenPercent);
+        }
+        if (existence.getAura() <= maxAP * 1.24) {
+            existence.setAura(existence.getAura() + maxAP * CONFIG.immutableBeingAPRegenPercent);
+        }
         existence.markDirty();
     }
 
