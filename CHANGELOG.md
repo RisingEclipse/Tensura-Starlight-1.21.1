@@ -84,10 +84,6 @@ Changed Mythos' requirements to reflect the necessary 3 Million EP.
 
 Edited old changelogs to better fit latest formats, and additionally added additional information.
 
-### Deprecated
-### Removed
-### Security
-
 ## [0.0.1-HOTFIX-MEMORYBORN] - 2026-04-03
 
 ### Changed
