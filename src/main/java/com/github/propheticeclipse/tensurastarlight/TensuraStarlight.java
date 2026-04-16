@@ -5,6 +5,7 @@ import com.github.propheticeclipse.tensurastarlight.registry.StarlightRegistry;
 import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -15,7 +16,13 @@ public final class TensuraStarlight {
 
     public TensuraStarlight(IEventBus modEventBus) {
         StarlightRegistry.init();
-        StarlightConfigs.addToConfig();
+
+        modEventBus.addListener(this::onCommonSetup);
     }
 
+    private void onCommonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            StarlightConfigs.addToConfig();
+        });
+    }
 }

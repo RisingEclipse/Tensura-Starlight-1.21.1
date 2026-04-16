@@ -39,24 +39,28 @@ public class StarlightConfigs {
             ReincarnationConfig reinc = ConfigRegistry.getConfig(ReincarnationConfig.class);
             UniqueSkillConfig unique = ConfigRegistry.getConfig(UniqueSkillConfig.class);
 
-            ArrayList<String> startingSkills = new ArrayList(reinc.Skills.startingSkills);
-            ArrayList<String> startingRaces = new ArrayList(reinc.Races.startingRaces);
-            ArrayList<String> randomRaces = new ArrayList(reinc.Races.randomRaces);
-            ArrayList<String> reincSpellRaces = new ArrayList(reinc.Races.reincarnationRaces);
-            ArrayList<String> reincSpellMasteredRaces = new ArrayList(reinc.Races.reincarnationRacesMastered);
-            ArrayList<String> creatorSkills = new ArrayList(unique.Creator.uniqueSkills);
+            ArrayList<String> startingSkills = new ArrayList<>(reinc.Skills.startingSkills);
+            ArrayList<String> startingRaces = new ArrayList<>(reinc.Races.startingRaces);
+            ArrayList<String> randomRaces = new ArrayList<>(reinc.Races.randomRaces);
+            ArrayList<String> reincSpellRaces = new ArrayList<>(reinc.Races.reincarnationRaces);
+            ArrayList<String> reincSpellMasteredRaces = new ArrayList<>(reinc.Races.reincarnationRacesMastered);
+            ArrayList<String> creatorSkills = new ArrayList<>(unique.Creator.uniqueSkills);
 
-            LinkedHashSet<String> startSkillSet = new LinkedHashSet(startingSkills);
-            LinkedHashSet<String> startRaceSet = new LinkedHashSet(startingRaces);
-            LinkedHashSet<String> randomRaceSet = new LinkedHashSet(randomRaces);
-            LinkedHashSet<String> reincSpellRaceSet = new LinkedHashSet(reincSpellRaces);
-            LinkedHashSet<String> reincSpellMasteredRaceSet = new LinkedHashSet(reincSpellMasteredRaces);
-            LinkedHashSet<String> creatorSet = new LinkedHashSet(creatorSkills);
+            LinkedHashSet<String> startSkillSet = new LinkedHashSet<>(startingSkills);
+            LinkedHashSet<String> startRaceSet = new LinkedHashSet<>(startingRaces);
+            LinkedHashSet<String> randomRaceSet = new LinkedHashSet<>(randomRaces);
+            LinkedHashSet<String> reincSpellRaceSet = new LinkedHashSet<>(reincSpellRaces);
+            LinkedHashSet<String> reincSpellMasteredRaceSet = new LinkedHashSet<>(reincSpellMasteredRaces);
+            LinkedHashSet<String> creatorSet = new LinkedHashSet<>(creatorSkills);
 
             // Stuff
 
             for (String skillRegistry : skills) {
                 if (startSkillSet.add(skillRegistry)) {
+                    changesMade = true;
+                }
+
+                if (creatorSet.add(skillRegistry)) {
                     changesMade = true;
                 }
             }
@@ -96,12 +100,12 @@ public class StarlightConfigs {
 
             // End of stuff.
 
-            reinc.Skills.startingSkills = new ArrayList(startSkillSet);
-            reinc.Races.startingRaces = new ArrayList(startRaceSet);
-            reinc.Races.randomRaces = new ArrayList(randomRaceSet);
-            reinc.Races.reincarnationRaces = new ArrayList(reincSpellRaceSet);
-            reinc.Races.reincarnationRacesMastered = new ArrayList(reincSpellMasteredRaceSet);
-            unique.Creator.uniqueSkills = new ArrayList(creatorSet);
+            reinc.Skills.startingSkills = new ArrayList<>(startSkillSet);
+            reinc.Races.startingRaces = new ArrayList<>(startRaceSet);
+            reinc.Races.randomRaces = new ArrayList<>(randomRaceSet);
+            reinc.Races.reincarnationRaces = new ArrayList<>(reincSpellRaceSet);
+            reinc.Races.reincarnationRacesMastered = new ArrayList<>(reincSpellMasteredRaceSet);
+            unique.Creator.uniqueSkills = new ArrayList<>(creatorSet);
 
             if (changesMade) {
                 ConfigRegistry.saveAllConfigs();
