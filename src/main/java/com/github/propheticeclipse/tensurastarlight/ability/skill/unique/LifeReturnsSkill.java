@@ -50,7 +50,7 @@ public class LifeReturnsSkill extends Skill {
             deathCount = 0;
         }
         boolean magiculePoisoningEffect = entity.hasEffect(TensuraMobEffects.MAGICULE_POISON);
-        boolean overEPTrigger = newEP >= (CONFIG.overCostAcquirementMod * CONFIG.magiculeAcquirementCost); // When adding configs replace with magicule cost
+        boolean overEPTrigger = newEP >= (CONFIG.overCostAcquirementMod * CONFIG.magiculeAcquirementCost);
         boolean deathComparison = (deathCount >= CONFIG.deathCount);
         return (magiculePoisoningEffect || overEPTrigger || deathComparison) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
     }

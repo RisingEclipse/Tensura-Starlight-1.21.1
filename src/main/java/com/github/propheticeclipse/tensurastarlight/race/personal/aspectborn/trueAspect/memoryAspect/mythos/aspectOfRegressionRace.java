@@ -45,7 +45,7 @@ public class aspectOfRegressionRace extends grandMemoryBornRace {
     }
 
     public @Nullable ManasRace getDefaultEvolution(ManasRaceInstance instance, LivingEntity entity) {
-        return null;
+        return StarlightRaces.MYTHOS.get();
     }
 
     public @Nullable ManasRace getAwakeningEvolution(ManasRaceInstance instance, LivingEntity entity) {

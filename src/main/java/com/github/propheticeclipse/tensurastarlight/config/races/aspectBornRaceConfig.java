@@ -2993,7 +2993,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> elderConvergenceBornIntrinsics = List.of();
+        public List<String> elderConvergenceBornIntrinsics = List.of("tensura:divine_ki_release");
 
         public double getMinAura() {
             return this.minAura;
@@ -6292,7 +6292,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicResistance = 0.0;
 
         @Comment("What intrinsics should this race have?")
-        public List<String> intrinsics = List.of("trstarlight:magicule_engravement", "trstarlight:memory_recreation");
+        public List<String> intrinsics = List.of("trstarlight:magicule_engravement", "trstarlight:memory_recreation", "tensura:divine_ki_release");
 
         public double getMinAura() {
             return this.minAura;

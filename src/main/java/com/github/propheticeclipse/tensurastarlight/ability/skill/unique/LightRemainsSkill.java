@@ -48,13 +48,24 @@ public class LightRemainsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
+        if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) {
+            return false;
+        }
+
         boolean LightLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel);
         boolean DarkLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel);
         boolean LightDarkLord = LightLord || DarkLord;
+        if (LightDarkLord) {
+            TensuraSkillInstance thisSkillLol = new TensuraSkillInstance(StarlightUniqueSkills.LIGHT_REMAINS.get());
+            thisSkillLol.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+            SkillHelper.learnSkill(entity, thisSkillLol);
+            return true;
+        }
+
         boolean greaterLight = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= CONFIG.skillAcquireSpiritLevel);
         boolean greaterDark = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillAcquireSpiritLevel);
         boolean greaterAcquire = greaterLight && greaterDark;
-        return LightDarkLord || greaterAcquire;
+        return greaterAcquire;
     }
 
     @Override
@@ -85,13 +96,6 @@ public class LightRemainsSkill extends Skill {
     @Override
     public void onLearnSkill(ManasSkillInstance instance, LivingEntity entity) {
         CompoundTag tag = new CompoundTag();
-        boolean LightLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel);
-        boolean DarkLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel);
-        if (LightLord || DarkLord) {
-            double maxMagicule = EnergyHelper.getMaxMagicule(entity);
-            double acquireCost = getAcquiringMagiculeCost(instance);
-            EnergyHelper.setMaxMagicule(entity, (maxMagicule + acquireCost));
-        }
 
         if (!SkillUtils.hasSkillFully(entity, ExtraSkills.MAGIC_SENSE.get())) {
             TensuraSkillInstance magicSense = new TensuraSkillInstance(ExtraSkills.MAGIC_SENSE.get());

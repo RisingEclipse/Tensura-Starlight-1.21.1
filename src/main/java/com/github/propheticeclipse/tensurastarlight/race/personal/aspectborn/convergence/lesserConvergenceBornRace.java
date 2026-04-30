@@ -5,16 +5,21 @@ import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceC
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.aspectBornRace;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.greaterAspectBornRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
+import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
+import io.github.manasmods.tensura.registry.TensuraStats;
 import io.github.manasmods.tensura.storage.Alignment;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -61,7 +66,21 @@ public class lesserConvergenceBornRace extends greaterAspectBornRace {
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserConvergenceBorn.epRequirement), 100.0F);
+        // Get EP Requirements, and Check for having light remains as a skill.
+        aspectBornRaceConfig.lesserConvergenceBorn config = (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserConvergenceBorn;
+        return Map.of(new EvolutionRequirement() {
+            public float getProgress(ManasRaceInstance raceInstance, LivingEntity entity) {
+                float progress = 0.0F;
+                if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) {
+                    progress += 1.0F;
+                }
+                return progress;
+            }
+
+            public Component getRequirementComponent(ManasRaceInstance instance, LivingEntity entity) {
+                return Component.translatable("trstarlight.evolution_menu.lesser_convergence_requirements");
+            }
+        }, 90.0F, new EvolutionRequirement.EPRequirement(config.epRequirement), 10.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {

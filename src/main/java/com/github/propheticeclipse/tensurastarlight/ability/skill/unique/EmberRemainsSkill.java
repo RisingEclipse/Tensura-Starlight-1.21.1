@@ -42,6 +42,11 @@ public class EmberRemainsSkill extends Skill {
 
     @Override
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
+
+        if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
+            return false;
+        }
+
         int defyFateCount = 0;
         if (entity instanceof ServerPlayer serverPlayer) {
             defyFateCount = serverPlayer.getStats().getValue(Stats.ITEM_USED.get(Items.TOTEM_OF_UNDYING));

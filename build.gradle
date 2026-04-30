@@ -159,7 +159,7 @@ dependencies {
     localRuntime "curse.maven:malum-484064:7307339"
     localRuntime "curse.maven:lodestone-616457:7264731"
     localRuntime "curse.maven:gaze-a-malum-addon-1273454:7261638"
-    localRuntime fileTree(dir: 'libs', include: '*.jar')
+    // localRuntime fileTree(dir: 'libs', include: '*.jar')
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

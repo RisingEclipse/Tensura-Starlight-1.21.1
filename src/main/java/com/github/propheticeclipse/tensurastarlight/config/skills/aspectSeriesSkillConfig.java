@@ -469,11 +469,11 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int engraveImbuementCopiesMastered = 3;
         public int engraveImbuementCopiesUnmastered = 1;
 
-        public List<String> engraveImbuementBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing");
+        public List<String> engraveImbuementBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing", "tensura:vigor", "tensura:dead_end_rainbow", "tensura:slotting");
 
         // Item Memory
 
-        public int itemMemoryCooldownMastered = 0;
+        public int itemMemoryCooldownMastered = 1;
         public int itemMemoryCooldownUnmastered = 5;
 
         public double itemMemoryAPCostPercentMastered = 0.01;

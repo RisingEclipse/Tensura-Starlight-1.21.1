@@ -103,7 +103,8 @@ public class StarlightUtils {
 
             for (int i = 0; i < copies; i++) {
                 if (!heldItem.isEmpty() && entity.getRandom().nextDouble() < successRate) {
-                    ItemStack copy = heldItem.copy();
+                    ItemStack copy = heldItem.copyWithCount(1);
+                    // TEST ME
                     entity.spawnAtLocation(copy);
                 }
 

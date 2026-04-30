@@ -124,9 +124,14 @@
   "trstarlight.generic.skill.ultimate.evolution": "Ultimate Skill %1$s will now undergo evolution.",
 
   "trstarlight.race.false_aspect0": "%1$s, despite getting this far, you have failed. Body and Mind alike crumbling from the seams.",
-  "trstarlight.race.false_aspect1": "Yet, you desire to live. To return once again, in spite of this §kRejection§r and this §kRegression§r.",
-  "trstarlight.race.false_aspect2": "Find the §ksource§r, the fr§kagme§rnts of what you §konce were§r. The §khidden truth§r within your §klegacy§r.",
-  "trstarlight.race.false_aspect3": "Unmake, unwrite, erase the §klines binding§r you with this §knew§r §kregression§r. The we§kepi§rng beckons.",
+  "trstarlight.race.false_aspect1": "Yet, you desire to live. To return once again, in spite of this Rejection and this §kRegression§r.",
+  "trstarlight.race.false_aspect2": "Find the §ksource§r, the fragments of what you §konce were§r. The §khidden truth§r within your §klegacy§r.",
+  "trstarlight.race.false_aspect3": "Unmake, unwrite, erase the §klines binding§r you with this §knew§r §kregression§r. The weeping beckons.",
+
+  "trstarlight.race.regression_aspect0": "%1$s, in spite of getting this far, fate seems to have other plans for you. Your body breaking down from the core.",
+  "trstarlight.race.regression_aspect1": "Yet, you desire to live. To return once again, in spite of this Rejection.",
+  "trstarlight.race.regression_aspect2": "Return to the legacies, change the memory of what was, and shift the narrative.",
+  "trstarlight.race.regression_aspect3": "Remake, Rewrite, forget the lines binding you with this new regression. recover your aspect.",
 
   "trstarlight.race.lesser_aspect_born": "Lesser Aspectborn",
   "trstarlight.race.lesser_aspect_born.description": "A spiritual life-form immersed within the physical plane..\nWeakened to a mere fragment, perhaps capable of amassing once more into a grand aspect of the §kDivine§r.",
@@ -146,5 +151,7 @@
   "trstarlight.race.false_aspect_of_regression": "Regr§kes§rs§kion§r - As§kp§re§kct§r of §kRej§rec§ktion§r",
   "trstarlight.race.aspect_of_regression": "Regression - Aspect of Restoration",
   "trstarlight.race.mythos": "Mythos - Aspect of Eternity",
-  "trstarlight.evolution_menu.mythos_requirements": "Entwine yourself with Myths, mark yourself an Eternal Scourge."
+
+  "trstarlight.evolution_menu.mythos_requirements": "Entwine yourself with Myths, mark yourself an Eternal Scourge.",
+  "trstarlight.evolution_menu.lesser_convergence_requirements": "Acquire Light Remains or Vestiges of Eidolons."
 }

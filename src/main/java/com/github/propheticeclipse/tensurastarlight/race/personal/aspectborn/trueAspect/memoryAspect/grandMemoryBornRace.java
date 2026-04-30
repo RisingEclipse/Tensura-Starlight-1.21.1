@@ -82,7 +82,7 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
 
             player.displayClientMessage(
                     Component.translatable(
-                            "trstarlight.race.false_aspect0",
+                            "trstarlight.race.regression_aspect0",
                             player.getDisplayName()
                             //arg 1
                     ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
@@ -90,14 +90,14 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
             );
             player.displayClientMessage(
                     Component.translatable(
-                            "trstarlight.race.false_aspect1"
+                            "trstarlight.race.regression_aspect1"
                             //arg 1
                     ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                     false
             );
             player.displayClientMessage(
                     Component.translatable(
-                            "trstarlight.race.false_aspect2"
+                            "trstarlight.race.regression_aspect2"
                             //arg 1
                     ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                     false
@@ -110,7 +110,7 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
                 ReincarnationMenu.setRace(player, StarlightRaces.ASPECT_OF_REGRESSION.get(), true, false);
                 player.displayClientMessage(
                         Component.translatable(
-                                "trstarlight.race.false_aspect3"
+                                "trstarlight.race.regression_aspect3"
                                 //arg 1
                         ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                         false
