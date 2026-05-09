@@ -101,6 +101,9 @@
   "trstarlight.skill.malignant_body": "Malignant Body",
   "trstarlight.skill.malignant_body.description": "Your body started taking on attributes much like that of Malignant Pewter.",
 
+  "trstarlight.skill.spirit_sorcerer": "Spirit Sorcerer",
+  "trstarlight.skill.spirit_sorcerer.description": "A hundred spirits contained within your well of authority, all to die for you.",
+
   "trstarlight.skill.lucky": "Lucky",
   "trstarlight.skill.lucky.description": "Lucky",
 
@@ -109,6 +112,7 @@
 
   "effect.trstarlight.ember_attack_improvement": "ER: Combat Flow",
   "effect.trstarlight.shape_forgotten_armor": "SF: Shifting Armor",
+  "effect.trstarlight.soul_aegis": "SS: Soul Aegis",
 
   "trstarlight.skill.mode.default": "No Actives",
 
@@ -122,6 +126,7 @@
   "trstarlight.generic.skill.unique.evolution": "Unique Skill %1$s will now undergo evolution.",
   "trstarlight.generic.skill.ultimate": "Ultimate Skill %1$s has been acquired.",
   "trstarlight.generic.skill.ultimate.evolution": "Ultimate Skill %1$s will now undergo evolution.",
+  "trstarlight.soul_aegis_fail": "Your collected souls fail to gather, you lack warding against their curses.",
 
   "trstarlight.race.false_aspect0": "%1$s, despite getting this far, you have failed. Body and Mind alike crumbling from the seams.",
   "trstarlight.race.false_aspect1": "Yet, you desire to live. To return once again, in spite of this Rejection and this §kRegression§r.",
@@ -131,7 +136,7 @@
   "trstarlight.race.regression_aspect0": "%1$s, in spite of getting this far, fate seems to have other plans for you. Your body breaking down from the core.",
   "trstarlight.race.regression_aspect1": "Yet, you desire to live. To return once again, in spite of this Rejection.",
   "trstarlight.race.regression_aspect2": "Return to the legacies, change the memory of what was, and shift the narrative.",
-  "trstarlight.race.regression_aspect3": "Remake, Rewrite, forget the lines binding you with this new regression. recover your aspect.",
+  "trstarlight.race.regression_aspect3": "Remake, Rewrite, forget the lines binding you with this new regression. Recover your aspect.",
 
   "trstarlight.race.lesser_aspect_born": "Lesser Aspectborn",
   "trstarlight.race.lesser_aspect_born.description": "A spiritual life-form immersed within the physical plane..\nWeakened to a mere fragment, perhaps capable of amassing once more into a grand aspect of the §kDivine§r.",

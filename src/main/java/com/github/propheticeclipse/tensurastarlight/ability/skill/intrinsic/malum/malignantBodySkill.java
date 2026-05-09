@@ -2,6 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.mal
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.malumSeriesSkillConfig;
 import com.sammy.malum.registry.common.MalumAttributes;
+import com.sammy.malum.registry.common.item.MalumItems;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -10,6 +11,7 @@ import io.github.manasmods.tensura.damage.TensuraDamageHelper;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -40,7 +42,14 @@ public class malignantBodySkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return false;
+        int malignantPewterConsumeCount = 0;
+        if (entity instanceof ServerPlayer serverPlayer) {
+            malignantPewterConsumeCount = serverPlayer.getStats().getValue(Stats.ITEM_USED.get(MalumItems.MALIGNANT_PEWTER_PLATING.get()));
+        } else {
+            malignantPewterConsumeCount = 0;
+        }
+
+        return 10 >= malignantPewterConsumeCount;
     }
 
     public boolean onTakenDamage(ManasSkillInstance instance, LivingEntity owner, DamageSource source, Changeable<Float> amount) {

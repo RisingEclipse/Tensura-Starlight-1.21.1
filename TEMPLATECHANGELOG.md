@@ -20,3 +20,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Deprecated
 ### Removed
 ### Security
+
+Order of Operations:
+
+Spoiler Content
+Configuration
+Ultimate
+Evolved Unique
+Unique
+Extra
+Common
+Intrinsic
+Resistance
+Effects
+Lang

@@ -40,7 +40,9 @@ public class wardedSoulSkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return false;
+        double soulWard = entity.getAttributeValue(MalumAttributes.SOUL_WARD_CAPACITY);
+
+        return soulWard >= 40;
     }
 
     // Warded Soul (Increase Soul Ward Cap, - Soul Ward Charge || Soul Ward Charge ++, -- Soul Ward Cap)

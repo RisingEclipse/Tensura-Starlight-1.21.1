@@ -5,6 +5,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Configuration - Extra Skill: [Spirit Sorcerer]
+
+- Configuration - Effect: [Soul Aegis]
+
+- Extra Skill: [Spirit Sorcerer]
+
+- Effect: [Soul Aegis]
+
+Implemented a datapack adding support for the following mods:
+Ars Nouveau
+Ars Hex
+Ars Elemental
+Ars Zero
+
+Malum
+Enigmatic Arcana
+
+### Changed
+Tensura: Starlight is now dependent fully on Ars Elemental, this is in order to make sure that the Ars Nouveau skills are obtainable.
+This will be reversed when I learn how to make them optional for this.
+
+All Ars Nouveau Intrinsic Skills have been given methods to naturally acquire them.
+All Malum Intrinsic Skills have been given methods to naturally acquire them.
+
 ## [0.1.1-BETA-SOURCEBLOOD-PART1] 2026-04-16
 
 ### Changed

@@ -1,0 +1,18 @@
+{
+    "neoforge:conditions": [
+        {
+            "type": "neoforge:mod_loaded",
+            "modid": "ars_elemental"
+        }
+    ],
+    "type": "ars_elemental:flashjack_entity",
+    "abilities": [],
+    "abilities_random": {
+        "trstarlight:flashjack_genetics": 0.1
+    },
+    "max_aura": 1000,
+    "max_magicule": 1000,
+    "min_aura": 1000,
+    "min_magicule": 1000,
+    "spiritualHealth": 40
+}

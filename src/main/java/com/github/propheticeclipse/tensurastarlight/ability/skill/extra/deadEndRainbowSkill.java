@@ -128,7 +128,7 @@ public class deadEndRainbowSkill extends Skill {
     }
 
     static {
-        DEAD_END_RAINBOW_SKILL = ResourceLocation.fromNamespaceAndPath("trstarlight", "dead_end_rainbow_skill");
+        DEAD_END_RAINBOW_SKILL = ResourceLocation.fromNamespaceAndPath("trstarlight", "unleashed_dead_end");
         CONFIG = ConfigRegistry.getConfig(itemExtraSkillsConfig.class).deadEndRainbowSkill;
     }
 }

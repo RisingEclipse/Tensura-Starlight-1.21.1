@@ -9,8 +9,8 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class templateSkill extends Skill {
 
-    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG;
-    public static final ResourceLocation MEMORY_RECREATION;
+    private static final aspectSeriesSkillConfig.MemoryRecreation CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
+    public static final ResourceLocation MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
 
     public templateSkill() {
         super(SkillType.UNIQUE);
@@ -36,10 +36,5 @@ public class templateSkill extends Skill {
         }
 
         return var10000;
-    }
-
-    static {
-        MEMORY_RECREATION = ResourceLocation.fromNamespaceAndPath("trstarlight", "skill_id");
-        CONFIG = ConfigRegistry.getConfig(aspectSeriesSkillConfig.class).MemoryRecreation;
     }
 }

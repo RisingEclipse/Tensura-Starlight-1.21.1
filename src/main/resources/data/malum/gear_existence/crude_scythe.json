@@ -1,0 +1,7 @@
+{
+  "type": "malum:crude_scythe",
+  "evolution": "malum:soul_stained_steel_scythe",
+  "epGain": 0.05,
+  "minEP": 1000,
+  "maxEP": 50000
+}

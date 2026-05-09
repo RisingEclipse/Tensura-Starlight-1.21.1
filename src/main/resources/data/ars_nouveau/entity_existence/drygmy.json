@@ -1,0 +1,13 @@
+{
+    "type": "ars_nouveau:drygmy",
+    "abilities": [],
+    "abilities_random": {
+        "trstarlight:drygmy_genetics": 0.1,
+        "trstarlight:lucky": 0.05
+    },
+    "max_aura": 1000,
+    "max_magicule": 1000,
+    "min_aura": 1000,
+    "min_magicule": 1000,
+    "spiritualHealth": 40
+}

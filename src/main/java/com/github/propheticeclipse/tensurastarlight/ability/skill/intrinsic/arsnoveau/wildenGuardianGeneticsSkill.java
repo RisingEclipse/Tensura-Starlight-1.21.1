@@ -2,16 +2,20 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.ars
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.hollingsworth.arsnouveau.api.perk.PerkAttributes;
+import com.hollingsworth.arsnouveau.setup.registry.ModEntities;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
+import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.damage.TensuraDamageHelper;
 import io.github.manasmods.tensura.damage.TensuraDamageTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -19,6 +23,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 
 public class wildenGuardianGeneticsSkill extends Skill {
 
@@ -35,6 +40,16 @@ public class wildenGuardianGeneticsSkill extends Skill {
 
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
+    }
+
+    public boolean checkAcquiringRequirement(Player entity, double newEP) {
+
+        Boolean LightVestiges = SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get());
+        if (entity instanceof ServerPlayer servPlayer) {
+            return LightVestiges && (servPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.WILDEN_GUARDIAN.get())) >= 100);
+        } else {
+            return false;
+        }
     }
 
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {

@@ -130,7 +130,7 @@ New Race Ideas:
 Mori Scythe (Ricky!)
 
 Genesis-Class:
-Unbreakable, Looks enchanted even if its not, Minimum base attack of 300
+Unbreakable, Looks enchanted even if its not, Minimum base attack of 300 <--- Definitely not the fucking case
 6+ Attribute Affixes, 6+ Upper Affixes, 7+ Gem Sockets
 
 Create NPC Regeneration skills that don't affect players and cannot be plundered/copied (2b MP)
@@ -236,11 +236,12 @@ Spirit Sorcerer (Added Necromancy Spellcasting stats, increased scythe proficien
 and a mastery effect to do only Spiritual Damage? Maybe have it evolve into a unique eventually:tm:?)
 
 // Malum, Gaze //
-Allow malignant body to be earned by absorbing malignant peweter via Absorb and Dissolve.
-Allow Soul Plunderer to be acquired by having a sufficient spirit spoils attribute. >=5
-Allow Warded Soul to be acquired by having a soul thats warded by ??? points.
 
 // Done //
+Allow Warded Soul to be acquired by having a soul thats warded by 40 points.
+Allow malignant body to be earned by absorbing malignant peweter via Absorb and Dissolve. (Times Used Statistic)
+Allow Soul Plunderer to be acquired by having a sufficient spirit spoils attribute. >=5
+
 Warded Soul (Increase Soul Ward Cap, - Soul Ward Charge || Soul Ward Charge ++, -- Soul Ward Cap)
 Soul Plunderer (Increase spiritual damage perhaps? Not really relevant, but maybe also spiritual resistance? Or maybe make all damage spiritual?)
 Malignant Body (Increase Magic Resistance and Malignant Conversion (Also reduces Tensura Magic Damage Taken))
@@ -265,3 +266,5 @@ and apothic critting allowance?
 --------------------
 Implement a config for server owners to add a "Slow EP Mode" to certain users. Alternatively, something for giving specific skills when resetting?
 Dunno, something tho.
+
+Skill that pushes a target out of the body similar to possession.

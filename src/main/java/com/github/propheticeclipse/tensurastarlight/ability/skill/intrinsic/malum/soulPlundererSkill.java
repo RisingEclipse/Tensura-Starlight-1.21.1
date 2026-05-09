@@ -2,6 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.mal
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.malumSeriesSkillConfig;
 import com.sammy.malum.registry.common.MalumAttributes;
+import com.sammy.malum.registry.common.item.MalumItems;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
@@ -35,7 +36,9 @@ public class soulPlundererSkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return false;
+        double spiritSpoils = entity.getAttributeValue(MalumAttributes.SPIRIT_SPOILS);
+
+        return spiritSpoils >= 5;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

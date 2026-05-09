@@ -1,0 +1,73 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_zero"
+    }
+  ],
+  "type": "ars_zero:conjuration_filial",
+  "epGain": 0.05,
+  "minEP": 5000,
+  "uniqueEvolutions": [
+    {
+      "EP": 100000,
+      "attributes": [
+        {
+          "type": "ars_nouveau:sauce.perk.summon_power",
+          "amount": 1,
+          "slot": "offhand"
+        },
+        {
+          "type": "ars_nouveau:sauce.perk.summon_resistance",
+          "amount": 20,
+          "slot": "offhand"
+        }
+      ]
+    },
+    {
+      "EP": 250000,
+      "attributes": [
+        {
+          "type": "ars_nouveau:sauce.perk.summon_power",
+          "amount": 2,
+          "slot": "offhand"
+        },
+        {
+          "type": "ars_nouveau:sauce.perk.summon_resistance",
+          "amount": 40,
+          "slot": "offhand"
+        }
+      ]
+    },
+    {
+      "EP": 500000,
+      "attributes": [
+        {
+          "type": "ars_nouveau:sauce.perk.summon_power",
+          "amount": 2,
+          "slot": "offhand"
+        },
+        {
+          "type": "ars_nouveau:sauce.perk.summon_resistance",
+          "amount": 40,
+          "slot": "offhand"
+        }
+      ]
+    },
+    {
+      "EP": 1000000,
+      "attributes": [
+        {
+          "type": "ars_nouveau:sauce.perk.summon_power",
+          "amount": 5,
+          "slot": "offhand"
+        },
+        {
+          "type": "ars_nouveau:sauce.perk.summon_resistance",
+          "amount": 100,
+          "slot": "offhand"
+        }
+      ]
+    }
+  ]
+}

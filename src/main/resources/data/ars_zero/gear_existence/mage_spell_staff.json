@@ -1,0 +1,13 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "ars_zero"
+    }
+  ],
+  "type": "ars_zero:mage_spell_staff",
+  "evolution": "ars_zero:archmage_spell_staff",
+  "epGain": 0.05,
+  "minEP": 55000,
+  "maxEP": 100000
+}

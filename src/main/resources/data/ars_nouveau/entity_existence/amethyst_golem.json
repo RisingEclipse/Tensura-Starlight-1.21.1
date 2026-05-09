@@ -1,0 +1,12 @@
+{
+    "type": "ars_nouveau:amethyst_golem",
+    "abilities": [],
+    "abilities_random": {
+        "trstarlight:amethyst_golem_genetics": 0.1
+    },
+    "max_aura": 1000,
+    "max_magicule": 1000,
+    "min_aura": 1000,
+    "min_magicule": 1000,
+    "spiritualHealth": 40
+}

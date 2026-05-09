@@ -1,0 +1,12 @@
+{
+    "type": "ars_nouveau:whirlisprig",
+    "abilities": [],
+    "abilities_random": {
+        "trstarlight:whirlisprig_genetics": 0.1
+    },
+    "max_aura": 1000,
+    "max_magicule": 1000,
+    "min_aura": 1000,
+    "min_magicule": 1000,
+    "spiritualHealth": 40
+}

@@ -1,0 +1,14 @@
+{
+    "type": "ars_nouveau:wilden_boss",
+    "abilities": [],
+    "abilities_random": {
+        "trstarlight:wilden_guardian_genetics": 0.2,
+        "trstarlight:wilden_hunter_genetics": 0.2,
+        "trstarlight:wilden_stalker_genetics": 0.2
+    },
+    "max_aura": 50000,
+    "max_magicule": 50000,
+    "min_aura": 50000,
+    "min_magicule": 50000,
+    "spiritualHealth": 2000
+}

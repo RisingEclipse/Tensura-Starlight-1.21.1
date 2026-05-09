@@ -1,0 +1,11 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "enigmatic_arcana"
+    }
+  ],
+  "type": "enigmatic_arcana:antonomos",
+  "epGain": 0.05,
+  "minEP": 5000
+}
