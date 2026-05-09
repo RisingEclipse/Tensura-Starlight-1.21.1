@@ -1,5 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight.mixin;
 
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.util.EnergyHelper;
@@ -24,6 +25,10 @@ public class MixinEnergyHelper {
 
         if (SkillUtils.hasSkill(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
             original *= 0.90;
+        }
+
+        if (SkillUtils.hasSkill(entity, StarlightUltimateSkills.LETHE.get())) {
+            original *= 0.85;
         }
 
         return original;

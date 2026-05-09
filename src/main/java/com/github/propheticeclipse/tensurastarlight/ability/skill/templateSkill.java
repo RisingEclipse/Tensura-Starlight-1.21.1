@@ -6,6 +6,7 @@ import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 
 public class templateSkill extends Skill {
 
@@ -22,6 +23,10 @@ public class templateSkill extends Skill {
 
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
+    }
+
+    public boolean checkAcquiringRequirement(Player entity, double newEP) {
+        return true;
     }
 
     public int getModes(ManasSkillInstance instance) {

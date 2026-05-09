@@ -49,7 +49,7 @@ public class malignantBodySkill extends Skill {
             malignantPewterConsumeCount = 0;
         }
 
-        return 10 >= malignantPewterConsumeCount;
+        return malignantPewterConsumeCount >= 10;
     }
 
     public boolean onTakenDamage(ManasSkillInstance instance, LivingEntity owner, DamageSource source, Changeable<Float> amount) {

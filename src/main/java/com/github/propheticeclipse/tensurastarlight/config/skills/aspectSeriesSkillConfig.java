@@ -17,6 +17,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     public VestigesOfEidolons VestigesOfEidolons = new VestigesOfEidolons();
     public RemnantsOfAscension RemnantsOfAscension = new RemnantsOfAscension();
 
+    public Lethe Lethe = new Lethe();
+
     public MemoryRecreation MemoryRecreation = new MemoryRecreation();
     public MagiculeEngravement MagiculeEngravement = new MagiculeEngravement();
     public PhantasmalCreation PhantasmalCreation = new PhantasmalCreation();
@@ -505,5 +507,10 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int itemMemoryCopiesMastered = 2;
         public int itemMemoryCopiesUnmastered = 1;
 
+    }
+
+    public static class Lethe extends ManasSubConfig {
+        public int acquirementMastery = 1;
+        public double acquirementCost = 2000000;
     }
 }
