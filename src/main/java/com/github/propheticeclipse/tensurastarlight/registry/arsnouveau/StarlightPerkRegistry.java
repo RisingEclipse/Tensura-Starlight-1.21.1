@@ -6,6 +6,7 @@ import com.hollingsworth.arsnouveau.api.perk.PerkSlot;
 import com.hollingsworth.arsnouveau.api.registry.PerkRegistry;
 import com.hollingsworth.arsnouveau.api.spell.SpellTier;
 import com.hollingsworth.arsnouveau.common.items.data.ArmorPerkHolder;
+import com.hollingsworth.arsnouveau.setup.registry.APIRegistry;
 import com.hollingsworth.arsnouveau.setup.registry.DataComponentRegistry;
 import io.github.manasmods.tensura.Tensura;
 import io.github.manasmods.tensura.registry.item.TensuraArmorItems;
@@ -26,15 +27,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class StarlightPerkRegistry {
 
-
-
-    private static ConcurrentHashMap<Item, List<List<PerkSlot>>> itemPerkProviderMap = new ConcurrentHashMap<>();
-
-    public static boolean registerPerkProvider(ItemLike item, List<List<PerkSlot>> tierList) {
-        itemPerkProviderMap.put(item.asItem(), tierList);
-        return true;
-    }
-
     @SubscribeEvent
     public static void modifyComponents(ModifyDefaultComponentsEvent event) {
 
@@ -49,7 +41,7 @@ public class StarlightPerkRegistry {
     }
 
     public static void constructThreads() {
-        registerPerkProvider(
+        PerkRegistry.registerPerkProvider(
                 TensuraArmorItems.ADAMANTITE_BOOTS.get(),
                 Arrays.asList(
                         Arrays.asList(PerkSlot.ONE, PerkSlot.ONE, PerkSlot.ONE)
