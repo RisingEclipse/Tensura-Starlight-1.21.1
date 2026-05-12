@@ -30,12 +30,13 @@ public final class TensuraStarlight {
         bus.addListener(this::onCommonSetup);
         bus.addListener(this::gatherData);
         bus.addListener(StarlightPerkRegistry::modifyComponents);
+
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
+        StarlightPerkRegistry.constructThreads();
         event.enqueueWork(() -> {
             StarlightConfigs.addToConfig();
-            StarlightPerkRegistry.constructThreads();
         });
     }
 

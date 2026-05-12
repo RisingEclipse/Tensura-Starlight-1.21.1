@@ -3417,7 +3417,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double wixiePotionDuration = 0.0;
         public double whirlsprigSaturationModifier = 0.0;
         public double spellDamageBonus = 0.0;
-        public double maxMana = 0.0;
+        public double maxMana = 50.0;
         public double manaRegen = 0.0;
         public double feather = 0.0;
         public double warding = 0.0;
@@ -3889,7 +3889,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double whirlsprigSaturationModifier = 0.0;
         public double spellDamageBonus = 0.0;
         public double maxMana = 0.0;
-        public double manaRegen = 0.0;
+        public double manaRegen = 50.0;
         public double feather = 0.0;
         public double warding = 0.0;
         public double weight = 0.0;
@@ -3912,7 +3912,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double conjurationSpellResistance = 0.0;
         public double elementalSpellPower = 0.0;
         public double elementalSpellResistance = 0.0;
-        public double manaDiscount = 0.0;
+        public double manaDiscount = 10.0;
         public double spellCriticalChance = 0.0;
         public double spellCriticalDamage = 0.0;
         // Additional Malum Attributes
@@ -4359,7 +4359,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double wixiePotionDuration = 0.0;
         public double whirlsprigSaturationModifier = 0.0;
         public double spellDamageBonus = 0.0;
-        public double maxMana = 0.0;
+        public double maxMana = 50.0;
         public double manaRegen = 0.0;
         public double feather = 0.0;
         public double warding = 0.0;
@@ -4383,7 +4383,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double conjurationSpellResistance = 0.0;
         public double elementalSpellPower = 0.0;
         public double elementalSpellResistance = 0.0;
-        public double manaDiscount = 0.0;
+        public double manaDiscount = 10.0;
         public double spellCriticalChance = 0.0;
         public double spellCriticalDamage = 0.0;
         // Additional Malum Attributes
@@ -4830,7 +4830,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double wixiePotionDuration = 0.0;
         public double whirlsprigSaturationModifier = 0.0;
         public double spellDamageBonus = 0.0;
-        public double maxMana = 0.0;
+        public double maxMana = 100.0;
         public double manaRegen = 0.0;
         public double feather = 0.0;
         public double warding = 0.0;
@@ -4854,7 +4854,7 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double conjurationSpellResistance = 0.0;
         public double elementalSpellPower = 0.0;
         public double elementalSpellResistance = 0.0;
-        public double manaDiscount = 0.0;
+        public double manaDiscount = 20.0;
         public double spellCriticalChance = 0.0;
         public double spellCriticalDamage = 0.0;
         // Additional Malum Attributes
@@ -6244,31 +6244,31 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double wixiePotionDuration = 0.0;
         public double whirlsprigSaturationModifier = 0.0;
         public double spellDamageBonus = 0.0;
-        public double maxMana = 0.0;
+        public double maxMana = 100.0;
         public double manaRegen = 0.0;
         public double feather = 0.0;
         public double warding = 0.0;
         public double weight = 0.0;
 
-        public double fireSpellDamage = 0.0;
+        public double fireSpellDamage = 5.0;
         public double fireSpellResistance = 0.0;
-        public double waterSpellDamage = 0.0;
+        public double waterSpellDamage = 5.0;
         public double waterSpellResistance = 0.0;
-        public double earthSpellDamage = 0.0;
+        public double earthSpellDamage = 5.0;
         public double earthSpellResistance = 0.0;
-        public double airSpellDamage = 0.0;
+        public double airSpellDamage = 5.0;
         public double airSpellResistance = 0.0;
-        public double abjurationSpellPower = 0.0;
+        public double abjurationSpellPower = 5.0;
         public double abjurationSpellResistance = 0.0;
-        public double manipulationSpellPower = 0.0;
+        public double manipulationSpellPower = 5.0;
         public double manipulationSpellResistance = 0.0;
-        public double necromancySpellPower = 0.0;
+        public double necromancySpellPower = 5.0;
         public double necromancySpellResistance = 0.0;
-        public double summonSpellPower = 0.0;
+        public double summonSpellPower = 5.0;
         public double conjurationSpellResistance = 0.0;
-        public double elementalSpellPower = 0.0;
+        public double elementalSpellPower = 5.0;
         public double elementalSpellResistance = 0.0;
-        public double manaDiscount = 0.0;
+        public double manaDiscount = 20.0;
         public double spellCriticalChance = 0.0;
         public double spellCriticalDamage = 0.0;
         // Additional Malum Attributes
