@@ -1,22 +1,36 @@
 package com.github.propheticeclipse.tensurastarlight.utils;
 
+import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
+import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
+import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
 import com.sammy.malum.common.data.attachment.ProgressionData;
 import com.sammy.malum.registry.common.MalumAttachmentTypes;
+import dev.architectury.registry.registries.RegistrySupplier;
+import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.SpawnPointHelper;
+import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
+import io.github.manasmods.tensura.Tensura;
+import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.data.TensuraTags;
+import io.github.manasmods.tensura.registry.effect.TensuraMobEffects;
 import io.github.manasmods.tensura.util.EnergyHelper;
 import io.github.manasmods.tensura.util.ObjectSelectionHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -38,6 +52,7 @@ import java.util.Random;
 import java.util.stream.StreamSupport;
 
 public class StarlightUtils {
+    private static final StarlightCommon.GlobalLists CONFIG = ConfigRegistry.getConfig(StarlightCommon.class).GlobalLists;
 
     public static void TeleportToSpawnpoint(LivingEntity player) {
         if (player instanceof ServerPlayer serverPlayer) {
@@ -142,7 +157,7 @@ public class StarlightUtils {
     }
 
 
-    public static void CreateRandomEngraveInHand(LivingEntity entity, int level, double successRate, double destroyRate, int randomEnchantTriggers, double costAP, double costMP, List<String> config) {
+    public static void CreateRandomEngraveInHand(LivingEntity entity, int level, double successRate, double destroyRate, int randomEnchantTriggers, double costAP, double costMP, List<String> blacklistConfig) {
         if (entity instanceof Player player && !EnergyHelper.isOutOfEnergy(entity, costAP, costMP)) {
             ItemStack heldItem = player.getMainHandItem();
             if (heldItem.isEmpty()) {
@@ -153,14 +168,11 @@ public class StarlightUtils {
             Registry<Enchantment> registry = player.level().registryAccess()
                     .registryOrThrow(Registries.ENCHANTMENT);
 
-            List<Holder<Enchantment>> allEngraves = StreamSupport.stream(
-                    registry.getTagOrEmpty(TensuraTags.Enchantments.ENGRAVING).spliterator(),
-                    false
-            ).filter(holder -> holder.unwrapKey()
-                    .map(ResourceKey::location)
-                    .map(id -> !config.contains(id.toString()))
-                    .orElse(true)
-            ).toList();
+            List<Holder<Enchantment>> allEngraves = getFilteredEnchantTag(
+                    registry,
+                    TensuraTags.Enchantments.ENGRAVING,
+                    blacklistConfig
+            );
 
             if (allEngraves.isEmpty()) {
                 player.displayClientMessage(Component.literal("No applicable engravements found for this item."), true);
@@ -179,5 +191,102 @@ public class StarlightUtils {
                 }
             }
         }
+    }
+
+    public static void CreateRandomEngraveInHand(LivingEntity entity, int level, double successRate, double destroyRate, int randomEnchantTriggers, double costAP, double costMP, List<String> blacklistConfig, List<String> whitelistConfig) {
+        if (entity instanceof Player player && !EnergyHelper.isOutOfEnergy(entity, costAP, costMP)) {
+            ItemStack heldItem = player.getMainHandItem();
+            if (heldItem.isEmpty()) {
+                player.displayClientMessage(Component.literal("You must hold an item to enchant!"), true);
+                return;
+            }
+
+            Registry<Enchantment> registry = player.level().registryAccess()
+                    .registryOrThrow(Registries.ENCHANTMENT);
+
+            List<Holder<Enchantment>> allEngraves = getFilteredEnchantTag(
+                    registry,
+                    TensuraTags.Enchantments.ENGRAVING,
+                    blacklistConfig,
+                    whitelistConfig
+            );
+
+            if (allEngraves.isEmpty()) {
+                player.displayClientMessage(Component.literal("No applicable engravements found for this item."), true);
+                return;
+            }
+
+            for (int i = 0; i < randomEnchantTriggers; i++) {
+                if (!heldItem.isEmpty() && entity.getRandom().nextDouble() < successRate) {
+                    int randomChoice = new Random().nextInt(allEngraves.size());
+                    Holder<Enchantment> selectedHolder = allEngraves.get(randomChoice);
+                    heldItem.enchant(selectedHolder, level);
+                    if (entity.getRandom().nextDouble() < destroyRate) {
+                        heldItem.shrink(1);
+                    }
+                    player.displayClientMessage(Component.literal("Your weapon has been engraved with " + selectedHolder.getRegisteredName() + "!"), true);
+                }
+            }
+        }
+    }
+
+    public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int duration, int masteredAmplifier, int unmasteredAmplifier) {
+        target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), duration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier, false, false, false));
+    }
+
+    public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int duration, int masteredAmplifier, int unmasteredAmplifier, boolean ambient, boolean visible, boolean showIcon) {
+        target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), duration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier, ambient, visible, showIcon));
+    }
+
+    public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int masteredDuration, int unmasteredDuration, int masteredAmplifier, int unmasteredAmplifier, boolean ambient, boolean visible, boolean showIcon) {
+        target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), instance.isMastered(target) ? masteredDuration : unmasteredDuration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier, ambient, visible, showIcon));
+    }
+
+    public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int masteredDuration, int unmasteredDuration, int masteredAmplifier, int unmasteredAmplifier) {
+        target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), instance.isMastered(target) ? masteredDuration : unmasteredDuration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier));
+    }
+
+    public static List<MobEffectInstance> getFilteredEffects(Player player, List<String> blacklistConfig, List<String> whitelistConfig) {
+        return player.getActiveEffects()
+                .stream()
+                .filter(effect -> {
+                    ResourceLocation id = BuiltInRegistries.MOB_EFFECT.getKey(effect.getEffect().value());
+
+                    return id != null && (whitelistConfig.isEmpty() || whitelistConfig.contains(id.toString())) && !blacklistConfig.contains(id.toString()) && !CONFIG.globalEffectBlacklist.contains(id.toString());
+                })
+                .toList();
+    }
+
+    public static List<MobEffectInstance> getFilteredEffects(Player player, List<String> blacklistConfig) {
+        return player.getActiveEffects()
+                .stream()
+                .filter(effect -> {
+                    ResourceLocation id = BuiltInRegistries.MOB_EFFECT.getKey(effect.getEffect().value());
+
+                    return id != null && !blacklistConfig.contains(id.toString()) && !CONFIG.globalEffectBlacklist.contains(id.toString());
+                })
+                .toList();
+    }
+
+    public static List<Holder<Enchantment>> getFilteredEnchantTag(Registry<Enchantment> registry, TagKey<Enchantment> enchantTag, List<String> blacklistConfig) {
+        return StreamSupport.stream(
+                registry.getTagOrEmpty(enchantTag).spliterator(),
+                false
+        ).filter(holder -> holder.unwrapKey()
+                .map(ResourceKey::location)
+                .map(id -> !blacklistConfig.contains(id.toString()) && !CONFIG.globalEnchantmentBlacklist.contains(id.toString()))
+                .orElse(true)
+        ).toList();
+    }
+
+    public static List<Holder<Enchantment>> getFilteredEnchantTag(Registry<Enchantment> registry, TagKey<Enchantment> enchantTag, List<String> blacklistConfig, List<String> whitelistConfig) {
+        return StreamSupport.stream(
+                registry.getTagOrEmpty(enchantTag).spliterator(),
+                false
+        ).filter(holder -> holder.unwrapKey()
+                .map(ResourceKey::location)
+                .map(id -> (whitelistConfig.isEmpty() || whitelistConfig.contains(id.toString())) && !blacklistConfig.contains(id.toString()) && !CONFIG.globalEnchantmentBlacklist.contains(id.toString()))
+                .orElse(true)
+        ).toList();
     }
 }

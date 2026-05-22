@@ -1,12 +1,14 @@
 package com.github.propheticeclipse.tensurastarlight.config;
 
 import com.github.propheticeclipse.tensurastarlight.config.effects.BuffEffectsConfig;
+import com.github.propheticeclipse.tensurastarlight.config.effects.DebuffEffectsConfig;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.*;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.tensura.config.ReincarnationConfig;
 import io.github.manasmods.tensura.config.ability.skill.UniqueSkillConfig;
 
+import java.io.ObjectInputFilter;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -16,6 +18,7 @@ public class StarlightConfigs {
         ConfigRegistry.registerConfig(new StarlightCommon());
         // Effects
         ConfigRegistry.registerConfig(new BuffEffectsConfig());
+        ConfigRegistry.registerConfig(new DebuffEffectsConfig());
         // Skills
         ConfigRegistry.registerConfig(new aspectSeriesSkillConfig());
         ConfigRegistry.registerConfig(new itemExtraSkillsConfig());

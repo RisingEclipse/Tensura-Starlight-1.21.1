@@ -5,13 +5,19 @@ import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceC
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.grandMemoryBornRace;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.greaterMemoryBornRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
+import io.github.manasmods.tensura.ability.SkillHelper;
+import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
+import io.github.manasmods.tensura.registry.skill.ExtraSkills;
 import io.github.manasmods.tensura.storage.Alignment;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
@@ -78,5 +84,13 @@ public class aspectOfRegressionRace extends grandMemoryBornRace {
 
     @Override
     public void onRaceEvolution(ManasRaceInstance instance, LivingEntity entity, ManasRaceInstance evolution) {
+        // Place Lethe evolution trigger here.
+        if (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get()) && SkillUtils.isSkillMastered(entity, ExtraSkills.LAW_MANIPULATION.get())) {
+            if (!SkillUtils.hasSkillFully(entity, StarlightUltimateSkills.LETHE.get())) {
+                TensuraSkillInstance skill = new TensuraSkillInstance(StarlightUltimateSkills.LETHE.get());
+                skill.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+                SkillHelper.learnSkill(entity, skill);
+            }
+        }
     }
 }

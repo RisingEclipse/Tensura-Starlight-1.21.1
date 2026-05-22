@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -40,7 +41,6 @@ public class EmberRemainsSkill extends Skill {
 //
 //    Temporarily affects all beneficial effects.
 
-    @Override
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
         if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
@@ -59,17 +59,14 @@ public class EmberRemainsSkill extends Skill {
         return hasLightRemains && deniedFate;
     }
 
-    @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
     }
 
-    @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
         return CONFIG.magiculeAcquirementCost;
     }
 
-    @Override
     public int getModes(ManasSkillInstance instance) {
         return 2;
     }
@@ -85,7 +82,6 @@ public class EmberRemainsSkill extends Skill {
         return var10000;
     }
 
-    @Override
     public boolean onDeath(ManasSkillInstance instance, LivingEntity owner, DamageSource source) {
         //[Passive - True] Bypass death, set HP to 10% of total and gain Resistance 2, Strengthen 2 for 60s. 600s CD, Costless. Gain 10 Mastery.
         if (owner instanceof Player player) {
@@ -118,7 +114,6 @@ public class EmberRemainsSkill extends Skill {
         }
     }
 
-    @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
         return true;
     }
@@ -143,7 +138,6 @@ public class EmberRemainsSkill extends Skill {
         return true;
     }
 
-    @Override
     public void onPressed(ManasSkillInstance instance, LivingEntity entity, int keyNumber, int mode) {
         //[Active - Press] Kindle Flames: If under 50% HP, increase the duration of all buffs by 60s. 30s CD,
         // 2000 MP per minute of increased duration. Gain 1 Mastery.
@@ -151,7 +145,7 @@ public class EmberRemainsSkill extends Skill {
             if (entity instanceof Player player) {
                 IExistence existence = TensuraStorages.getExistenceFrom(player);
                 int totalDurationExtended = 0;
-                for (MobEffectInstance effect : player.getActiveEffects()) { // Setup Whitelist/Blacklist Config
+                for (MobEffectInstance effect : StarlightUtils.getFilteredEffects(player, CONFIG.kindleFlamesEffectBlacklist, CONFIG.kindleFlamesEffectWhitelist)) { // Setup Whitelist/Blacklist Config
                     if (effect.getEffect().value().getCategory() == MobEffectCategory.BENEFICIAL) {
                         int newDuration = effect.getDuration() + CONFIG.kindleFlamesDurationIncrease; // +60s
                         MobEffectInstance extended = new MobEffectInstance(effect.getEffect(), newDuration, effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon());

@@ -164,6 +164,9 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         @Comment("What should the max level of Combat Flow be when obtained from Ember Remains?\nAmplifier 0 = Level 1")
         public int combatFlowMaxAmplifier = 9;
 
+        public List<String> kindleFlamesEffectBlacklist = List.of();
+        public List<String> kindleFlamesEffectWhitelist = List.of();
+
         @Comment("How much MP should Kindle Flames cost per effect's duration extended.")
         public int kindleFlamesManaCost = 2000;
         @Comment("How long should Kindle Flames go on cooldown after activation?\nTime in seconds.")
@@ -199,6 +202,9 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public double damageNegationLowHPUnmastered = 3.0;
         @Comment("How at what point should your health be considered low HP?\n0.1 = 10% of Health.")
         public double damageNegationLowHPThresh = 0.4;
+
+        public List<String> slipperyFormEffectBlacklist = List.of();
+        public List<String> slipperyFormEffectWhitelist = List.of();
 
         @Comment("How much MP should each level removed by Shifting Form cost?")
         public double shiftingFormMPCost = 750.0;
@@ -327,6 +333,11 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int shiftingFormAmpliDurationScaling = 300;
         public int shiftingFormBuffMaxAmplifier = 9;
 
+        public int combatFlowDurationFirstHit = 100;
+        public int combatFlowDurationConsecutiveHit = 75;
+        public int combatFlowAmpliDurationScaling = 125;
+        public int combatFlowMaxAmplifier = 9;
+
         public double elementalDamageResistanceMod = 0.8;
         public int elementalDamageNegationCapMastered = 1000;
         public int elementalDamageNegationCapUnmastered = 500;
@@ -340,6 +351,9 @@ public class aspectSeriesSkillConfig extends ManasConfig {
 
         public int flaringFormCooldownMastered = 15;
         public int flaringFormCooldownUnmastered = 30;
+
+        public List<String> flaringFormEffectBlacklist = List.of();
+        public List<String> flaringFormEffectWhitelist = List.of();
 
         public int flaringFormBuffDurationBonus = 1200;
         public int flaringFormBuffMPCostPerDurationBonus = 2500;
@@ -377,7 +391,7 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         @Comment("1.0 = 100%")
         public double engraveSuccessRate = 0.8;
         @Comment("1.0 = 100%")
-        public double engraveDestroyRate = 0.0;
+        public double engraveDestroyRate = 0.2;
         @Comment("Number of Copies")
         public int engraveCount = 2;
         @Comment("Flat AP Consumption")
@@ -392,14 +406,14 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int engraveLevelMastered = 3;
         public int engraveLevelUnmastered = 1;
         @Comment("Engrave Blacklist")
-        public List<String> engraveBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing");
+        public List<String> engraveBlacklist = List.of("tensura:enervation", "tensura:lethargy", "tensura:sealing", "tensura:stagnation", "tensura:ruination", "tensura:sealing", "tensura:vigor", "tensura:dead_end_rainbow", "tensura:slotting");
     }
 
     public static class PhantasmalCreation extends ManasSubConfig {
         public int acquirementMastery = 1;
         public double acquirementCost = 2147483647;
 
-        public int blockMemoryCooldownMastered = 0;
+        public int blockMemoryCooldownMastered = 1;
         public int blockMemoryCooldownUnmastered = 5;
 
         public double blockMemoryAPCostPercentMastered = 0.0;
@@ -512,5 +526,112 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     public static class Lethe extends ManasSubConfig {
         public int acquirementMastery = 1;
         public double acquirementCost = 2000000;
+
+        @Comment("How much Presence Sense should Spiriton Observation grant?")
+        public int presenceSenseLevelUnmastered = 3;
+        public int presenceSenseLevelMastered = 3;
+        @Comment("How much Heat Sense Radius should Spiriton Observation grant?")
+        public double heatSenseRadiusUnmastered = 10.0F;
+        public double heatSenseRadiusMastered = 20.0F;
+        @Comment("How much Soundwave Sense Radius should Spiriton Observation grant?")
+        public double soundSenseRadiusUnmastered = 10.0F;
+        public double soundSenseRadiusMastered = 20.0F;
+
+        public double presenceSenseBonusMastered = 1.0;
+        public double presenceSenseBonusUnmastered = 1.0;
+
+        public double critChanceBonusMastered = 0.5;
+        public double critChanceBonusUnmastered = 0.25;
+
+        public double critDamageBonusMastered = 1.0;
+        public double critDamageBonusUnmastered = 0.5;
+
+        public double protShredBonusMastered = 0.4;
+        public double protShredBonusUnmastered = 0.2;
+
+        public double armorShredBonusMastered = 0.4;
+        public double armorShredBonusUnmastered = 0.2;
+
+        public double magiculeGainBonusMastered = 5.25;
+        public double magiculeGainBonusUnmastered = 5.25;
+
+        public double auraGainBonusMastered = 1.75;
+        public double auraGainBonusUnmastered = 1.75;
+
+        public double resistDegradeBonusMastered = 1.0;
+        public double resistDegradeBonusUnmastered = 1.0;
+
+        public int existenceRegenAmpMastered = 4;
+        public int existenceRegenAmpUnmastered = 4;
+
+        public int healthRegenAmpMastered = 0;
+        public int healthRegenAmpUnmastered = 0;
+
+        public int spiritualHealthRegenAmpMastered = 0;
+        public int spiritualHealthRegenAmpUnmastered = 0;
+
+        public int shiftingFormDamageTrigger = 1;
+        public int shiftingFormDurationFirstHit = 100;
+        public int shiftingFormDurationConsecutiveHit = 50;
+        public int shiftingFormAmpliDurationScaling = 150;
+        public int shiftingFormBuffMaxAmplifier = 9;
+
+        public int combatFlowDurationFirstHit = 100;
+        public int combatFlowDurationConsecutiveHit = 100;
+        public int combatFlowAmpliDurationScaling = 150;
+        public int combatFlowMaxAmplifier = 11;
+
+        public float damageNegationMastered = 20;
+        public float damageNegationUnmastered = 10;
+
+        public double elementalDamageResistanceMod = 0.8;
+        public int elementalDamageNegationCapMastered = 1000;
+        public int elementalDamageNegationCapUnmastered = 1000;
+        public double elementalResistanceBarrierMulti = 2.0;
+
+        public double deathBypassHealthReturn = 0.1;
+        public double deathBypassSpiritualHealthReturnThresh = 0.1;
+        public double deathBypassSpiritualHealthReturn = 0.1;
+        public int deathBypassCooldown = 600;
+        public int deathBypassResistanceDuration = 1200;
+        public int deathBypassResistanceAmplifier = 2;
+
+        public double concealedTargetDamageModMastered = 0.1;
+        public double concealedTargetDamageModUnmastered = 0.05;
+        public double LDFWModMastered = 4.0;
+        public double LDFWModUnmastered = 2.0;
+        public double otherElementalModMastered = 3.0;
+        public double otherElementalModUnmastered = 1.5;
+
+        public double deepTidesConeAngle = 180.0;
+        public double deepTidesConeLength = 21.0;
+        public float deepTidesDamageMastered = 200;
+        public float deepTidesDamageUnmastered = 100;
+
+        public int deepTidesSilenceDurationMastered = 200;
+        public int deepTidesSilenceDurationUnmastered = 200;
+        public int deepTidesSilenceAmplifierMastered = 2;
+        public int deepTidesSilenceAmplifierUnmastered = 2;
+
+        public int deepTidesFragilityDurationMastered = 200;
+        public int deepTidesFragilityDurationUnmastered = 200;
+        public int deepTidesFragilityAmplifierMastered = 2;
+        public int deepTidesFragilityAmplifierUnmastered = 2;
+
+        public int deepTidesCooldown = 2;
+
+        // reformEffectBlacklist
+
+        public int reformVestigeDurationBonusMastered = 2400;
+        public int reformVestigeDurationBonusUnmastered = 1800;
+
+        public List<String> reformEffectBlacklist = List.of();
+        public List<String> reformEffectWhitelist = List.of();
+
+        public double buffExtensionCostMP = 5000.0;
+        public double debuffLevelDecreaseCostMP = 5000.0;
+
+        public int reformCooldownMastered = 30;
+        public int reformCooldownUnmastered = 60;
     }
 }

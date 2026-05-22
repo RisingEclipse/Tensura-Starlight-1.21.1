@@ -9,6 +9,9 @@ public class BuffEffectsConfig extends ManasConfig {
     public ShiftingArmor ShiftingArmor = new ShiftingArmor();
     public FlaringForm FlaringForm = new FlaringForm();
     public soulAegis soulAegis = new soulAegis();
+    public existenceRegeneration existenceRegeneration = new existenceRegeneration();
+    public healthRegen healthRegen = new healthRegen();
+    public spiritualRegen spiritualRegen = new spiritualRegen();
 
     public String getFileName() {
         return "tensura/tensura-starlight/effects/buffs";
@@ -39,5 +42,40 @@ public class BuffEffectsConfig extends ManasConfig {
         public double arcaneResonanceMod = 0.15;
         @Comment("What is the base duration of Soul Aegis")
         public int soulAegisBaseDuration = (10 * 20);
+    }
+
+    public static class existenceRegeneration extends ManasSubConfig {
+        @Comment("How fast should this effect trigger in ticks?")
+        public int tickRate = 20;
+
+        @Comment("How much of MP and AP should this effect regenerate per trigger based on Max%\nWhere 1.0 == 1%")
+        public double magiculePercent = 0.05;
+        public double auraPercent = 0.05;
+
+        @Comment("How much MP and AP should this effect cap out at? Based on a multiplier of Max%")
+        public double magiculeCap = 1.20;
+        public double auraCap = 1.20;
+    }
+
+    public static class healthRegen extends ManasSubConfig {
+        @Comment("How fast should this effect trigger in ticks?")
+        public int tickRate = 20;
+
+        @Comment("How much Health should this effect regen per trigger based on Max%\nWhere 1.0 == 1%")
+        public double regenPercent = 1.0;
+
+        @Comment("How much should this effect regen up to based on Max%")
+        public double regenCap = 1.0;
+    }
+
+    public static class spiritualRegen extends ManasSubConfig {
+        @Comment("How fast should this effect trigger in ticks?")
+        public int tickRate = 20;
+
+        @Comment("How much Spiritual Health should this effect regen per trigger based on Max%\nWhere 1.0 == 1%")
+        public double regenPercent = 1.0;
+
+        @Comment("How much should this effect regen up to based on Max%")
+        public double regenCap = 1.0;
     }
 }

@@ -1,7 +1,6 @@
 package com.github.propheticeclipse.tensurastarlight.registry;
 
 import com.github.propheticeclipse.tensurastarlight.config.StarlightConfigs;
-import com.github.propheticeclipse.tensurastarlight.registry.arsnouveau.StarlightPerkRegistry;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightExtraSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightIntrinsicSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;

@@ -12,6 +12,7 @@ import java.util.List;
 public class StarlightCommon extends ManasConfig {
     public SkillClassification SkillClassification = new SkillClassification();
     public DangerZone DangerZone = new DangerZone();
+    public GlobalLists GlobalLists = new GlobalLists();
 
     public String getFileName() {
         return "tensura/starlight-common";
@@ -27,6 +28,12 @@ public class StarlightCommon extends ManasConfig {
     public static class SkillClassification extends ManasSubConfig {
         @Comment("List of skills that are considered Eldritch-Series for the purposes of Tensura: Starlight")
         public List<String> eldritchSkills = List.of();
+    }
+
+    public static class GlobalLists extends ManasSubConfig {
+        @Comment("These blacklists will apply over ALL others.")
+        public List<String> globalEnchantmentBlacklist = List.of();
+        public List<String> globalEffectBlacklist = List.of();
     }
 
     public abstract static class RaceDefault extends RaceConfig.Default {

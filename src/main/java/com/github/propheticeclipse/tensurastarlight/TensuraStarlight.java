@@ -3,7 +3,6 @@ package com.github.propheticeclipse.tensurastarlight;
 import com.github.propheticeclipse.tensurastarlight.config.StarlightConfigs;
 import com.github.propheticeclipse.tensurastarlight.data.StarlightRegistryProvider;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRegistry;
-import com.github.propheticeclipse.tensurastarlight.registry.arsnouveau.StarlightPerkRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -29,12 +28,10 @@ public final class TensuraStarlight {
 
         bus.addListener(this::onCommonSetup);
         bus.addListener(this::gatherData);
-        bus.addListener(StarlightPerkRegistry::modifyComponents);
 
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
-        StarlightPerkRegistry.constructThreads();
         event.enqueueWork(() -> {
             StarlightConfigs.addToConfig();
         });

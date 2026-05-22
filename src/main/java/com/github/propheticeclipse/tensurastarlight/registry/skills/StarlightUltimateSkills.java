@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 
 public class StarlightUltimateSkills {
 
-    public static final RegistrySupplier<ManasSkill> LETHE = register("lethe_lady_of_phantasm", LetheSkill::new);
+    public static final RegistrySupplier<ManasSkill> LETHE = register("lethe", LetheSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);

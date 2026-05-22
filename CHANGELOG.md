@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Configuration - Global Lists: [Global Effect Blacklist]
+- Configuration - Global Lists: [Global Enchantment Blacklist]
+- Configuration - Skills: [Effect Blacklists & Whitelists] for skills [Ember Remains], [Shape Forgotten], [Remnants of Ascension], and [Lethe, Lady of Phantasm]
+- Configuration - Ultimate Skill: [Lethe, Lady of Phantasm]
+
+- Ultimate Skill: [Lethe, Lady of Phantasm]
+
+### Removed
+
+- Ars Nouveau Decoy EP duping method, if you wish to revert this change for any reason you can remove Ars Nouveau decoys from the clones tag from tensura.
+
 ## [0.1.2-BETA-SOURCEBLOOD-PART1] 2026-05-10
 
 ### Added
@@ -22,7 +37,6 @@ Ars Nouveau
 Ars Hex
 Ars Elemental
 Ars Zero
-
 Malum
 Enigmatic Arcana
 

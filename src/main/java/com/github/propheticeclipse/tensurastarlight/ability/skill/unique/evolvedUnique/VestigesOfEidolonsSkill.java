@@ -1,6 +1,7 @@
 package com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolvedUnique;
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
 import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
@@ -89,21 +90,19 @@ public class VestigesOfEidolonsSkill extends Skill {
 //[Active - Charge] Judgement of Past: Send out a wave of darkness in a 90° cone 15 blocks long, deal 100 (200 Mastered)
 // Darkness Damage and shortly after strike targets hit with a pillar of light from above dealing 500 (750 Mastered) Light Damage.
 // Doesn’t penetrate walls. 20s CD, 12000 MP. Gains 7 mastery.
-    @Override
-    public @Nullable MutableComponent getColoredName() {
-        MutableComponent name = super.getColoredName();
-        return name == null ? null : name.withStyle(s -> s.withColor(GradientColor.RAINBOW)); //Testing Colouring
-    }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
         boolean lightRemains = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
         boolean echoEndures = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.ECHO_ENDURES.get());
         boolean lifeReturns = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIFE_RETURNS.get());
-        return lightRemains && echoEndures && lifeReturns;
+        if (!SkillUtils.hasSkill(entity, StarlightUltimateSkills.LETHE.get())) {
+            return lightRemains && echoEndures && lifeReturns;
+        } else {
+            return false;
+        }
     }
 
-    @Override
     public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
         double auraPercent = 0.75; // 100 == 100% of EP, 1 == 1% of EP
         double manaPercent = 2.25;
@@ -259,17 +258,14 @@ public class VestigesOfEidolonsSkill extends Skill {
         }
     }
 
-    @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
         return CONFIG.magiculeAcquirementCost;
     }
 
-    @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
     }
 
-    @Override
     public int getMaxMastery() {
         return 2500;
     }
@@ -317,7 +313,6 @@ public class VestigesOfEidolonsSkill extends Skill {
         return instance.isToggled();
     }
 
-    @Override
     public void onTick(ManasSkillInstance instance, LivingEntity entity) {
         // Immutable Being: Passively regenerate 50 (100 Mastered) HP, 25 (50 Mastered) SHP, and 0.25% MP/AP per second. (Toggle)
         // Magicule Observation: See through all forms of lesser concealment, costless universal perception. (Toggle)
@@ -362,7 +357,6 @@ public class VestigesOfEidolonsSkill extends Skill {
         existence.markDirty();
     }
 
-    @Override
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
         AttributeHelper.addPresenceSense(entity, CONFIG.presenceSenseLevel);
         AttributeHelper.addPermanentAttributeIfHigher(entity, TensuraAttributes.PRESENCE_SENSE_RADIUS, SenseHeatSourceSkill.HEAT_SENSE, CONFIG.heatSenseRadius, AttributeModifier.Operation.ADD_VALUE);
@@ -370,14 +364,12 @@ public class VestigesOfEidolonsSkill extends Skill {
 
     }
 
-    @Override
     public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
         AttributeHelper.removePresenceSense(entity, CONFIG.presenceSenseLevel);
         AttributeHelper.removeAttributeIfCorrect(entity, TensuraAttributes.PRESENCE_SENSE_RADIUS, SenseHeatSourceSkill.HEAT_SENSE, CONFIG.heatSenseRadius);
         AttributeHelper.removeAttributeIfCorrect(entity, TensuraAttributes.PRESENCE_SENSE_RADIUS, SenseSoundwaveSkill.SOUND_SENSE, CONFIG.soundSenseRadius);
     }
 
-    @Override
     public boolean onDeath(ManasSkillInstance instance, LivingEntity owner, DamageSource source) {
         int cooldown = isMastered(instance, owner) ? CONFIG.deathBypassCooldownMastered : CONFIG.deathBypassCooldownUnmastered;
         //Additionally, Bypass Death once per day (800s Mastered). When bypassing, recover to 10% of maximum HP and Teleport to your last spawn point.
@@ -404,7 +396,6 @@ public class VestigesOfEidolonsSkill extends Skill {
         // Returning true continues the event, returning false CANCELS the event.
     }
 
-    @Override
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
         double concealedMod = isMastered(instance, owner) ? CONFIG.concealedTargetDamageModMastered : CONFIG.concealedTargetDamageModUnmastered;
         double damageBonus = isMastered(instance, owner) ? CONFIG.lightDarkElementModMastered : CONFIG.lightDarkElementModUnmastered; // Mastered : Unmastered
@@ -474,7 +465,7 @@ public class VestigesOfEidolonsSkill extends Skill {
                     TensuraDamageHelper.hurtSplit(
                             target,
                             (this.createSource(instance, entity, TensuraDamageTypes.LIGHT_ELEMENTAL, mode)),
-                            50,
+                            0.5F,
                             (this.createSource(instance, entity, TensuraDamageTypes.FIRE_ELEMENTAL, mode)),
                             damage
                     );
@@ -482,8 +473,8 @@ public class VestigesOfEidolonsSkill extends Skill {
                     level.playSound((Player) null, entity.getX(), entity.getY(), entity.getZ(), SoundEvents.CAMPFIRE_CRACKLE, SoundSource.PLAYERS, 1.5F, 0.3F);
                     // Replace Sound
                     MobEffectInstance darkness = new MobEffectInstance(MobEffects.DARKNESS, CONFIG.solarEchoDarknessDuration, CONFIG.solarEchoDarknessAmplifier, false, false, false);
-                    MobEffectInstance fragility = new MobEffectInstance(TensuraMobEffects.FRAGILITY, CONFIG.solarEchoFragilityDuration, CONFIG.solarEchoFragilityAmplifier, false, false, false);
-                    MobEffectInstance silence = new MobEffectInstance(TensuraMobEffects.SILENCE, CONFIG.solarEchoSilenceDuration, CONFIG.solarEchoSilenceAmplifier, false, false, false);
+                    MobEffectInstance fragility = new MobEffectInstance(TensuraMobEffects.getReference(TensuraMobEffects.FRAGILITY), CONFIG.solarEchoFragilityDuration, CONFIG.solarEchoFragilityAmplifier, false, false, false);
+                    MobEffectInstance silence = new MobEffectInstance(TensuraMobEffects.getReference(TensuraMobEffects.SILENCE), CONFIG.solarEchoSilenceDuration, CONFIG.solarEchoSilenceAmplifier, false, false, false);
 
                     TensuraMobEffect.addEffect(target, darkness, entity, this, mode);
                     TensuraMobEffect.addEffect(target, fragility, entity, this, mode);

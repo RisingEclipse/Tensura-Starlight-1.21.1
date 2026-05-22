@@ -68,12 +68,10 @@ public class EchoEnduresSkill extends Skill {
         return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains);
     }
 
-    @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
         return CONFIG.magiculeAcquirementCost;
     }
 
-    @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
     }
@@ -117,19 +115,17 @@ public class EchoEnduresSkill extends Skill {
         }
     }
 
-    @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
         return true;
     }
 
-    @Override
     public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
         // Apply Silence on hit here, 6s mastered, 3s unmastered, amp 0
         if (instance.isToggled()) {
             int amplifier = CONFIG.silenceAmplifier; // 0 = Level 1 Effect
             int duration = isMastered(instance, owner) ? CONFIG.silenceDurationMastered : CONFIG.silenceDurationUnmastered; // Mastered : Unmastered Duration is in Ticks (100 = ~5s
-            MobEffectInstance effectInstance = new MobEffectInstance(TensuraMobEffects.SILENCE, duration, amplifier, false, false, false);
-            target.addEffect(effectInstance);
+            MobEffectInstance effectInstance = new MobEffectInstance(TensuraMobEffects.getReference(TensuraMobEffects.SILENCE), duration, amplifier, false, false, false);
+            TensuraMobEffect.addEffect(target, effectInstance, owner, this, 0);
         }
         return true;
     }

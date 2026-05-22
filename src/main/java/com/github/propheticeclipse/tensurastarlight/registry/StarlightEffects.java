@@ -1,9 +1,7 @@
 package com.github.propheticeclipse.tensurastarlight.registry;
 
-import com.github.propheticeclipse.tensurastarlight.effect.buff.EmberAttackImprovementEffect;
-import com.github.propheticeclipse.tensurastarlight.effect.buff.RemnantsOfAscensionArmorEffect;
-import com.github.propheticeclipse.tensurastarlight.effect.buff.ShapeForgottenArmorEffect;
-import com.github.propheticeclipse.tensurastarlight.effect.buff.SoulAegisEffect;
+import com.github.propheticeclipse.tensurastarlight.effect.buff.*;
+import com.github.propheticeclipse.tensurastarlight.effect.debuff.ExistenceDrainEffect;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
@@ -20,4 +18,8 @@ public class StarlightEffects {
     public static final RegistrySupplier<MobEffect> REMNANT_ASCENSION_ARMOR = MOB_EFFECTS.register("remnant_ascension_armor", RemnantsOfAscensionArmorEffect::new);
 
     public static final RegistrySupplier<MobEffect> SOUL_AEGIS = MOB_EFFECTS.register("soul_aegis", SoulAegisEffect::new);
+    public static final RegistrySupplier<MobEffect> EXISTENCE_REGENERATION = MOB_EFFECTS.register("existence_regeneration", ExistenceRegenerationEffect::new);
+    public static final RegistrySupplier<MobEffect> EXISTENCE_DRAIN = MOB_EFFECTS.register("existence_drain", ExistenceDrainEffect::new);
+    public static final RegistrySupplier<MobEffect> HEALTH_REGEN = MOB_EFFECTS.register("health_regen", HealthRegenerationEffect::new);
+    public static final RegistrySupplier<MobEffect> SPIRITUAL_REGEN = MOB_EFFECTS.register("spiritual_regen", SpiritualHealthRegenerationEffect::new);
 }

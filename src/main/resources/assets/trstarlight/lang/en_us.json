@@ -33,6 +33,12 @@
   "trstarlight.skill.remnants_of_ascension.description": "§oMotion is born from pause. Form is sculpted in collapse. What was power is no longer force — but continuity, shaped through pressure and will.",
   "trstarlight.skill.mode.remnants_of_ascension.flaring_form": "Flaring Form",
 
+  "trstarlight.skill.lethe": "Lethe, Lady of Phantasm",
+  "trstarlight.skill.lethe.description": "§oWhat remains is not shape or law, but the ghost of your consequence.\nPower no longer acts — it persists. Reality no longer reveals — it remembers.\nIn ruin, law dissolves. In stillness, force rewrites itself.\nThere is no path to follow — only pressure where one used to be. No truth to declare — only the echo of what cannot be silenced.\nYou are not truth, nor falsehood — but the intersection of memory and collapse.\nYou are the tension left by unforgotten moments — an echo that collapse could not claim.\nNot future, not memory — but a phantom cast by what refuses to be forgotten.\nYou are not written into reality — you are its remainder.\nAnd the world bends — not because it remembers, but because it cannot forget.",
+  "trstarlight.skill.mode.lethe.solar_flare": "Solar Flare",
+  "trstarlight.skill.mode.lethe.deep_tides": "Deep Tides",
+  "trstarlight.skill.mode.lethe.reform_the_vestige": "Reform the Vestige",
+
   "trstarlight.skill.memory_recreation": "Memory Recreation",
   "trstarlight.skill.memory_recreation.description": "Isolate and recreate a memory of matter around you, enabling the duplication of matter by altering the timeline retroactively.",
   "trstarlight.skill.mode.memory_recreation.block_memory": "Block Memory",
@@ -113,6 +119,11 @@
   "effect.trstarlight.ember_attack_improvement": "ER: Combat Flow",
   "effect.trstarlight.shape_forgotten_armor": "SF: Shifting Armor",
   "effect.trstarlight.soul_aegis": "SS: Soul Aegis",
+
+  "effect.trstarlight.existence_regeneration": "Existence Regeneration",
+  "effect.trstarlight.existence_drain": "Existence Drain",
+  "effect.trstarlight.health_regen": "Health Regeneration",
+  "effect.trstarlight.spiritual_regen": "Spiritual Health Regeneration",
 
   "trstarlight.skill.mode.default": "No Actives",
 

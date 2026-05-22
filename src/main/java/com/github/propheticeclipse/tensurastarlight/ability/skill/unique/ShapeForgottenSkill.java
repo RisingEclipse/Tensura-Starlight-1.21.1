@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -146,7 +147,7 @@ public class ShapeForgottenSkill extends Skill {
             if (entity instanceof Player player) {
                 IExistence existence = TensuraStorages.getExistenceFrom(player);
                 int effectsRemoved = 0;
-                for (MobEffectInstance effect : player.getActiveEffects()) {
+                for (MobEffectInstance effect : StarlightUtils.getFilteredEffects(player, CONFIG.slipperyFormEffectBlacklist, CONFIG.slipperyFormEffectWhitelist)) {
                     if (effect.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) { // Setup whitelist and blacklist config.
                         int levels = (effect.getAmplifier() + 1);
                         player.removeEffect(effect.getEffect());

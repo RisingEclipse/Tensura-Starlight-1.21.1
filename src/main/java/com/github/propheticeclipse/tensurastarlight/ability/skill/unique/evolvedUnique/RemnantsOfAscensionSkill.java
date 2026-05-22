@@ -2,7 +2,9 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolve
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import dev.shadowsoffire.apothic_attributes.api.ALObjects;
 import dev.shadowsoffire.placebo.color.GradientColor;
 import io.github.manasmods.manascore.config.ConfigRegistry;
@@ -79,13 +81,6 @@ Actives
 
 Temporarily affects all beneficial effects and negative status effects.*/
 
-    @Override
-    public @Nullable MutableComponent getColoredName() {
-        MutableComponent name = super.getColoredName();
-        return name == null ? null : name.withStyle(s -> s.withColor(GradientColor.RAINBOW)); //Testing Colouring
-    }
-
-    @Override
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         /*Acquisition Conditions:
         Mastered Ember Remains (Sacrificed)
@@ -102,15 +97,17 @@ Temporarily affects all beneficial effects and negative status effects.*/
         boolean egg = existence.isHeroEgg();
         boolean seed = existence.isDemonLordSeed();
         boolean seedOrEgg = egg || seed;
-        return masteredEmber && masteredCurrent && masteredShape && seedOrEgg;
+        if (!SkillUtils.hasSkill(entity, StarlightUltimateSkills.LETHE.get())) {
+            return masteredEmber && masteredCurrent && masteredShape && seedOrEgg;
+        } else {
+            return false;
+        }
     }
 
-    @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
     }
 
-    @Override
     public void onLearnSkill(ManasSkillInstance instance, LivingEntity entity) {
         SkillStorage storage = SkillAPI.getSkillsFrom(entity);
 
@@ -217,7 +214,6 @@ Temporarily affects all beneficial effects and negative status effects.*/
         return true;
     }
 
-    @Override
     public void onTick(ManasSkillInstance instance, LivingEntity living) {
         /*
         Improve EP regen by 40 (80 Mastered)/s, additionally, Improve magic damage by 1.5x stacking with other bonuses.
@@ -244,7 +240,6 @@ Temporarily affects all beneficial effects and negative status effects.*/
         existence.markDirty();
     }
 
-    @Override
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {
         /*
         [Passive - Toggle] Fracture the Core:
@@ -275,7 +270,6 @@ Temporarily affects all beneficial effects and negative status effects.*/
         }
     }
 
-    @Override
     public void onToggleOff(ManasSkillInstance instance, LivingEntity entity) {
         AttributeInstance attack = entity.getAttribute(Attributes.ATTACK_DAMAGE);
         if (attack != null) {
@@ -298,7 +292,6 @@ Temporarily affects all beneficial effects and negative status effects.*/
         }
     }
 
-    @Override
     public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {
         double attackModifier = CONFIG.coreFractureAttackMod;
         double critDamageModifier = CONFIG.coreFractureCritDamageMod;
@@ -325,7 +318,6 @@ Temporarily affects all beneficial effects and negative status effects.*/
         }
     }
 
-    @Override
     public boolean onTakenDamage(ManasSkillInstance instance, LivingEntity owner, DamageSource source, Changeable<Float> amount) {
         /*After taking damage, temporarily increase armour by 10 and armour toughness by 2, up to 100/20 points respectively with repeated damage.
         Effects will fade over time. Additionally, for every 10 points of armour gained by this effect,
@@ -357,9 +349,9 @@ Temporarily affects all beneficial effects and negative status effects.*/
             owner.addEffect(new MobEffectInstance((TensuraMobEffects.getReference(StarlightEffects.REMNANT_ASCENSION_ARMOR)), duration, i, false, false, false));
 
             if (buff != null) {
-                int j = (buff.getAmplifier() + 1);
+                int effectLevel = (buff.getAmplifier() + 1);
                 double damageModifier = isMastered(instance, owner) ? CONFIG.damageNegationMastered : CONFIG.damageNegationUnmastered;
-                double totalReduction = damageModifier * j;
+                double totalReduction = damageModifier * effectLevel;
 
 
                 amount.set((float) (originalDamageNum - totalReduction));
@@ -392,7 +384,26 @@ Temporarily affects all beneficial effects and negative status effects.*/
         return true;
     }
 
-    @Override
+    public boolean onDamageEntity(ManasSkillInstance instance, LivingEntity owner, LivingEntity target, DamageSource source, Changeable<Float> amount) {
+        MobEffectInstance emberBuff = owner.getEffect(TensuraMobEffects.getReference(StarlightEffects.EMBER_ATTACK_IMPROVEMENT));
+        int i = 0;
+        int originalDuration = CONFIG.combatFlowDurationFirstHit;
+        int duration;
+        if (emberBuff != null) {
+            duration = emberBuff.getDuration() + CONFIG.combatFlowDurationConsecutiveHit;
+            i = (duration - originalDuration) / (CONFIG.combatFlowAmpliDurationScaling);
+        } else {
+            duration = originalDuration;
+        }
+        if (i > CONFIG.combatFlowMaxAmplifier) {
+            i = CONFIG.combatFlowMaxAmplifier;
+        }
+
+        owner.addEffect(new MobEffectInstance((TensuraMobEffects.getReference(StarlightEffects.EMBER_ATTACK_IMPROVEMENT)), duration, i, false, false, false));
+
+        return true;
+    }
+
     public boolean onDeath(ManasSkillInstance instance, LivingEntity owner, DamageSource source) {
         if (owner instanceof Player player) {
             IExistence existence = TensuraStorages.getExistenceFrom(player);
@@ -437,7 +448,7 @@ Temporarily affects all beneficial effects and negative status effects.*/
                 IExistence existence = TensuraStorages.getExistenceFrom(player);
                 int effectsRemoved = 0;
                 int totalDurationExtended = 0;
-                for (MobEffectInstance effect : player.getActiveEffects()) {
+                for (MobEffectInstance effect : StarlightUtils.getFilteredEffects(player, CONFIG.flaringFormEffectBlacklist, CONFIG.flaringFormEffectWhitelist)) {
                     if (effect.getEffect().value().getCategory() == MobEffectCategory.BENEFICIAL) {
                         int newDuration = effect.getDuration() + CONFIG.flaringFormBuffDurationBonus; // +60s
                         MobEffectInstance extended = new MobEffectInstance(effect.getEffect(), newDuration, effect.getAmplifier(), effect.isAmbient(), effect.isVisible(), effect.showIcon());
