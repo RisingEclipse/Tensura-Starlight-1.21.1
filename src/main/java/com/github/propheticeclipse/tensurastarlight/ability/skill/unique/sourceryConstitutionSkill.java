@@ -170,8 +170,6 @@ public class sourceryConstitutionSkill extends Skill {
     }
 
     public static void elementalSchoolSwap(ManasSkillInstance instance, LivingEntity entity) {
-
-        if (instance.isToggled()) {
             // Check for state or wtv here then apply respective buffs, then remove relevant ones after, or vice versa.
             CompoundTag tag = instance.getOrCreateTag();
             String elementalSchool = tag.getString("ElementalSchools");
@@ -196,9 +194,6 @@ public class sourceryConstitutionSkill extends Skill {
                 }
 
             }
-
-        }
-
     }
 
     public static String getNewSchool(String elementalSchool) {

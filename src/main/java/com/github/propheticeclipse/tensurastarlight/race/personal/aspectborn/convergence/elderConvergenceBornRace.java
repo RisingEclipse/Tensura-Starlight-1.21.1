@@ -4,6 +4,8 @@ import com.github.propheticeclipse.tensurastarlight.ability.skill.unique.evolved
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightPlayerAttachments;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
@@ -113,7 +115,7 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                         ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                         false
                 );
-                entity.addTag("false_reset");
+                player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).setAspectbornFalseReset(true);
             });
         }
     }

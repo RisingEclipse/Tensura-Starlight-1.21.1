@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn;
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import com.sammy.malum.common.data.attachment.ProgressionData;
@@ -15,9 +16,11 @@ import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
+import io.github.manasmods.tensura.registry.race.TensuraRaces;
 import io.github.manasmods.tensura.storage.Alignment;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -62,12 +65,14 @@ public class greaterAspectBornRace extends aspectBornRace {
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
         List<ManasRace> list = new ArrayList();
-        if (entity.getTags().contains("false_reset") && StarlightUtils.rejectedByWell(entity)) {
-            if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
+        if (entity instanceof Player player) {
+            if (player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).isAspectbornFalseReset() && StarlightUtils.rejectedByWell(entity)) {
+                if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
+                    list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
+                }
+            } else if ((SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) && StarlightUtils.rejectedByWell(entity) && !player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).isAspectbornFalseReset()) {
                 list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
             }
-        } else if ((SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) && StarlightUtils.rejectedByWell(entity) && !entity.getTags().contains("false_reset")) {
-            list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
         }
 
         list.add(StarlightRaces.LESSER_CONVERGENCE_BORN.get());

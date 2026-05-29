@@ -24,7 +24,7 @@ public final class TensuraStarlight {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public TensuraStarlight(IEventBus bus) {
-        StarlightRegistry.init();
+        StarlightRegistry.init(bus);
 
         bus.addListener(this::onCommonSetup);
         bus.addListener(this::gatherData);
