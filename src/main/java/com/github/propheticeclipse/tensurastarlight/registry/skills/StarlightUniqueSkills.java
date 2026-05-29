@@ -30,6 +30,7 @@ public class StarlightUniqueSkills {
     public static final RegistrySupplier<ManasSkill> MAGICULE_ENGRAVEMENT = register("magicule_engravement", MagiculeEngravementSkill::new);
     public static final RegistrySupplier<ManasSkill> PHANTASMAL_CREATION = register("phantasmal_creation", PhantasmalCreationSkill::new);
 
+    public static final RegistrySupplier<ManasSkill> SOURCERY_CONSTITUTION = register("sourcery_constitution", sourceryConstitutionSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);

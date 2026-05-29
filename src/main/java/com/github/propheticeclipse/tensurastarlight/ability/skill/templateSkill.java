@@ -42,4 +42,22 @@ public class templateSkill extends Skill {
 
         return var10000;
     }
+
+    public double getMagiculeCost(LivingEntity entity, ManasSkillInstance instance, int mode) {
+        double cost;
+        switch (mode) {
+            case 0 -> cost = 0;
+            default -> cost = 0.0;
+        }
+
+        return cost;
+    }
+
+    public int nextMode(LivingEntity entity, ManasSkillInstance instance, int mode, boolean reverse) {
+        if (reverse) {
+            return mode == 0 ? 1 : mode - 1;
+        } else {
+            return mode == 1 ? 0 : mode + 1; // (0 - 1) total is 2
+        }
+    }
 }

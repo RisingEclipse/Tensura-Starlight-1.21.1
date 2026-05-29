@@ -21,6 +21,7 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     public plasmaticSource plasmaticSource = new plasmaticSource();
     public sourcePowered sourcePowered = new sourcePowered();
     public wildenStalk wildenStalk = new wildenStalk();
+    public sourceryConstitution sourceryConstitution = new sourceryConstitution();
 
     public String getFileName() {
         return "tensura/tensura-starlight/skills/arsnoveau-series";
@@ -228,5 +229,45 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
 
         public double arrowDamageBonusMastered = 0.5;
         public double arrowDamageBonusUnmastered = 0.25;
+    }
+
+    public static class sourceryConstitution extends ManasSubConfig {
+        @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
+        public double acquirementCost = 75000.0;
+        @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
+        public int acquirementMastery = 0;
+
+        public double spellDamageModMastered = 1.2;
+        public double spellDamageModUnmastered = 1.1;
+
+        public double elementConversionModMastered = 1.0;
+        public double elementConversionModUnmastered = 1.0;
+
+        public int elementalAttackAmplifier = 0;
+        public int elementalAttackDuration = 100;
+
+        public double manaDiscountBonusMastered = 50.0;
+        public double manaDiscountBonusUnmastered = 25.0;
+
+        public double elementPowerMod = 2;
+        public double elementDefenseMod = 200;
+
+        public double elementalBlastConeAngle = 30.0;
+        public double elementalBlastConeLength = 13.0;
+
+        public double elementalBlastDamageMastered = 50;
+        public double elementalBlastDamageUnmastered = 25;
+
+        public int elementalBlastFireRate = 20;
+
+        public int elementalEffectAmplifier = 2;
+        public int elementalEffectDuration = 100;
+
+        public double elementalBlastManaCost = 2500.0;
+        public double sourceConcentrationManaCost = 2000.0;
+
+        public int elementalBlastCooldown = 5;
+        public int sourceConcentrationCDMastered = 30;
+        public int sourceConcentrationCDUnmastered = 60;
     }
 }

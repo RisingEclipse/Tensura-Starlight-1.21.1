@@ -53,6 +53,12 @@
   "trstarlight.skill.mode.phantasmal_creation.magicule_imbuement": "Engrave Imbuement",
   "trstarlight.skill.mode.phantasmal_creation.item_memory": "Item Creation",
 
+  "trstarlight.skill.sourcery_constitution": "Sourcery Constitution",
+  "trstarlight.skill.sourcery_constitution.description": "Outlandishly talented in the ways of source manipulation.\nPermitting you growth others are unable to acquire without lifetimes of effort.",
+  "trstarlight.skill.mode.sourcery_constitution.elemental_blast": "Elemental Blast",
+  "trstarlight.skill.mode.sourcery_constitution.source_concentration": "Source Concentration",
+  "trstarlight.skill.mode.sourcery_constitution.elemental_school": "Elemental Focus",
+
   "trstarlight.skill.amethyst_golem_genetics": "Amethyst Golem Genetics",
   "trstarlight.skill.amethyst_golem_genetics.description": "Inherit the genetics of a small golem capable of resisting knockback and returning it to foes.",
 
@@ -137,6 +143,7 @@
   "trstarlight.generic.skill.unique.evolution": "Unique Skill %1$s will now undergo evolution.",
   "trstarlight.generic.skill.ultimate": "Ultimate Skill %1$s has been acquired.",
   "trstarlight.generic.skill.ultimate.evolution": "Ultimate Skill %1$s will now undergo evolution.",
+  "trstarlight.generic.string_display": "%1$s",
   "trstarlight.soul_aegis_fail": "Your collected souls fail to gather, you lack warding against their curses.",
 
   "trstarlight.race.false_aspect0": "%1$s, despite getting this far, you have failed. Body and Mind alike crumbling from the seams.",

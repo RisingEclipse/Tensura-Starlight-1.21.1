@@ -1,7 +1,13 @@
 package com.github.propheticeclipse.tensurastarlight.utils;
 
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ConeProjection {
 
@@ -41,4 +47,29 @@ public class ConeProjection {
         // Then feel free to submit a issue with new code or similar.
     }
 
+    public static List<LivingEntity> getTargetsInFront(Player player, double length, double up, double down, double left, double right) {
+        Vec3 eyePos = player.getEyePosition(1.0F);
+        Vec3 lookVec = player.getLookAngle().normalize();
+
+        // Center of the AABB box in front of player
+        Vec3 center = eyePos.add(lookVec.scale(length / 2.0));
+
+        // Right vector (perpendicular to look and up)
+        Vec3 upVec = new Vec3(0, 1, 0);
+        Vec3 rightVec = lookVec.cross(upVec).normalize();
+
+        // Calculate corners of the box based on direction and width/height/length
+        Vec3 rightOffset = rightVec.scale(right);
+        Vec3 leftOffset = rightVec.scale(-left);
+
+        Vec3 min = center.add(leftOffset).subtract(0, down, 0).subtract(lookVec.scale(length / 2.0));
+        Vec3 max = center.add(rightOffset).add(0, up, 0).add(lookVec.scale(length / 2.0));
+
+        AABB box = new AABB(min, max);
+
+        return player.level().getEntities(player, box, e -> e instanceof LivingEntity && e != player)
+                .stream()
+                .map(e -> (LivingEntity) e)
+                .collect(Collectors.toList());
+    }
 }

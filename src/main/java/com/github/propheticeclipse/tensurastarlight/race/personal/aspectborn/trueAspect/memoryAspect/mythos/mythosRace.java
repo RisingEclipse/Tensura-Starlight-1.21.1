@@ -4,6 +4,7 @@ import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.grandMemoryBornRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
@@ -84,12 +85,8 @@ public class mythosRace extends aspectOfRegressionRace {
             public float getProgress(ManasRaceInstance raceInstance, LivingEntity entity) {
                 float progress = 0.0F;
                 // Boss Kills, Sufficient EP (as designated by config), Some other shit?
-                if (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) {
-                    progress += 0.05F;
-                }
-                // 5%
-                if (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
-                    progress += 0.05F;
+                if (SkillUtils.isSkillMastered(entity, StarlightUltimateSkills.LETHE.get())) {
+                    progress += 0.1F;
                 }
                 // 10%
                 if (entity instanceof Player player) {
@@ -105,15 +102,8 @@ public class mythosRace extends aspectOfRegressionRace {
                         progress += bossProgress;
                     }
                 }
-                // 60% Further Below is commented out until guaranteed functionality.
-                /*
-                List<ManasSkill> targetSkills = SkillAPI.getSkillsFrom(entity).getLearnedSkills().stream().filter((instance) -> ultimateSkillFilter(instance)).toList();
-                for (ManasSkill targetInstance : targetSkills) {
-                    if (SkillUtils.hasSkillFully(entity, targetInstance) && progress < 1.0F) {
-                        progress += 0.1F;
-                    }
-                }
-                 */
+                // 60% Add function to detect Ultimate Skill Count here.
+
                 progress += 0.4F;
 
                 return progress;
@@ -123,18 +113,6 @@ public class mythosRace extends aspectOfRegressionRace {
                 return Component.translatable("trstarlight.evolution_menu.mythos_requirements");
             }
         }, 90.0F, new EvolutionRequirement.EPRequirement(config.epRequirement), 10.0F);
-    }
-
-    protected boolean ultimateSkillFilter(ManasSkillInstance instance) {
-        if (!instance.isTemporarySkill() && !(instance.getMastery() < (double)0.0F)) {
-                ManasSkill var5 = instance.getSkill();
-                Skill devouredSkill = (Skill)var5;
-
-                return devouredSkill.getType().equals(Skill.SkillType.ULTIMATE);
-
-        } else {
-            return false;
-        }
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {

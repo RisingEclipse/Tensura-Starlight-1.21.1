@@ -549,6 +549,32 @@ public class LetheSkill extends Skill {
             Light damage and 125 (250 Mastered) Fire damage.
             Inflicting Magic Darkness 3? to all targets hit by the flames. 2s CD, 5000 MP. Gain mastery for each target hit by this.
              */
+
+            if (entity instanceof Player player) {
+                List<LivingEntity> targets = ConeProjection.getTargetsInFront(player, 32.0, 2.0, 2.0, 2.0, 2.0);
+
+                double damage = instance.isMastered(entity) ? CONFIG.solarFlareDamageMastered : CONFIG.solarFlareDamageUnmastered;
+                int cooldown = instance.isMastered(entity) ? CONFIG.solarFlareCDMastered : CONFIG.solarFlareCDUnmastered;
+                int darknessDuration = instance.isMastered(entity) ? CONFIG.darknessDurationMastered : CONFIG.darknessDurationUnmastered;
+                int darknessAmplifier = instance.isMastered(entity) ? CONFIG.darknessAmplifierMastered : CONFIG.darknessAmplifierUnmastered;
+
+                for (LivingEntity target : targets) {
+                    if (target != null) {
+                        TensuraDamageHelper.hurtSplit(
+                                target,
+                                (this.createSource(instance, entity, TensuraDamageTypes.LIGHT_ELEMENTAL, mode)),
+                                0.5F,
+                                (this.createSource(instance, entity, TensuraDamageTypes.FIRE_ELEMENTAL, mode)),
+                                (float) damage
+                        );
+
+                        target.addEffect(new MobEffectInstance(MobEffects.DARKNESS, darknessDuration, darknessAmplifier));
+                        StarlightUtils.applyTensuraEffect(instance, target, TensuraMobEffects.INSANITY, CONFIG.insanityDurationMastered, CONFIG.insanityDurationUnmastered,CONFIG.insanityAmplifierMastered, CONFIG.insanityAmplifierUnmastered);
+                    }
+                }
+
+                instance.setCoolDown(cooldown, 0);
+            }
         } else if (mode == 1) {
             /*
             [Active - Press] Deep Tides: Release a tide of water destroying all within its path. Deal 100 (200 Mastered) Dark damage
@@ -559,7 +585,7 @@ public class LetheSkill extends Skill {
             Level level = entity.level();
             double coneAngleDeg = CONFIG.deepTidesConeAngle; // 60 degrees cone
             double range = CONFIG.deepTidesConeLength;
-            float damage = this.isMastered(instance, entity) ? CONFIG.deepTidesDamageMastered : CONFIG.deepTidesDamageUnmastered; // M:UM // 37.5% : 30%
+            double damage = this.isMastered(instance, entity) ? CONFIG.deepTidesDamageMastered : CONFIG.deepTidesDamageUnmastered; // M:UM // 37.5% : 30%
 
             List<LivingEntity> targets = level.getEntitiesOfClass(LivingEntity.class,
                     entity.getBoundingBox().inflate(range),
@@ -575,7 +601,7 @@ public class LetheSkill extends Skill {
                             (this.createSource(instance, entity, TensuraDamageTypes.WATER_ELEMENTAL, mode)),
                             0.5F,
                             (this.createSource(instance, entity, TensuraDamageTypes.DARKNESS_ELEMENTAL, mode)),
-                            damage
+                            (float) damage
                     );
 
                     StarlightUtils.applyTensuraEffect(instance, target, TensuraMobEffects.SILENCE, CONFIG.deepTidesSilenceDurationMastered, CONFIG.deepTidesSilenceDurationUnmastered, CONFIG.deepTidesSilenceAmplifierMastered, CONFIG.deepTidesSilenceAmplifierUnmastered);

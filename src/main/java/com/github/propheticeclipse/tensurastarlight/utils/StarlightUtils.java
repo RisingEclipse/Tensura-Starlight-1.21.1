@@ -234,6 +234,10 @@ public class StarlightUtils {
         target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), duration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier, false, false, false));
     }
 
+    public static void applyTensuraEffect(LivingEntity target, RegistrySupplier<MobEffect> effect, int duration, int amplifier) {
+        target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), duration, amplifier, false, false, false));
+    }
+
     public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int duration, int masteredAmplifier, int unmasteredAmplifier, boolean ambient, boolean visible, boolean showIcon) {
         target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), duration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier, ambient, visible, showIcon));
     }
@@ -244,6 +248,10 @@ public class StarlightUtils {
 
     public static void applyTensuraEffect(ManasSkillInstance instance, LivingEntity target, RegistrySupplier<MobEffect> effect, int masteredDuration, int unmasteredDuration, int masteredAmplifier, int unmasteredAmplifier) {
         target.addEffect(new MobEffectInstance(TensuraMobEffects.getReference(effect), instance.isMastered(target) ? masteredDuration : unmasteredDuration, instance.isMastered(target) ? masteredAmplifier : unmasteredAmplifier));
+    }
+
+    public static void applyEffect(LivingEntity target, Holder<MobEffect> effect, int duration, int amplifier) {
+        target.addEffect(new MobEffectInstance(effect, duration, amplifier, false, false, false));
     }
 
     public static List<MobEffectInstance> getFilteredEffects(Player player, List<String> blacklistConfig, List<String> whitelistConfig) {

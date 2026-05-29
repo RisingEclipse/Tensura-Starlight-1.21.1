@@ -14,7 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration - Skills: [Effect Blacklists & Whitelists] for skills [Ember Remains], [Shape Forgotten], [Remnants of Ascension], and [Lethe, Lady of Phantasm]
 - Configuration - Ultimate Skill: [Lethe, Lady of Phantasm]
 
-- Ultimate Skill: [Lethe, Lady of Phantasm]
+- Lord-Class Ultimate Skill: [Lethe, Lady of Phantasm]
+
+### Changed
+
+<details>
+<summary>CONTENT WARNING: Spoilers ahead!</summary>
+Changed Mythos' evolution conditions to be Lethe, Lady of Phantasm as opposed to Vestiges and Remnants.
+
+</details>
 
 ### Removed
 

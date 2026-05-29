@@ -603,10 +603,30 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public double otherElementalModMastered = 3.0;
         public double otherElementalModUnmastered = 1.5;
 
+        // Solar Flare
+
+        public double solarFlareDamageMastered = 50.0;
+        public double solarFlareDamageUnmastered = 25.0;
+
+        public int darknessDurationMastered = 200;
+        public int darknessDurationUnmastered = 200;
+        public int darknessAmplifierMastered = 2;
+        public int darknessAmplifierUnmastered = 1;
+
+        public int insanityDurationMastered = 200;
+        public int insanityDurationUnmastered = 200;
+        public int insanityAmplifierMastered = 2;
+        public int insanityAmplifierUnmastered = 1;
+
+        public int solarFlareCDMastered = 2;
+        public int solarFlareCDUnmastered = 2;
+
+        // Deep Tides
+
         public double deepTidesConeAngle = 180.0;
         public double deepTidesConeLength = 21.0;
-        public float deepTidesDamageMastered = 200;
-        public float deepTidesDamageUnmastered = 100;
+        public double deepTidesDamageMastered = 50.0;
+        public double deepTidesDamageUnmastered = 25.0;
 
         public int deepTidesSilenceDurationMastered = 200;
         public int deepTidesSilenceDurationUnmastered = 200;
