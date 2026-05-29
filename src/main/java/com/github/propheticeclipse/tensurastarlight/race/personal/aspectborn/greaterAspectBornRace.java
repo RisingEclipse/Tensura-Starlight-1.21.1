@@ -4,6 +4,7 @@ import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
 import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightPlayerAttachments;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import com.sammy.malum.common.data.attachment.ProgressionData;
@@ -66,12 +67,17 @@ public class greaterAspectBornRace extends aspectBornRace {
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
         List<ManasRace> list = new ArrayList();
         if (entity instanceof Player player) {
-            if (player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).isAspectbornFalseReset() && StarlightUtils.rejectedByWell(entity)) {
+            StarlightPlayerAttachments data = player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
+            if (data.isAspectbornFalseReset() && StarlightUtils.rejectedByWell(entity)) {
                 if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
                     list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
                 }
             } else if ((SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) && StarlightUtils.rejectedByWell(entity) && !player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).isAspectbornFalseReset()) {
                 list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
+            }
+
+            if (data.isAspectbornFalseReset()) {
+                list.add(TensuraRaces.SLIME.get());
             }
         }
 

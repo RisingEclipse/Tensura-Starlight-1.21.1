@@ -78,6 +78,8 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
     public void onRaceEvolution(ManasRaceInstance raceInstance, LivingEntity entity, ManasRaceInstance evolution) {
         // Move this function to elder and delay it significantly, maybe add some shlore smore to it? Dunno, Either way, it works, SHIP IT BITCHES!
         if (entity instanceof ServerPlayer player) {
+            StarlightPlayerAttachments data = player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
+            data.setAspectbornFalseReset(true);
             IExistence existence = TensuraStorages.getExistenceFrom(entity);
 
             player.displayClientMessage(
@@ -115,7 +117,6 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                         ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                         false
                 );
-                player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).setAspectbornFalseReset(true);
             });
         }
     }

@@ -32,7 +32,7 @@ public class StarlightConfigs {
     protected static final List<String> races = List.of("trstarlight:lesser_aspect_born");
     protected static final List<String> reincspellraces = List.of("trstarlight:lesser_aspect_born");
     protected static final List<String> reincspellmasteredraces = List.of("trstarlight:lesser_aspect_born");
-    protected static final List<String> skills = List.of();
+    protected static final List<String> skills = List.of("trstarlight:sourcery_constitution");
     protected static final List<String> aspectSkills = List.of("trstarlight:light_remains", "trstarlight:echo_endures", "trstarlight:life_returns", "trstarlight:ember_remains", "trstarlight:current_unbroken", "trstarlight:shape_forgotten");
 
 

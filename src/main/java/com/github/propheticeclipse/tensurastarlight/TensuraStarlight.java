@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight;
 import com.github.propheticeclipse.tensurastarlight.config.StarlightConfigs;
 import com.github.propheticeclipse.tensurastarlight.data.StarlightRegistryProvider;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRegistry;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -24,7 +25,8 @@ public final class TensuraStarlight {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public TensuraStarlight(IEventBus bus) {
-        StarlightRegistry.init(bus);
+        StarlightRegistry.init();
+        StarlightAttachments.ATTACHMENT_TYPES.register(bus);
 
         bus.addListener(this::onCommonSetup);
         bus.addListener(this::gatherData);

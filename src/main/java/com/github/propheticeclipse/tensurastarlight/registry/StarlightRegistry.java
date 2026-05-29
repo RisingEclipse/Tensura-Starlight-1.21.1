@@ -9,7 +9,7 @@ import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUni
 import net.neoforged.bus.api.IEventBus;
 
 public class StarlightRegistry {
-    public static void init(IEventBus bus) {
+    public static void init() {
         StarlightUltimateSkills.init();
         StarlightUniqueSkills.init();
         StarlightExtraSkills.init();
@@ -17,6 +17,5 @@ public class StarlightRegistry {
         StarlightEffects.init();
         StarlightConfigs.init();
         StarlightRaces.init();
-        StarlightAttachments.ATTACHMENT_TYPES.register(bus);
     }
 }
