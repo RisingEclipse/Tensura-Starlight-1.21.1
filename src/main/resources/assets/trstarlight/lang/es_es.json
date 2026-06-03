@@ -1,0 +1,180 @@
+{
+  "trstarlight.skill.light_remains": "La Luz Restante",
+  "trstarlight.skill.light_remains.description": "§oConcentra tus ojos en la oscuridad, pues solo en medio de las tinieblas puede existir la luz.",
+  "trstarlight.skill.mode.light_remains.blinding_light": "Luz Cegadora",
+  "trstarlight.skill.mode.light_remains.overbearing_light": "Luz Abrumadora",
+
+  "trstarlight.skill.echo_endures": "El Eco Perdura",
+  "trstarlight.skill.echo_endures.description": "§oConcentra tus oídos en el silencio, pues solo en el silencio existe la palabra.",
+  "trstarlight.skill.mode.echo_endures.sound_burst": "Explosión Sonora",
+
+  "trstarlight.skill.life_returns": "La Vida Regresa",
+  "trstarlight.skill.life_returns.description": "§oConcentra tus pensamientos en la muerte, pues solo al morir existe la vida.",
+
+  "trstarlight.skill.ember_remains": "La Ascua Permanece",
+  "trstarlight.skill.ember_remains.description": "§oConcentra tu voluntad en la resistencia, pues solo el fuego inquebrantable perdura en la oscuridad.",
+  "trstarlight.skill.mode.ember_remains.kindle_flames": "Avivar Llamas",
+
+  "trstarlight.skill.current_unbroken": "Corriente Inquebrantable",
+  "trstarlight.skill.current_unbroken.description": "§oConcentra tu potencial en la quietud, pues solo la energía que no actúa jamás puede ser deshecha.",
+
+  "trstarlight.skill.shape_forgotten": "Forma Olvidada",
+  "trstarlight.skill.shape_forgotten.description": "§oConcentra tu cuerpo en la fractura, pues solo las formas rotas aprenden a adaptarse.",
+  "trstarlight.skill.mode.shape_forgotten.slippery_form": "Forma Escurridiza",
+
+  "trstarlight.skill.vestiges_of_eidolons": "Vestigios de Eidolones",
+  "trstarlight.skill.vestiges_of_eidolons.description": "§oLo que se desvanece no desaparece. Lo que se ha ido aún permanece. Escucha el silencio y teje la verdad a partir de lo que queda",
+
+    "trstarlight.skill.mode.vestiges_of_eidolons.solar_echo": "Eco Solar",
+  "trstarlight.skill.mode.vestiges_of_eidolons.judgement_of_past": "Juicio del Pasado",
+  "trstarlight.skill.mode.vestiges_of_eidolons.death_bypass": "Evasión de la Muerte",
+
+  "trstarlight.skill.remnants_of_ascension": "Remanentes de la Ascensión",
+  "trstarlight.skill.remnants_of_ascension.description": "§oEl movimiento nace de la pausa. La forma se esculpe en el colapso. Lo que fue poder ya no es fuerza, sino continuidad, moldeada mediante la presión y la voluntad.",
+  "trstarlight.skill.mode.remnants_of_ascension.flaring_form": "Forma Llameante",
+
+  "trstarlight.skill.lethe": "Lethe, Dama del Fantasma",
+  "trstarlight.skill.lethe.description": "§oLo que permanece no es forma ni ley, sino el fantasma de tus consecuencias.\nEl poder ya no actúa: persiste. La realidad ya no revela: recuerda.\nEn la ruina, la ley se disuelve. En la quietud, la fuerza se reescribe a sí misma.\nNo existe un camino que seguir, solo la presión donde antes había uno. No existe una verdad que declarar, solo el eco de aquello que no puede ser silenciado.\nNo eres verdad ni falsedad, sino la intersección entre memoria y colapso.\nEres la tensión dejada por momentos que nunca fueron olvidados, un eco que el colapso no pudo reclamar.\nNo eres futuro ni memoria, sino un fantasma proyectado por aquello que se niega a ser olvidado.\nNo estás escrito en la realidad: eres su remanente.\nY el mundo se dobla, no porque recuerde, sino porque es incapaz de olvidar.",
+  "trstarlight.skill.mode.lethe.solar_flare": "Llamarada Solar",
+  "trstarlight.skill.mode.lethe.deep_tides": "Mareas Profundas",
+  "trstarlight.skill.mode.lethe.reform_the_vestige": "Reformar el Vestigio",
+
+  "trstarlight.skill.memory_recreation": "Recreación de la Memoria",
+  "trstarlight.skill.memory_recreation.description": "Aísla y recrea una memoria de la materia que te rodea, permitiendo duplicar materia mediante la alteración retroactiva de la línea temporal.",
+  "trstarlight.skill.mode.memory_recreation.block_memory": "Memoria de Bloque",
+
+  "trstarlight.skill.magicule_engravement": "Grabado de Magículas",
+  "trstarlight.skill.magicule_engravement.description": "Imbuye los objetos que sostienes con tu propia esencia, potenciándolos más allá de los límites normales mediante una evolución forzada.",
+  "trstarlight.skill.mode.magicule_engravement.engrave_imbuement": "Grabar Imbuición",
+
+  "trstarlight.skill.phantasmal_creation": "Creación Fantasmal",
+  "trstarlight.skill.phantasmal_creation.description": "Crea copias fantasmales de bloques, objetos y grabados tomando fragmentos de líneas temporales dañadas y eventos del mundo para darles forma y adaptarlos a tu equipo.",
+  "trstarlight.skill.mode.phantasmal_creation.block_memory": "Creación de Bloques",
+  "trstarlight.skill.mode.phantasmal_creation.magicule_imbuement": "Grabar Imbuición",
+  "trstarlight.skill.mode.phantasmal_creation.item_memory": "Creación de Objetos",
+
+  "trstarlight.skill.sourcery_constitution": "Constitución Hechicera",
+  "trstarlight.skill.sourcery_constitution.description": "Posees un talento extraordinario para la manipulación de la fuente.\nPermitiéndote alcanzar un crecimiento que otros no podrían obtener ni con toda una vida de esfuerzo.",
+  "trstarlight.skill.mode.sourcery_constitution.elemental_blast": "Explosión Elemental",
+  "trstarlight.skill.mode.sourcery_constitution.source_concentration": "Concentración de Fuente",
+  "trstarlight.skill.mode.sourcery_constitution.elemental_school": "Afinidad Elemental",
+
+  "trstarlight.skill.amethyst_golem_genetics": "Genética de Gólem de Amatista",
+  "trstarlight.skill.amethyst_golem_genetics.description": "Hereda la genética de un pequeño gólem capaz de resistir el retroceso y devolverlo a sus enemigos.",
+
+  "trstarlight.skill.drygmy_genetics": "Genética de Drygmy",
+  "trstarlight.skill.drygmy_genetics.description": "Hereda la genética de una pequeña criatura conocida por su abundante suerte.",
+
+    "trstarlight.skill.flarecannon_genetics": "Genética de Flarecannon",
+  "trstarlight.skill.flarecannon_genetics.description": "Hereda la genética de una criatura de gran tamaño conocida por su cuerpo similar a un horno.",
+
+  "trstarlight.skill.flashjack_genetics": "Genética de Flashjack",
+  "trstarlight.skill.flashjack_genetics.description": "Hereda la genética de una pequeña criatura conocida por sus potentes rayos.",
+
+  "trstarlight.skill.siren_genetics": "Genética de Sirena",
+  "trstarlight.skill.siren_genetics.description": "Hereda la genética de una pequeña criatura conocida por sus rápidos y fluidos movimientos.",
+
+  "trstarlight.skill.starbuncle_genetics": "Genética de Starbuncle",
+  "trstarlight.skill.starbuncle_genetics.description": "Hereda la genética de una pequeña criatura conocida por su velocidad.",
+
+  "trstarlight.skill.whirlisprig_genetics": "Genética de Whirlisprig",
+  "trstarlight.skill.whirlisprig_genetics.description": "Hereda la genética de una pequeña criatura conocida por sus deliciosas comidas.",
+
+  "trstarlight.skill.wixie_genetics": "Genética de Wixie",
+  "trstarlight.skill.wixie_genetics.description": "Hereda la genética de una pequeña criatura conocida por sus pociones de larga duración.",
+
+  "trstarlight.skill.wilden_guardian_genetics": "Genética de Guardián Wilden",
+  "trstarlight.skill.wilden_guardian_genetics.description": "Hereda la genética de una bestia feroz conocida por su gran resistencia.",
+
+  "trstarlight.skill.wilden_hunter_genetics": "Genética de Cazador Wilden",
+  "trstarlight.skill.wilden_hunter_genetics.description": "Hereda la genética de una bestia feroz conocida por actuar en grupo.",
+
+  "trstarlight.skill.wilden_stalker_genetics": "Genética de Acechador Wilden",
+  "trstarlight.skill.wilden_stalker_genetics.description": "Hereda la genética de una bestia feroz conocida por atacar con rapidez.",
+
+  "trstarlight.skill.hyper_metabolistic": "Hipermetabólico",
+  "trstarlight.skill.hyper_metabolistic.description": "Tu metabolismo está diseñado de forma única, haciendo que la comida sacie mucho más y que las pociones duren notablemente más tiempo.",
+
+  "trstarlight.skill.plasmatic_source": "Fuente Plasmática",
+  "trstarlight.skill.plasmatic_source.description": "Una fuente similar al plasma y fluida como la sangre. Aumenta notablemente la cantidad de fuente que tu recipiente puede almacenar y regenerar.",
+
+  "trstarlight.skill.source_powered": "Impulsado por la Fuente",
+  "trstarlight.skill.source_powered.description": "Tu cuerpo es alimentado de manera única por la fuente, otorgándote resistencia innata a los cuatro elementos y aumentando el poder de tu magia al usar Magia Elemental.",
+
+  "trstarlight.skill.wilden_stalk": "Acecho Wilden",
+  "trstarlight.skill.wilden_stalk.description": "Proteges como un Wilden, acechas como un Wilden, cazas como un Wilden; incluso tu forma de caminar se asemeja a la de un Wilden.",
+
+  "trstarlight.skill.warded_soul": "Alma Protegida",
+  "trstarlight.skill.warded_soul.description": "Tu alma está protegida de forma excepcional contra el daño, permitiéndote aumentar tus defensas con mayor rapidez o eficacia.",
+
+  "trstarlight.skill.soul_plunderer": "Saqueador de Almas",
+  "trstarlight.skill.soul_plunderer.description": "Tu alma resuena con las de otros, mejorando las ganancias espirituales.",
+
+  "trstarlight.skill.malignant_body": "Cuerpo Maligno",
+  "trstarlight.skill.malignant_body.description": "Tu cuerpo ha comenzado a adoptar atributos similares a los del Peltre Maligno.",
+
+  "trstarlight.skill.spirit_sorcerer": "Hechicero Espiritual",
+  "trstarlight.skill.spirit_sorcerer.description": "Cien espíritus contenidos dentro de tu pozo de autoridad, todos dispuestos a morir por ti.",
+
+  "trstarlight.skill.lucky": "Afortunado",
+  "trstarlight.skill.lucky.description": "Afortunado",
+
+  "trstarlight.skill.dead_end_rainbow_skill": "Dead End Desatado",
+  "trstarlight.skill.dead_end_rainbow_skill.description": "Desatar los límites de los finales.",
+
+    "effect.trstarlight.ember_attack_improvement": "AP: Flujo de Combate",
+  "effect.trstarlight.shape_forgotten_armor": "FO: Armadura Cambiante",
+  "effect.trstarlight.soul_aegis": "AP: Égida del Alma",
+
+  "effect.trstarlight.existence_regeneration": "Regeneración de Existencia",
+  "effect.trstarlight.existence_drain": "Drenaje de Existencia",
+  "effect.trstarlight.health_regen": "Regeneración de Salud",
+  "effect.trstarlight.spiritual_regen": "Regeneración de Salud Espiritual",
+
+  "trstarlight.skill.mode.default": "Sin Activas",
+
+  "trstarlight.generic.spawnpoint_not_located": "No se pudo localizar el punto de aparición. Si el problema persiste después de dormir, contacta con el desarrollador de TRStarlight.",
+  "trstarlight.generic.skill.single_skill.sacrifice": "§fLa habilidad %1$s §fha sido §4sacrificada§f.§r",
+  "trstarlight.generic.skill.success": "Éxito.",
+  "trstarlight.generic.skill.common": "Se ha adquirido la habilidad común %1$s.",
+  "trstarlight.generic.skill.intrinsic": "Se ha adquirido la habilidad intrínseca %1$s.",
+  "trstarlight.generic.skill.extra": "Se ha adquirido la habilidad extra %1$s.",
+  "trstarlight.generic.skill.unique": "Se ha adquirido la habilidad única %1$s.",
+  "trstarlight.generic.skill.unique.evolution": "La habilidad única %1$s comenzará ahora su evolución.",
+  "trstarlight.generic.skill.ultimate": "Se ha adquirido la habilidad definitiva %1$s.",
+  "trstarlight.generic.skill.ultimate.evolution": "La habilidad definitiva %1$s comenzará ahora su evolución.",
+  "trstarlight.generic.string_display": "%1$s",
+  "trstarlight.soul_aegis_fail": "Las almas que has reunido no logran congregarse; careces de protección contra sus maldiciones.",
+
+  "trstarlight.race.false_aspect0": "%1$s, a pesar de haber llegado tan lejos, has fracasado. Cuerpo y mente se desmoronan por las costuras.",
+  "trstarlight.race.false_aspect1": "Y aun así, deseas vivir. Regresar una vez más, a pesar de este Rechazo y esta §kRegresión§r.",
+  "trstarlight.race.false_aspect2": "Encuentra la §kfuente§r, los fragmentos de lo que §kuna vez fuiste§r. La §kverdad oculta§r dentro de tu §klegado§r.",
+  "trstarlight.race.false_aspect3": "Deshaz, reescribe, borra las §klíneas que te atan§r a esta §knueva§r §kregresión§r. El llanto te llama.",
+
+  "trstarlight.race.regression_aspect0": "%1$s, a pesar de haber llegado tan lejos, parece que el destino tiene otros planes para ti. Tu cuerpo se está desmoronando desde su núcleo.",
+  "trstarlight.race.regression_aspect1": "Y aun así, deseas vivir. Regresar una vez más, a pesar de este Rechazo.",
+  "trstarlight.race.regression_aspect2": "Regresa a los legados, cambia la memoria de lo que fue y altera la narrativa.",
+  "trstarlight.race.regression_aspect3": "Reconstruye, reescribe, olvida las líneas que te atan a esta nueva regresión. Recupera tu aspecto.",
+
+  "trstarlight.race.lesser_aspect_born": "Aspectonacido Menor",
+  "trstarlight.race.lesser_aspect_born.description": "Una forma de vida espiritual inmersa en el plano físico.\nReducida a un simple fragmento, quizá aún capaz de volver a reunirse en un gran aspecto de lo §kDivino§r.",
+  "trstarlight.race.aspect_born": "Aspectonacido",
+  "trstarlight.race.greater_aspect_born": "Aspectonacido Mayor",
+
+  "trstarlight.race.lesser_convergence_born": "Aspectonacido de Convergencia Menor",
+  "trstarlight.race.convergence_born": "Aspectonacido de Convergencia",
+  "trstarlight.race.greater_convergence_born": "Aspectonacido de Convergencia Mayor",
+  "trstarlight.race.elder_convergence_born": "Aspectonacido de Convergencia Anciano",
+
+  "trstarlight.race.lesser_memory_born": "Aspectonacido de Memoria Menor",
+  "trstarlight.race.memory_born": "Aspectonacido de Memoria",
+  "trstarlight.race.greater_memory_born": "Aspectonacido de Memoria Mayor",
+  "trstarlight.race.grand_memory_born": "Gran Aspectonacido de Memoria",
+
+  "trstarlight.race.false_aspect_of_regression": "Regr§kes§rs§kión§r - Asp§ke§rct§ko§r del §kRech§ra§kzo§r",
+  "trstarlight.race.aspect_of_regression": "Regresión - Aspecto de la Restauración",
+  "trstarlight.race.mythos": "Mythos - Aspecto de la Eternidad",
+
+  "trstarlight.evolution_menu.mythos_requirements": "Entrelaza tu existencia con los Mitos y márcate como un Azote Eterno.",
+  "trstarlight.evolution_menu.lesser_convergence_requirements": "Adquiere La Luz Permanente o Vestigios de Eidolones."
+}
