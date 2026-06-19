@@ -43,16 +43,21 @@ public class LifeReturnsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         //magicule poisoning (OR, have above a certain amount of collective EP, OR die a certain amount of times), Light Remains
-        int deathCount = 0;
-        if (entity instanceof ServerPlayer serverPlayer) {
-            deathCount = serverPlayer.getStats().getValue(Stats.CUSTOM.get(Stats.DEATHS));
-        } else {
-            deathCount = 0;
+
+        if (StarlightUtils.isVestigesAcquired(entity)) {
+            return false;
         }
-        boolean magiculePoisoningEffect = entity.hasEffect(TensuraMobEffects.MAGICULE_POISON);
-        boolean overEPTrigger = newEP >= (CONFIG.overCostAcquirementMod * CONFIG.magiculeAcquirementCost);
-        boolean deathComparison = (deathCount >= CONFIG.deathCount);
-        return (magiculePoisoningEffect || overEPTrigger || deathComparison) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
+        if (StarlightUtils.isLetheAcquired(entity)) {
+            return false;
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer) {
+            boolean overEPTrigger = newEP >= (CONFIG.overCostAcquirementMod * CONFIG.magiculeAcquirementCost);
+            boolean deathComparison = (serverPlayer.getStats().getValue(Stats.CUSTOM.get(Stats.DEATHS)) >= CONFIG.deathCount);
+            return (overEPTrigger || deathComparison) && StarlightUtils.isLightRemainsMastered(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+        }
+
+        return false;
     }
 
     @Override

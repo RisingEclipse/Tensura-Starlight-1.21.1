@@ -22,6 +22,7 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     public sourcePowered sourcePowered = new sourcePowered();
     public wildenStalk wildenStalk = new wildenStalk();
     public sourceryConstitution sourceryConstitution = new sourceryConstitution();
+    public sourceBlood sourceBlood = new sourceBlood();
 
     public String getFileName() {
         return "tensura/tensura-starlight/skills/arsnoveau-series";
@@ -32,6 +33,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 25;
+        public int talentReduction = 15;
 
         public double kbResistMastered = 0.25;
         public double kbResistUnmastered = 0.125;
@@ -44,6 +48,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 25;
+        public int talentReduction = 15;
 
         public int lootingBonusMastered = 2;
         public int lootingBonusUnmastered = 1;
@@ -59,6 +66,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
 
+        public int killCountReq = 25;
+        public int talentReduction = 15;
+
         public double fireSpellBonusMastered = 4.0;
         public double fireSpellBonusUnmastered = 2.0;
         public double manaDiscountBonusMastered = 5.0;
@@ -70,6 +80,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 25;
+        public int talentReduction = 15;
 
         public double airSpellBonusMastered = 4.0;
         public double airSpellBonusUnmastered = 2.0;
@@ -83,6 +96,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
 
+        public int killCountReq = 25;
+        public int talentReduction = 15;
+
         public double waterSpellBonusMastered = 4.0;
         public double waterSpellBonusUnmastered = 2.0;
         public double manaDiscountBonusMastered = 5.0;
@@ -95,6 +111,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
 
+        public int killCountReq = 25;
+        public int talentReduction = 15;
+
         public double speedBonusMastered = 0.10;
         public double speedBonusUnmastered = 0.05;
     }
@@ -104,6 +123,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 25;
+        public int talentReduction = 15;
 
         public int satietyBonusMastered = 2;
         public int satietyBonusUnmastered = 1;
@@ -115,6 +137,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
 
+        public int killCountReq = 25;
+        public int talentReduction = 15;
+
         public int potionDurationBonusMastered = 2;
         public int potionDurationBonusUnmastered = 1;
     }
@@ -124,6 +149,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 100;
+        public int talentReduction = 80;
 
         public double healthBonusMastered = 5.0;
         public double healthBonusUnmastered = 1.0;
@@ -141,6 +169,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
 
+        public int killCountReq = 100;
+        public int talentReduction = 80;
+
         public double arrowVelocityBonusMastered = 0.5;
         public double arrowVelocityBonusUnmastered = 0.25;
 
@@ -153,6 +184,9 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public int killCountReq = 100;
+        public int talentReduction = 80;
 
         public double sneakSpeedBonusMastered = 0.4;
         public double sneakSpeedBonusUnmastered = 0.2;
@@ -255,8 +289,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public double elementalBlastConeAngle = 30.0;
         public double elementalBlastConeLength = 13.0;
 
-        public double elementalBlastDamageMastered = 50;
-        public double elementalBlastDamageUnmastered = 25;
+        public double elementalBlastDamageMastered = 20;
+        public double elementalBlastDamageUnmastered = 10;
 
         public int elementalBlastFireRate = 20;
 
@@ -269,5 +303,12 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
         public int elementalBlastCooldown = 5;
         public int sourceConcentrationCDMastered = 30;
         public int sourceConcentrationCDUnmastered = 60;
+    }
+
+    public static class sourceBlood extends ManasSubConfig {
+        @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
+        public double acquirementCost = 200000.0;
+        @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
+        public int acquirementMastery = 0;
     }
 }

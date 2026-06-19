@@ -12,6 +12,7 @@ public class BuffEffectsConfig extends ManasConfig {
     public existenceRegeneration existenceRegeneration = new existenceRegeneration();
     public healthRegen healthRegen = new healthRegen();
     public spiritualRegen spiritualRegen = new spiritualRegen();
+    public sourceBlood sourceBlood = new sourceBlood();
 
     public String getFileName() {
         return "tensura/tensura-starlight/effects/buffs";
@@ -77,5 +78,15 @@ public class BuffEffectsConfig extends ManasConfig {
 
         @Comment("How much should this effect regen up to based on Max%")
         public double regenCap = 1.0;
+    }
+
+    public static class sourceBlood extends ManasSubConfig {
+        @Comment("How fast should this effect trigger in ticks?")
+        public int tickRate = 20;
+
+        public double HPConversionRatio = 0.25;
+        public double SHPConversionRatio = 0.50;
+
+        public double healingEfficency = 0.1;
     }
 }

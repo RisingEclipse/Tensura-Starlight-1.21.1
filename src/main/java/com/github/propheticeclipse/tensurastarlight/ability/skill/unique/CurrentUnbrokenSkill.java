@@ -2,6 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -44,19 +45,21 @@ Passives
 
 [Passive - Toggle] Resist 20% of magical damage, up to 100 (500 Mastered) points of damage. Damage resisted/negated through this directed into Barrier Points.*/
 
-    @Override
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        boolean emberRemains = SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.EMBER_REMAINS.get());
-        int netherStar = 0;
-        if (entity instanceof ServerPlayer serverPlayer) {
-            netherStar = serverPlayer.getStats().getValue(Stats.ITEM_PICKED_UP.get(Items.NETHER_STAR));
-        } else {
-            netherStar = 0;
+        if (StarlightUtils.isRemnantsAcquired(entity)) {
+            return false;
         }
-        return netherStar >= CONFIG.netherStars && emberRemains;
+        if (StarlightUtils.isLetheAcquired(entity)) {
+            return false;
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer) {
+            return serverPlayer.getStats().getValue(Stats.ITEM_PICKED_UP.get(Items.NETHER_STAR)) >= CONFIG.netherStars && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+        }
+
+        return false;
     }
 
-    @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
         return CONFIG.magiculeAcquirementCost;
     }

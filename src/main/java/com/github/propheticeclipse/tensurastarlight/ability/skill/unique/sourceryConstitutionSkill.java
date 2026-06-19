@@ -4,6 +4,8 @@ import com.alexthw.sauce.registry.ModRegistry;
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
 import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
+import com.hollingsworth.arsnouveau.api.perk.PerkAttributes;
+import com.hollingsworth.arsnouveau.api.registry.PerkRegistry;
 import com.hollingsworth.arsnouveau.api.spell.SpellContext;
 import com.hollingsworth.arsnouveau.api.util.DamageUtil;
 import com.hollingsworth.arsnouveau.api.util.ManaUtil;
@@ -55,7 +57,11 @@ public class sourceryConstitutionSkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return true;
+        if (StarlightUtils.isAspectborn(entity)) {
+            return entity.getAttributeValue(PerkAttributes.MAX_MANA) >= 3500.0;
+        }
+
+        return false;
     }
 
     public int getModes(ManasSkillInstance instance) {
@@ -399,6 +405,7 @@ public class sourceryConstitutionSkill extends Skill {
 
                     } else {return true;}
                 }
+                this.addMasteryPoint(instance, entity);
             }
         }
         return true;

@@ -38,7 +38,7 @@ public class soulPlundererSkill extends Skill {
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         double spiritSpoils = entity.getAttributeValue(MalumAttributes.SPIRIT_SPOILS);
 
-        return spiritSpoils >= 5;
+        return spiritSpoils >= CONFIG.soulPlunderReq && newEP >= CONFIG.acquirementCost;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

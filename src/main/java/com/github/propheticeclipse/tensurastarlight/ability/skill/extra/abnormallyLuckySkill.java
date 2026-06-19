@@ -40,7 +40,7 @@ public class abnormallyLuckySkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return (entity.getAttributeValue(Attributes.LUCK) >= 50.0 && SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.LUCKY.get()) && SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.DRYGMY_GENETICS.get()));
+        return (entity.getAttributeValue(Attributes.LUCK) >= 50.0 && SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.LUCKY.get()) && SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.DRYGMY_GENETICS.get())) && newEP >= CONFIG.acquirementCost;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

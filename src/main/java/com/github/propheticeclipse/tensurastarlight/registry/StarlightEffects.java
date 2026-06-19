@@ -22,4 +22,5 @@ public class StarlightEffects {
     public static final RegistrySupplier<MobEffect> EXISTENCE_DRAIN = MOB_EFFECTS.register("existence_drain", ExistenceDrainEffect::new);
     public static final RegistrySupplier<MobEffect> HEALTH_REGEN = MOB_EFFECTS.register("health_regen", HealthRegenerationEffect::new);
     public static final RegistrySupplier<MobEffect> SPIRITUAL_REGEN = MOB_EFFECTS.register("spiritual_regen", SpiritualHealthRegenerationEffect::new);
+    public static final RegistrySupplier<MobEffect> SOURCE_BLOOD_REJUVENATION = MOB_EFFECTS.register("source_blood_rejuvenation", SourceBloodRejuvenationEffect::new);
 }

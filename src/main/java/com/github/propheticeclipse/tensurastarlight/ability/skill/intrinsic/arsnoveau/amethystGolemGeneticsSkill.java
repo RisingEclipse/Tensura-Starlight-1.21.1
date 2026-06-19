@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.ars
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import com.hollingsworth.arsnouveau.setup.registry.ModEntities;
 import dev.architectury.event.events.common.TickEvent;
 import io.github.manasmods.manascore.config.ConfigRegistry;
@@ -43,12 +44,23 @@ public class amethystGolemGeneticsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
-        boolean LightVestiges = SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get());
-        if (entity instanceof ServerPlayer servPlayer) {
-            return LightVestiges && (servPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.AMETHYST_GOLEM.get())) >= 25);
-        } else {
-            return false;
+        /*
+        Check for Sourcery Constitution (for lower requirement)
+        Check for Aspectborn
+        Check for stat.
+         */
+
+        if (entity instanceof ServerPlayer serverPlayer) {
+            if (StarlightUtils.isAspectborn(entity) || SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.SOURCERY_CONSTITUTION.get()) || StarlightUtils.isLightMasteredOrVestigesAcquired(entity)) {
+                int talentReduction = 0;
+                if (SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.SOURCERY_CONSTITUTION.get())) {
+                    talentReduction -= CONFIG.talentReduction;
+                }
+                return serverPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.AMETHYST_GOLEM.get())) >= (CONFIG.killCountReq - talentReduction) && newEP >= CONFIG.acquirementCost;
+            }
         }
+
+        return false;
     }
 
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {

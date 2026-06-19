@@ -75,4 +75,20 @@ public class lesserAspectBornRace extends StarlightRace {
                 .filter(Objects::nonNull)
                 .toList();
     }
+
+    public double getElementalSpiritsChance(Element element, SpiritualMagic.SpiritLevel level) {
+        if (element == Element.LIGHT) {
+            double var10000;
+            switch (level) {
+                case LESSER -> var10000 = 0.0;
+                case MEDIUM -> var10000 = 45.0;
+                case GREATER -> var10000 = 35.0;
+                case LORD -> var10000 = 20.0;
+                default -> throw new MatchException(null, null);
+            }
+
+            return var10000;
+        }
+        return super.getElementalSpiritsChance(element, level);
+    }
 }

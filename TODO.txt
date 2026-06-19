@@ -268,3 +268,7 @@ Implement a config for server owners to add a "Slow EP Mode" to certain users. A
 Dunno, something tho.
 
 Skill that pushes a target out of the body similar to possession.
+
+Sourcery Constitution Ultimate Upgrade Concepts:
+Forced Possession scaling off of Source as opposed to other triggers, but needs high requirements (Think 20x Source)
+Subskills with significant mastery requirements (think 100k), but provide long lasting toggleable effects Such as source concentration which reduces the cap to grant discounts

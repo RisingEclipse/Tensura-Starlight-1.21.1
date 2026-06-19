@@ -5,6 +5,7 @@ import com.alexthw.sauce.registry.ModRegistry;
 import com.github.propheticeclipse.tensurastarlight.config.skills.arsnouveauSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.ability.SkillUtils;
@@ -37,12 +38,17 @@ public class flashjackGeneticsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
-        boolean LightVestiges = SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get());
-        if (entity instanceof ServerPlayer servPlayer) {
-            return LightVestiges && (servPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.FLASHJACK_ENTITY.get())) >= 25);
-        } else {
-            return false;
+        if (entity instanceof ServerPlayer serverPlayer) {
+            if (StarlightUtils.isAspectborn(entity) || SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.SOURCERY_CONSTITUTION.get()) || StarlightUtils.isLightMasteredOrVestigesAcquired(entity)) {
+                int talentReduction = 0;
+                if (SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.SOURCERY_CONSTITUTION.get())) {
+                    talentReduction -= CONFIG.talentReduction;
+                }
+                return serverPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.FLASHJACK_ENTITY.get())) >= (CONFIG.killCountReq - talentReduction) && newEP >= CONFIG.acquirementCost;
+            }
         }
+
+        return false;
     }
 
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {

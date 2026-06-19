@@ -43,20 +43,18 @@ public class EmberRemainsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
-        if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get())) {
+        if (StarlightUtils.isRemnantsAcquired(entity)) {
+            return false;
+        }
+        if (StarlightUtils.isLetheAcquired(entity)) {
             return false;
         }
 
-        int defyFateCount = 0;
         if (entity instanceof ServerPlayer serverPlayer) {
-            defyFateCount = serverPlayer.getStats().getValue(Stats.ITEM_USED.get(Items.TOTEM_OF_UNDYING));
-        } else {
-            defyFateCount = 0;
+            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(Items.TOTEM_OF_UNDYING)) >= CONFIG.defyFateCount && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost;
         }
 
-        boolean deniedFate = defyFateCount >= CONFIG.defyFateCount;
-        boolean hasLightRemains = (SkillUtils.hasSkill(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkill(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get()));
-        return hasLightRemains && deniedFate;
+        return false;
     }
 
     public int getAcquirementMastery(LivingEntity entity) {

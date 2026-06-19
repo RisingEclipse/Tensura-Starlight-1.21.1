@@ -13,20 +13,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration - Global Lists: [Global Enchantment Blacklist]
 - Configuration - Skills: [Effect Blacklists & Whitelists] for skills [Ember Remains], [Shape Forgotten], [Remnants of Ascension], and [Lethe, Lady of Phantasm]
 - Configuration - Ultimate Skill: [Lethe, Lady of Phantasm]
+- Configuration - Unique Skill: [Sourcery Constitution]
 
 - Lord-Class Ultimate Skill: [Lethe, Lady of Phantasm]
+- Unique Skill: [Sourcery Constitution]
+- Evolved Extra Skill: [Source Blood]
+
+- Language Support - Spanish: Added by User soulnekoghost from the Starlight Discord.
 
 ### Changed
 
 <details>
 <summary>CONTENT WARNING: Spoilers ahead!</summary>
 Changed Mythos' evolution conditions to be Lethe, Lady of Phantasm as opposed to Vestiges and Remnants.
-
+Altered Convergence-Line's False Reset to now reset spirits as well as other data.
 </details>
+
+- Made Aspect-Series Unique Skills acquisition conditions more consistent, each now requiring the user to be an Aspectborn (Unless they acquired light remains through some other means) and checking for the EP properly to remove chat spam.
+- Added checks to Aspect-Series Unique Skills acquistions to ensure you cannot obtain lesser forms if owning a higher form.
+- Fixed a bunch of skills not having a check for your EP. My bad for the chat spam y'all I forgor.
 
 ### Removed
 
 - Ars Nouveau Decoy EP duping method, if you wish to revert this change for any reason you can remove Ars Nouveau decoys from the clones tag from tensura.
+- Unique Skill [Life Returns] Magicule Poisoning Acquirement Method
 
 ## [0.1.2-BETA-SOURCEBLOOD-PART1] 2026-05-10
 

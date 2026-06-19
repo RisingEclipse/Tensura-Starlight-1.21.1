@@ -2,17 +2,32 @@ package com.github.propheticeclipse.tensurastarlight.utils;
 
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.convergence.*;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.*;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.*;
+import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos.mythosRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
+import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
+import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightPlayerAttachments;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
+import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.sammy.malum.common.data.attachment.ProgressionData;
 import com.sammy.malum.registry.common.MalumAttachmentTypes;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.config.ConfigRegistry;
+import io.github.manasmods.manascore.race.api.ManasRaceInstance;
+import io.github.manasmods.manascore.race.api.RaceAPI;
+import io.github.manasmods.manascore.race.api.Races;
 import io.github.manasmods.manascore.race.api.SpawnPointHelper;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.tensura.Tensura;
+import io.github.manasmods.tensura.ability.SkillUtils;
 import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.data.TensuraTags;
 import io.github.manasmods.tensura.registry.effect.TensuraMobEffects;
+import io.github.manasmods.tensura.storage.TensuraStorages;
+import io.github.manasmods.tensura.storage.ep.IExistence;
 import io.github.manasmods.tensura.util.EnergyHelper;
 import io.github.manasmods.tensura.util.ObjectSelectionHelper;
 import net.minecraft.ChatFormatting;
@@ -48,6 +63,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.StreamSupport;
 
@@ -296,5 +312,143 @@ public class StarlightUtils {
                 .map(id -> (whitelistConfig.isEmpty() || whitelistConfig.contains(id.toString())) && !blacklistConfig.contains(id.toString()) && !CONFIG.globalEnchantmentBlacklist.contains(id.toString()))
                 .orElse(true)
         ).toList();
+    }
+
+    public static boolean isLightRemainsMastered(LivingEntity entity) {
+        return SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
+    }
+
+    public static boolean isLightRemainsAcquired(LivingEntity entity) {
+        return SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
+    }
+
+    public static boolean isVestigesAcquired(LivingEntity entity) {
+        return SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get());
+    }
+
+    public static boolean isRemnantsAcquired(LivingEntity entity) {
+        return SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get());
+    }
+
+    public static boolean isLetheAcquired(LivingEntity entity) {
+        return SkillUtils.hasSkillPermanently(entity, StarlightUltimateSkills.LETHE.get());
+    }
+
+    public static boolean isLightMasteredOrVestigesAcquired(LivingEntity entity) {
+        return isLightRemainsMastered(entity) && isVestigesAcquired(entity);
+    }
+
+    public static boolean readyAspectOfReality(LivingEntity entity) {
+        return isLightRemainsMastered(entity) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.ECHO_ENDURES.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIFE_RETURNS.get());
+    }
+
+    public static boolean readyAspectOfPower(LivingEntity entity) {
+        IExistence existence = TensuraStorages.getExistenceFrom(entity);
+
+        boolean egg = existence.isHeroEgg();
+        boolean seed = existence.isDemonLordSeed();
+        boolean seedOrEgg = egg || seed;
+        return seedOrEgg && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.EMBER_REMAINS.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.CURRENT_UNBROKEN.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.SHAPE_FORGOTTEN.get());
+    }
+
+    public static boolean isAspectborn(LivingEntity entity) {
+        return isEarlyAspectborn(entity) || isConvergenceAspectborn(entity) || isMemoryAspectborn(entity) || isMythos(entity);
+    }
+
+    public static boolean isConvergenceAspectborn(LivingEntity entity) {
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.LESSER_CONVERGENCE_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.CONVERGENCE_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.GREATER_CONVERGENCE_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.ELDER_CONVERGENCE_BORN.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isEarlyAspectborn(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.LESSER_ASPECT_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.ASPECT_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.GREATER_ASPECT_BORN.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isMemoryAspectborn(LivingEntity entity) {
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.LESSER_MEMORY_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.MEMORY_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.GREATER_MEMORY_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.GRAND_MEMORY_BORN.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.ASPECT_OF_REGRESSION.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.FALSE_ASPECT_OF_REGRESSION.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isMythos(LivingEntity entity) {
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.MYTHOS.get()) {
+                return true;
+            }
+
+        }
+        return false;
     }
 }

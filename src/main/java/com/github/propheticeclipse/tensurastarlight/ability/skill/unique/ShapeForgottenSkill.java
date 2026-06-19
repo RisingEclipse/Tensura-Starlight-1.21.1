@@ -36,24 +36,25 @@ public class ShapeForgottenSkill extends Skill {
 //    Actives
 //
 
-    @Override
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        boolean ember = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.EMBER_REMAINS.get());
-        boolean selfRegen = SkillUtils.hasSkillPermanently(entity, CommonSkills.SELF_REGENERATION.get());
-        return ember && selfRegen;
+        if (StarlightUtils.isRemnantsAcquired(entity)) {
+            return false;
+        }
+        if (StarlightUtils.isLetheAcquired(entity)) {
+            return false;
+        }
+
+        return StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && SkillUtils.hasSkillPermanently(entity, CommonSkills.SELF_REGENERATION.get()) && newEP >= CONFIG.magiculeAcquirementCost;
     }
 
-    @Override
     public int getAcquirementMastery(LivingEntity entity) {
         return CONFIG.acquirementMastery;
     }
 
-    @Override
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {
         return CONFIG.magiculeAcquirementCost;
     }
 
-    @Override
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {
         return true;
     }

@@ -40,7 +40,7 @@ public class hyperMetabolisticSkill extends Skill {
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         boolean skill1 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WIXIE_GENETICS.get());
         boolean skill2 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WHIRLISPRIG_GENETICS.get());
-        return skill1 && skill2;
+        return skill1 && skill2 && newEP >= CONFIG.acquirementCost;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

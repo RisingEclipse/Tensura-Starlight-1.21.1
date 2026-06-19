@@ -89,19 +89,11 @@ Temporarily affects all beneficial effects and negative status effects.*/
         150k MP
         Demon Lord Seed or Hero Egg
         */
-        IExistence existence = TensuraStorages.getExistenceFrom(entity);
-
-        boolean masteredEmber = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.EMBER_REMAINS.get());
-        boolean masteredCurrent = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.CURRENT_UNBROKEN.get());
-        boolean masteredShape = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.SHAPE_FORGOTTEN.get());
-        boolean egg = existence.isHeroEgg();
-        boolean seed = existence.isDemonLordSeed();
-        boolean seedOrEgg = egg || seed;
-        if (!SkillUtils.hasSkill(entity, StarlightUltimateSkills.LETHE.get())) {
-            return masteredEmber && masteredCurrent && masteredShape && seedOrEgg;
-        } else {
-            return false;
+        if (!StarlightUtils.isLetheAcquired(entity)) {
+            return StarlightUtils.readyAspectOfPower(entity) && newEP >= CONFIG.magiculeAcquirementCost;
         }
+
+        return false;
     }
 
     public int getAcquirementMastery(LivingEntity entity) {

@@ -4,6 +4,7 @@ import com.github.propheticeclipse.tensurastarlight.config.effects.BuffEffectsCo
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -19,6 +20,7 @@ import io.github.manasmods.tensura.particle.TensuraParticleHelper;
 import io.github.manasmods.tensura.registry.attribute.TensuraAttributes;
 import io.github.manasmods.tensura.registry.skill.ExtraSkills;
 import io.github.manasmods.tensura.storage.TensuraStorages;
+import io.github.manasmods.tensura.storage.spirit.ISpiritWielder;
 import io.github.manasmods.tensura.util.EnergyHelper;
 import io.github.manasmods.tensura.util.ObjectSelectionHelper;
 import net.minecraft.core.particles.ParticleTypes;
@@ -48,24 +50,26 @@ public class LightRemainsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
 
-        if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) {
+        ISpiritWielder spiritStorage = TensuraStorages.getSpiritFrom(entity);
+
+        if (StarlightUtils.isVestigesAcquired(entity)) {
             return false;
         }
-
-        boolean LightLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel);
-        boolean DarkLord = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel);
-        boolean LightDarkLord = LightLord || DarkLord;
-        if (LightDarkLord) {
-            TensuraSkillInstance thisSkillLol = new TensuraSkillInstance(StarlightUniqueSkills.LIGHT_REMAINS.get());
-            thisSkillLol.getOrCreateTag().putBoolean("NoMagiculeCost", true);
-            SkillHelper.learnSkill(entity, thisSkillLol);
-            return true;
+        if (StarlightUtils.isLetheAcquired(entity)) {
+            return false;
+        }
+        if (!StarlightUtils.isAspectborn(entity)) {
+            return false;
+        }
+        if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel || spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel) {
+            TensuraSkillInstance lightRemains = new TensuraSkillInstance(StarlightUniqueSkills.LIGHT_REMAINS.get());
+            lightRemains.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+            SkillHelper.learnSkill(entity, lightRemains);
+        } else if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillAcquireSpiritLevel && spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillAcquireSpiritLevel && newEP >= CONFIG.magiculeAcquirementCost) {
+            SkillHelper.learnSkill(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
         }
 
-        boolean greaterLight = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.LIGHT) >= CONFIG.skillAcquireSpiritLevel);
-        boolean greaterDark = (TensuraStorages.getSpiritFrom(entity).getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillAcquireSpiritLevel);
-        boolean greaterAcquire = greaterLight && greaterDark;
-        return greaterAcquire;
+        return false;
     }
 
     @Override

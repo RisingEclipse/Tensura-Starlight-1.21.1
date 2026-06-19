@@ -120,6 +120,8 @@ public class deadEndRainbowSkill extends Skill {
                     spiritualHealth.addOrReplacePermanentModifier(attributemodifier);
                 }
             }
+
+            instance.addMasteryPoint(owner);
         }
 
 

@@ -48,7 +48,7 @@ public class sourcePoweredSkill extends Skill {
         boolean skill9 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WILDEN_HUNTER_GENETICS.get());
         boolean skill10 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WILDEN_STALKER_GENETICS.get());
         boolean skill11 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WIXIE_GENETICS.get());
-        return skill1 && skill2 && skill3 && skill4 && skill5 && skill6 && skill7 && skill8 && skill9 && skill10 && skill11;
+        return skill1 && skill2 && skill3 && skill4 && skill5 && skill6 && skill7 && skill8 && skill9 && skill10 && skill11 && newEP >= CONFIG.acquirementCost;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

@@ -1,10 +1,8 @@
 package com.github.propheticeclipse.tensurastarlight.registry.skills;
 
+import com.github.hvnbael.trnightmare.config.races.canonraces.ManasRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.*;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.hyperMetabolisticSkill;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.plasmaticSourceSkill;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.sourcePoweredSkill;
-import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.wildenStalkSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.arsnouveau.*;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.extra.malum.spiritSorcererSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
@@ -22,6 +20,7 @@ public class StarlightExtraSkills {
     public static final RegistrySupplier<ManasSkill> WILDEN_STALK = register("wilden_stalk", wildenStalkSkill::new);
 
     public static final RegistrySupplier<ManasSkill> SPIRIT_SORCERER = register("spirit_sorcerer", spiritSorcererSkill::new);
+    public static final RegistrySupplier<ManasSkill> SOURCE_BLOOD = register("source_blood", sourceBloodSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);

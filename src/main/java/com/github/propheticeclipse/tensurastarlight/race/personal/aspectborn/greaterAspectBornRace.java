@@ -19,7 +19,9 @@ import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
 import io.github.manasmods.tensura.registry.race.TensuraRaces;
 import io.github.manasmods.tensura.storage.Alignment;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import org.jetbrains.annotations.Nullable;
@@ -66,18 +68,15 @@ public class greaterAspectBornRace extends aspectBornRace {
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
         List<ManasRace> list = new ArrayList();
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player) { // This is client sided player, and cannot be a ServerPlayer
             StarlightPlayerAttachments data = player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
+
             if (data.isAspectbornFalseReset() && StarlightUtils.rejectedByWell(entity)) {
                 if (SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get())) {
                     list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
                 }
             } else if ((SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.LIGHT_REMAINS.get()) || SkillUtils.hasSkillFully(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get())) && StarlightUtils.rejectedByWell(entity) && !player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT).isAspectbornFalseReset()) {
                 list.add(StarlightRaces.LESSER_MEMORY_BORN.get());
-            }
-
-            if (data.isAspectbornFalseReset()) {
-                list.add(TensuraRaces.SLIME.get());
             }
         }
 

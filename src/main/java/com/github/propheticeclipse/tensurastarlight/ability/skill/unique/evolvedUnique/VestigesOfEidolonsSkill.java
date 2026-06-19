@@ -92,15 +92,11 @@ public class VestigesOfEidolonsSkill extends Skill {
 // Doesn’t penetrate walls. 20s CD, 12000 MP. Gains 7 mastery.
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-
-        boolean lightRemains = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
-        boolean echoEndures = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.ECHO_ENDURES.get());
-        boolean lifeReturns = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIFE_RETURNS.get());
-        if (!SkillUtils.hasSkill(entity, StarlightUltimateSkills.LETHE.get())) {
-            return lightRemains && echoEndures && lifeReturns;
-        } else {
-            return false;
+        if (!StarlightUtils.isLetheAcquired(entity)) {
+            return StarlightUtils.readyAspectOfReality(entity) && newEP >= CONFIG.magiculeAcquirementCost;
         }
+
+        return false;
     }
 
     public void onRespawn(ManasSkillInstance instance, ServerPlayer owner, boolean conqueredEnd) {

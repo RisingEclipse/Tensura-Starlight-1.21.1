@@ -42,14 +42,11 @@ public class malignantBodySkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        int malignantPewterConsumeCount = 0;
         if (entity instanceof ServerPlayer serverPlayer) {
-            malignantPewterConsumeCount = serverPlayer.getStats().getValue(Stats.ITEM_USED.get(MalumItems.MALIGNANT_PEWTER_PLATING.get()));
-        } else {
-            malignantPewterConsumeCount = 0;
+            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(MalumItems.MALIGNANT_PEWTER_PLATING.get())) >= CONFIG.consumptionCount && newEP >= CONFIG.acquirementCost;
         }
 
-        return malignantPewterConsumeCount >= 10;
+        return false;
     }
 
     public boolean onTakenDamage(ManasSkillInstance instance, LivingEntity owner, DamageSource source, Changeable<Float> amount) {

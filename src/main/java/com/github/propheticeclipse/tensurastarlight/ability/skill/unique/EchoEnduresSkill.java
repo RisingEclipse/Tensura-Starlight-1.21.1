@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.ability.skill.unique;
 import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.github.propheticeclipse.tensurastarlight.utils.ConeProjection;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.network.api.util.Changeable;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
@@ -59,13 +60,19 @@ public class EchoEnduresSkill extends Skill {
     // Doesn’t penetrate walls. 3s CD, 750 MP. Gains 1 mastery.
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
+        if (StarlightUtils.isVestigesAcquired(entity)) {
+            return false;
+        }
+        if (StarlightUtils.isLetheAcquired(entity)) {
+            return false;
+        }
 
         boolean senseSoundEffect = SkillUtils.hasSkill(entity, ExtraSkills.SENSE_SOUNDWAVE.get());
         boolean darknessEffect = entity.hasEffect(MobEffects.DARKNESS);
         boolean blindnessEffect = entity.hasEffect(MobEffects.BLINDNESS);
-        boolean lightRemains = SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
+        boolean lightRemains = StarlightUtils.isLightRemainsMastered(entity);
 
-        return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains);
+        return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains && newEP >= CONFIG.magiculeAcquirementCost);
     }
 
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {

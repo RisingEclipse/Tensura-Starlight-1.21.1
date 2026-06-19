@@ -6,6 +6,7 @@ import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceC
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
 import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
 import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightPlayerAttachments;
+import com.github.propheticeclipse.tensurastarlight.utils.StarlightUtils;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
@@ -78,9 +79,7 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
     public void onRaceEvolution(ManasRaceInstance raceInstance, LivingEntity entity, ManasRaceInstance evolution) {
         // Move this function to elder and delay it significantly, maybe add some shlore smore to it? Dunno, Either way, it works, SHIP IT BITCHES!
         if (entity instanceof ServerPlayer player) {
-            StarlightPlayerAttachments data = player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
-            data.setAspectbornFalseReset(true);
-            IExistence existence = TensuraStorages.getExistenceFrom(entity);
+            IExistence existence = TensuraStorages.getExistenceFrom(player);
 
             player.displayClientMessage(
                     Component.translatable(
@@ -105,6 +104,8 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                     false
             );
             VestigesOfEidolonsSkill.DelayedTask.run(200, () -> {
+                TensuraStorages.resetSpirit(player);
+                TensuraStorages.resetEffect(player);
                 existence.setName(null);
                 existence.setPermanentOwner(null);
                 existence.markDirty();
@@ -117,6 +118,14 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
                         ).withStyle(Style.EMPTY.withColor(ChatFormatting.WHITE)),
                         false
                 );
+                StarlightPlayerAttachments data =
+                        player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
+
+                data.setAspectbornFalseReset(true);
+
+                player.setData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT, data);
+
+                System.out.println("After set: " + data.isAspectbornFalseReset());
             });
         }
     }
