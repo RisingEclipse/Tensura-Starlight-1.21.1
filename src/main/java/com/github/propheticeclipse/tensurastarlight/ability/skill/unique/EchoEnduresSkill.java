@@ -72,7 +72,7 @@ public class EchoEnduresSkill extends Skill {
         boolean blindnessEffect = entity.hasEffect(MobEffects.BLINDNESS);
         boolean lightRemains = StarlightUtils.isLightRemainsMastered(entity);
 
-        return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains && newEP >= CONFIG.magiculeAcquirementCost);
+        return (senseSoundEffect && (blindnessEffect || darknessEffect) && lightRemains && newEP >= CONFIG.magiculeAcquirementCost) && CONFIG.enabled;
     }
 
     public double getAcquiringMagiculeCost(ManasSkillInstance instance) {

@@ -44,7 +44,7 @@ public class ShapeForgottenSkill extends Skill {
             return false;
         }
 
-        return StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && SkillUtils.hasSkillPermanently(entity, CommonSkills.SELF_REGENERATION.get()) && newEP >= CONFIG.magiculeAcquirementCost;
+        return StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && SkillUtils.hasSkillPermanently(entity, CommonSkills.SELF_REGENERATION.get()) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
     }
 
     public int getAcquirementMastery(LivingEntity entity) {

@@ -44,7 +44,7 @@ public class wixieGeneticsSkill extends Skill {
                 if (SkillUtils.hasSkillPermanently(entity, StarlightUniqueSkills.SOURCERY_CONSTITUTION.get())) {
                     talentReduction -= CONFIG.talentReduction;
                 }
-                return serverPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.ENTITY_WIXIE_TYPE.get())) >= (CONFIG.killCountReq - talentReduction) && newEP >= CONFIG.acquirementCost;
+                return serverPlayer.getStats().getValue(Stats.ENTITY_KILLED.get(ModEntities.ENTITY_WIXIE_TYPE.get())) >= (CONFIG.killCountReq - talentReduction) && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
             }
         }
 

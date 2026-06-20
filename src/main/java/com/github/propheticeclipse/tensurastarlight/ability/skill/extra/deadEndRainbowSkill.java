@@ -57,7 +57,7 @@ public class deadEndRainbowSkill extends Skill {
                 TensuraSkillInstance thisSkillLol = new TensuraSkillInstance(StarlightExtraSkills.DEAD_END_RAINBOW_SKILL.get());
                 thisSkillLol.getOrCreateTag().putBoolean("NoMagiculeCost", true);
                 SkillHelper.learnSkill(entity, thisSkillLol);
-                return true;
+                return newEP >= CONFIG.acquirementCost && CONFIG.enabled;
             }
         }
         return false;

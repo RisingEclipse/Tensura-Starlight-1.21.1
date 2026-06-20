@@ -12,6 +12,8 @@ public class itemExtraSkillsConfig extends ManasConfig {
     }
 
     public static class deadEndRainbowSkill extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         public double acquirementCost = 0;
         public int acquirementMastery = 1;
 

@@ -93,7 +93,7 @@ public class VestigesOfEidolonsSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         if (!StarlightUtils.isLetheAcquired(entity)) {
-            return StarlightUtils.readyAspectOfReality(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+            return StarlightUtils.readyAspectOfReality(entity) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
         }
 
         return false;

@@ -41,7 +41,7 @@ public class luckySkill extends Skill {
     }
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
-        return entity.getAttributeValue(Attributes.LUCK) >= 20.0 && newEP >= CONFIG.acquirementCost;
+        return entity.getAttributeValue(Attributes.LUCK) >= 20.0 && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

@@ -40,7 +40,7 @@ public class plasmaticSourceSkill extends Skill {
         boolean skill1 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.FLARECANNON_GENETICS.get());
         boolean skill2 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.FLASHJACK_GENETICS.get());
         boolean skill3 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.SIREN_GENETICS.get());
-        return skill1 && skill2 && skill3 && newEP >= CONFIG.acquirementCost;
+        return skill1 && skill2 && skill3 && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
     }
 
     public void onToggleOn(ManasSkillInstance instance, LivingEntity entity) {

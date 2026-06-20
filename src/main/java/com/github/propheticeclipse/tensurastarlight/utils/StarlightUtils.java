@@ -1,15 +1,7 @@
 package com.github.propheticeclipse.tensurastarlight.utils;
 
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
-import com.github.propheticeclipse.tensurastarlight.config.skills.aspectSeriesSkillConfig;
-import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.convergence.*;
-import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.*;
-import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.*;
-import com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn.trueAspect.memoryAspect.mythos.mythosRace;
-import com.github.propheticeclipse.tensurastarlight.registry.StarlightEffects;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
-import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightAttachments;
-import com.github.propheticeclipse.tensurastarlight.registry.attachments.StarlightPlayerAttachments;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUltimateSkills;
 import com.github.propheticeclipse.tensurastarlight.registry.skills.StarlightUniqueSkills;
 import com.sammy.malum.common.data.attachment.ProgressionData;
@@ -21,9 +13,7 @@ import io.github.manasmods.manascore.race.api.RaceAPI;
 import io.github.manasmods.manascore.race.api.Races;
 import io.github.manasmods.manascore.race.api.SpawnPointHelper;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
-import io.github.manasmods.tensura.Tensura;
 import io.github.manasmods.tensura.ability.SkillUtils;
-import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.data.TensuraTags;
 import io.github.manasmods.tensura.registry.effect.TensuraMobEffects;
 import io.github.manasmods.tensura.storage.TensuraStorages;
@@ -43,7 +33,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -115,7 +104,7 @@ public class StarlightUtils {
                     for (int i = 0; i <= copies; i++) {
                         if (entity.getRandom().nextDouble() < successRate) {
                             ItemStack stack = (ItemStack) drops.get(entity.getRandom().nextInt(drops.size()));
-                            ItemStack copy = stack.copy();
+                            ItemStack copy = stack.copyWithCount(1);
                             entity.spawnAtLocation(copy);
                         }
                     }

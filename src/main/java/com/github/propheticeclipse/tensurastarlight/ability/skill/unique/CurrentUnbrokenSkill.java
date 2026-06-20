@@ -54,7 +54,7 @@ Passives
         }
 
         if (entity instanceof ServerPlayer serverPlayer) {
-            return serverPlayer.getStats().getValue(Stats.ITEM_PICKED_UP.get(Items.NETHER_STAR)) >= CONFIG.netherStars && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+            return serverPlayer.getStats().getValue(Stats.ITEM_PICKED_UP.get(Items.NETHER_STAR)) >= CONFIG.netherStars && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
         }
 
         return false;

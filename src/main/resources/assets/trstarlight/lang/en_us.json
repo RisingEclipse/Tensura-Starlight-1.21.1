@@ -122,6 +122,9 @@
   "trstarlight.skill.dead_end_rainbow_skill": "Unleashed Dead End",
   "trstarlight.skill.dead_end_rainbow_skill.description": "To unleash the limits of endings.",
 
+  "trstarlight.skill.source_blood": "Source Blood",
+  "trstarlight.skill.source_blood.description": "What flows through your veins is blood no longer, but concentrated source empowering your very being.",
+
   "effect.trstarlight.ember_attack_improvement": "ER: Combat Flow",
   "effect.trstarlight.shape_forgotten_armor": "SF: Shifting Armor",
   "effect.trstarlight.soul_aegis": "SS: Soul Aegis",
@@ -130,6 +133,7 @@
   "effect.trstarlight.existence_drain": "Existence Drain",
   "effect.trstarlight.health_regen": "Health Regeneration",
   "effect.trstarlight.spiritual_regen": "Spiritual Health Regeneration",
+  "effect.trstarlight.source_blood_rejuvenation": "Source Blood Rejuvenation",
 
   "trstarlight.skill.mode.default": "No Actives",
 

@@ -11,9 +11,13 @@ import io.github.manasmods.tensura.effect.template.TensuraMobEffect;
 import io.github.manasmods.tensura.registry.attribute.TensuraAttributes;
 import io.github.manasmods.tensura.storage.TensuraStorages;
 import io.github.manasmods.tensura.storage.ep.IExistence;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 import java.awt.*;
@@ -45,55 +49,32 @@ public class SourceBloodRejuvenationEffect extends TensuraMobEffect {
         double maxSHP = entity.getAttributeValue(TensuraAttributes.MAX_SPIRITUAL_HEALTH);
         double curMana = ManaUtil.getCurrentMana(entity);
         ManaCap mana = CapabilityRegistry.getMana(entity);
-        double maxMana = mana.getMaxMana();
 
         // Ability Config Relevance:
         double healingEfficiency = CONFIG.healingEfficency;
         double efficiencyPerLevel = healingEfficiency * level;
+        double healAmount = CONFIG.healthBaseHeal * efficiencyPerLevel;
+        double spiritualHealAmount = CONFIG.spiritualBaseHeal * efficiencyPerLevel;
 
-        // Some quick math for references
-        double HPtoHeal = Math.clamp((maxHP - HP) * efficiencyPerLevel, 0.0, maxHP);
-        double SHPtoHeal = Math.clamp((maxSHP - SHP) * efficiencyPerLevel, 0.0, maxSHP);
-        double ManatoHeal = Math.clamp((maxMana - curMana) * efficiencyPerLevel, 0.0, maxMana);
-
-        double HPConversion = CONFIG.HPConversionRatio;
-        double SHPConversion = CONFIG.SHPConversionRatio;
-
-        double aboveHPRegenReq = maxHP * 0.46;
-        double FlooredDamageTaken = Math.clamp((ManatoHeal / HPConversion), 0.0, Math.abs(HP - aboveHPRegenReq));
-
-        if (HP <= maxHP * 0.451) {
-
-            if (curMana >= HPtoHeal * HPConversion) {
-                entity.heal((float) HPtoHeal);
-                mana.removeMana(HPtoHeal * HPConversion);
-            } else if (curMana < HPtoHeal * HPConversion) {
-                entity.heal((float) Math.clamp(curMana * HPConversion, 0.0, HPtoHeal));
+        /*
+        Moving to a source -> HP System
+         */
+        if (!SkillUtils.shouldCancelHealing(entity)) {
+            if (HP < maxHP && curMana >= healAmount) {
+                entity.heal((float) healAmount);
+                mana.removeMana(healAmount * 2);
+            } else if (HP < maxHP && curMana <= healAmount * 2){
+                entity.heal((float) curMana / 2);
                 mana.removeMana(curMana);
             }
 
-        } else
-
-        if (HP >= maxHP * 0.551 && curMana < maxMana) {
-
-            /*
-            if: has enough Health to spend -> proceed
-            If: has not enough health: spend all until the limit (0.46x)
-             */
-
-            if (HP >= ManatoHeal / HPConversion) {
-                entity.invulnerableTime = 0;
-                entity.hurt(TensuraDamageTypes.getDamageSource(entityLevel, TensuraDamageTypes.MAGIC_GENERIC), (float) (ManatoHeal / HPConversion));
-                mana.addMana(ManatoHeal);
-            } else if (HP <= ManatoHeal / HPConversion) {
-                entity.invulnerableTime = 0;
-                entity.hurt(TensuraDamageTypes.getDamageSource(entityLevel, TensuraDamageTypes.MAGIC_GENERIC), (float) (FlooredDamageTaken));
-                mana.addMana(FlooredDamageTaken / CONFIG.HPConversionRatio);
+            if (level >= 5 && SHP < maxSHP && curMana >= healAmount) {
+                existence.setSpiritualHealth(SHP + spiritualHealAmount);
+                mana.removeMana(spiritualHealAmount);
+            } else if (SHP < maxSHP && level >= 5) {
+                existence.setSpiritualHealth(SHP + curMana);
+                mana.removeMana(curMana);
             }
-        }
-
-        if (level >= 5 && SHP < maxSHP) {
-
         }
 
         return true;

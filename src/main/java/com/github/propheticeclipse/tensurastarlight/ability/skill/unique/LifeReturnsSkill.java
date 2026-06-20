@@ -54,7 +54,7 @@ public class LifeReturnsSkill extends Skill {
         if (entity instanceof ServerPlayer serverPlayer) {
             boolean overEPTrigger = newEP >= (CONFIG.overCostAcquirementMod * CONFIG.magiculeAcquirementCost);
             boolean deathComparison = (serverPlayer.getStats().getValue(Stats.CUSTOM.get(Stats.DEATHS)) >= CONFIG.deathCount);
-            return (overEPTrigger || deathComparison) && StarlightUtils.isLightRemainsMastered(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+            return (overEPTrigger || deathComparison) && StarlightUtils.isLightRemainsMastered(entity) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
         }
 
         return false;

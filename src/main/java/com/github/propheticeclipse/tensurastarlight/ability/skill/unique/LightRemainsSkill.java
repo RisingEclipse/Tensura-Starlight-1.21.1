@@ -61,11 +61,11 @@ public class LightRemainsSkill extends Skill {
         if (!StarlightUtils.isAspectborn(entity)) {
             return false;
         }
-        if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel || spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel) {
+        if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillFreeSpiritLevel || spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillFreeSpiritLevel && CONFIG.enabled) {
             TensuraSkillInstance lightRemains = new TensuraSkillInstance(StarlightUniqueSkills.LIGHT_REMAINS.get());
             lightRemains.getOrCreateTag().putBoolean("NoMagiculeCost", true);
             SkillHelper.learnSkill(entity, lightRemains);
-        } else if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillAcquireSpiritLevel && spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillAcquireSpiritLevel && newEP >= CONFIG.magiculeAcquirementCost) {
+        } else if (spiritStorage.getSpiritLevelId(Element.LIGHT) >= CONFIG.skillAcquireSpiritLevel && spiritStorage.getSpiritLevelId(Element.DARKNESS) >= CONFIG.skillAcquireSpiritLevel && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled) {
             SkillHelper.learnSkill(entity, StarlightUniqueSkills.LIGHT_REMAINS.get());
         }
 

@@ -43,7 +43,7 @@ public class malignantBodySkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         if (entity instanceof ServerPlayer serverPlayer) {
-            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(MalumItems.MALIGNANT_PEWTER_PLATING.get())) >= CONFIG.consumptionCount && newEP >= CONFIG.acquirementCost;
+            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(MalumItems.MALIGNANT_PEWTER_PLATING.get())) >= CONFIG.consumptionCount && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
         }
 
         return false;

@@ -51,7 +51,7 @@ public class EmberRemainsSkill extends Skill {
         }
 
         if (entity instanceof ServerPlayer serverPlayer) {
-            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(Items.TOTEM_OF_UNDYING)) >= CONFIG.defyFateCount && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+            return serverPlayer.getStats().getValue(Stats.ITEM_USED.get(Items.TOTEM_OF_UNDYING)) >= CONFIG.defyFateCount && StarlightUtils.isLightMasteredOrVestigesAcquired(entity) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
         }
 
         return false;

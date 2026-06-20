@@ -28,6 +28,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class LightRemains extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("What level should the Light/Darkness spirits be to acquire Light Remains for free?\nLevel 2 = Medium Spirit\nLevel 3 = Greater Spirit\nLevel 4 = Spirit Lord\n")
         public int skillFreeSpiritLevel = 4;
         @Comment("What level should the Light/Darkness spirits be to acquire Light Remains at cost?")
@@ -80,6 +82,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int overbearingLightCooldown = 6;
     }
     public static class EchoEndures extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Echo Endures cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 100000.0;
         @Comment("How much mastery should Echo Endures have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -107,6 +111,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
 
     }
     public static class LifeReturns extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Life Returns cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 100000.0;
         @Comment("How many times more MP should Life Returns need to acquire without Death Count or Magicule Poisoning")
@@ -135,6 +141,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int deathBypassCooldown = 1200;
     }
     public static class EmberRemains extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Ember Remains cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 100000.0;
         @Comment("How much mastery should Ember Remains have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -176,6 +184,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
 
     }
     public static class ShapeForgotten extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Shape Forgotten cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 100000.0;
         @Comment("How much mastery should Shape Forgotten have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -212,6 +222,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int shiftingFormCooldown = 30;
     }
     public static class CurrentUnbroken extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Current Unbroken cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 100000.0;
         @Comment("How much mastery should Current Unbroken have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -233,6 +245,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class VestigesOfEidolons extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Vestiges of Eidolons cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 150000.0;
         @Comment("How much mastery should Vestiges of Eidolons have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -309,6 +323,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
         public int judgementCooldown = 20;
     }
     public static class RemnantsOfAscension extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should Remnants of Ascension cost to acquire/plunder/copy under normal circumstances?")
         public double magiculeAcquirementCost = 150000.0;
         @Comment("How much mastery should Remnants of Ascension have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -361,6 +377,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class MemoryRecreation extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         public int acquirementMastery = 1;
         public double acquirementCost = 2147483647;
         public int cooldown = 5;
@@ -384,6 +402,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class MagiculeEngravement extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         public int acquirementMastery = 1;
         public double acquirementCost = 2147483647;
         public int cooldown = 5;
@@ -410,6 +430,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class PhantasmalCreation extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         public int acquirementMastery = 1;
         public double acquirementCost = 2147483647;
 
@@ -524,6 +546,8 @@ public class aspectSeriesSkillConfig extends ManasConfig {
     }
 
     public static class Lethe extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         public int acquirementMastery = 1;
         public double acquirementCost = 2000000;
 

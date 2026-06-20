@@ -58,7 +58,7 @@ public class sourceryConstitutionSkill extends Skill {
 
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         if (StarlightUtils.isAspectborn(entity)) {
-            return entity.getAttributeValue(PerkAttributes.MAX_MANA) >= 3500.0;
+            return entity.getAttributeValue(PerkAttributes.MAX_MANA) >= 3500.0 && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
         }
 
         return false;

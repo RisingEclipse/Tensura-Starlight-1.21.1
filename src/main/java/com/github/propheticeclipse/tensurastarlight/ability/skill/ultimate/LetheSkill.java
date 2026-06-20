@@ -95,6 +95,11 @@ public class LetheSkill extends Skill {
     public boolean checkAcquiringRequirement(Player entity, double newEP) {
         // Mastered Law Manip, Mastered and Sacrifice Vestiges and Remnants
         // Check Mythos and Aspect of Regression For details.
+        if (StarlightUtils.isMythos(entity)) {
+            if (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get()) && SkillUtils.isSkillMastered(entity, ExtraSkills.LAW_MANIPULATION.get())) {
+                return newEP >= CONFIG.acquirementCost && CONFIG.enabled;
+            }
+        }
         return false;
     }
 

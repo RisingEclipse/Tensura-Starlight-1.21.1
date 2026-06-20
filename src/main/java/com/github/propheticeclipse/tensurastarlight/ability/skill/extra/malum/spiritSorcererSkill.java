@@ -50,7 +50,7 @@ public class spiritSorcererSkill extends Skill {
         boolean malignantBody = SkillUtils.hasSkillFully(entity, StarlightIntrinsicSkills.MALIGNANT_BODY.get());
 
 
-        return wardedSoul && soulPlunderer && malignantBody && newEP >= CONFIG.acquirementCost;
+        return wardedSoul && soulPlunderer && malignantBody && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
     }
 
     public boolean canBeToggled(ManasSkillInstance instance, LivingEntity entity) {

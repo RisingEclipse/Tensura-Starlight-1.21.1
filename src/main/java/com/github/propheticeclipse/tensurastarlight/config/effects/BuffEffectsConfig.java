@@ -84,9 +84,9 @@ public class BuffEffectsConfig extends ManasConfig {
         @Comment("How fast should this effect trigger in ticks?")
         public int tickRate = 20;
 
-        public double HPConversionRatio = 0.25;
-        public double SHPConversionRatio = 0.50;
-
         public double healingEfficency = 0.1;
+
+        public double healthBaseHeal = 10.0;
+        public double spiritualBaseHeal = 5.0;
     }
 }

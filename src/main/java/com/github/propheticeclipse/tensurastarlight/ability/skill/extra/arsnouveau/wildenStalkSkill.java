@@ -40,7 +40,7 @@ public class wildenStalkSkill extends Skill {
         boolean skill1 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WILDEN_GUARDIAN_GENETICS.get());
         boolean skill2 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WILDEN_HUNTER_GENETICS.get());
         boolean skill3 = SkillUtils.isSkillMastered(entity, StarlightIntrinsicSkills.WILDEN_STALKER_GENETICS.get());
-        return skill1 && skill2 && skill3 && newEP >= CONFIG.acquirementCost;
+        return skill1 && skill2 && skill3 && newEP >= CONFIG.acquirementCost && CONFIG.enabled;
     }
     // Wilden Hunter, Guardian, Stalker === Wilden Stalk
     //- Increases arrow damage by 25/50% base,

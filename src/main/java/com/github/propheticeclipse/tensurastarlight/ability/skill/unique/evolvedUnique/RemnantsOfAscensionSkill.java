@@ -90,7 +90,7 @@ Temporarily affects all beneficial effects and negative status effects.*/
         Demon Lord Seed or Hero Egg
         */
         if (!StarlightUtils.isLetheAcquired(entity)) {
-            return StarlightUtils.readyAspectOfPower(entity) && newEP >= CONFIG.magiculeAcquirementCost;
+            return StarlightUtils.readyAspectOfPower(entity) && newEP >= CONFIG.magiculeAcquirementCost && CONFIG.enabled;
         }
 
         return false;

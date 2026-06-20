@@ -29,6 +29,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class amethystGolemGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -44,6 +46,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class drygmyGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -61,6 +65,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class flarecannonGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -76,6 +82,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class flashjackGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -91,6 +99,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class sirenGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -106,6 +116,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class starbuncleGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -119,6 +131,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class whirlisprigGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -132,6 +146,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class wixieGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -145,6 +161,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class wildenGuardianGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -164,6 +182,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class wildenHunterGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -180,6 +200,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class wildenStalkerGenetics extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -196,6 +218,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class abnormallyLucky extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -210,6 +234,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class hyperMetabolistic extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -224,6 +250,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class plasmaticSource extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -236,6 +264,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class sourcePowered extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -256,6 +286,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class wildenStalk extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 10000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -266,6 +298,8 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class sourceryConstitution extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 75000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
@@ -306,9 +340,15 @@ public class arsnouveauSeriesSkillConfig extends ManasConfig {
     }
 
     public static class sourceBlood extends ManasSubConfig {
+        @Comment("Should this skill be enabled?\nThis ONLY affects whether it has a natural acquirement, such as reaching a EP goal.\nIf it is a intrinsic, you can remove it from the relevant race config.")
+        public boolean enabled = true;
         @Comment("How much MP should this skill cost to acquire/plunder/copy under normal circumstances?")
         public double acquirementCost = 200000.0;
         @Comment("How much mastery should this skill have by default?\nAny value above 1 = X Mastery at acquirement\n0 = Must be learned\nAny value below 0 = Requires X Learn Points")
         public int acquirementMastery = 0;
+
+        public double manaPercentMastered = 1.0;
+        public double manaPercentUnmastered = 0.5;
+        public double maximumReduction = 25.0;
     }
 }
