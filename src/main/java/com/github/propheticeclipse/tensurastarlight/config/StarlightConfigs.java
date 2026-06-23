@@ -3,6 +3,7 @@ package com.github.propheticeclipse.tensurastarlight.config;
 import com.github.propheticeclipse.tensurastarlight.config.effects.BuffEffectsConfig;
 import com.github.propheticeclipse.tensurastarlight.config.effects.DebuffEffectsConfig;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
+import com.github.propheticeclipse.tensurastarlight.config.races.starbornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.config.skills.*;
 import io.github.manasmods.manascore.config.ConfigRegistry;
 import io.github.manasmods.tensura.config.ReincarnationConfig;
@@ -27,11 +28,12 @@ public class StarlightConfigs {
         ConfigRegistry.registerConfig(new malumSeriesSkillConfig());
         // Races
         ConfigRegistry.registerConfig(new aspectBornRaceConfig());
+        ConfigRegistry.registerConfig(new starbornRaceConfig());
     }
 
-    protected static final List<String> races = List.of("trstarlight:lesser_aspect_born");
-    protected static final List<String> reincspellraces = List.of("trstarlight:lesser_aspect_born");
-    protected static final List<String> reincspellmasteredraces = List.of("trstarlight:lesser_aspect_born");
+    protected static final List<String> races = List.of("trstarlight:lesser_aspect_born", "trstarlight:small_molecular_cloud");
+    protected static final List<String> reincspellraces = List.of("trstarlight:lesser_aspect_born", "trstarlight:small_molecular_cloud");
+    protected static final List<String> reincspellmasteredraces = List.of("trstarlight:lesser_aspect_born", "trstarlight:small_molecular_cloud");
     protected static final List<String> skills = List.of("trstarlight:sourcery_constitution");
     protected static final List<String> aspectSkills = List.of("trstarlight:light_remains");
 

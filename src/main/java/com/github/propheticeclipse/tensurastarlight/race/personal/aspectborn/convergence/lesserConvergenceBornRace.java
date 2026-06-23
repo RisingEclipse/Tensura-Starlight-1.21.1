@@ -12,6 +12,7 @@ import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
 import io.github.manasmods.tensura.registry.TensuraStats;
@@ -27,6 +28,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class lesserConvergenceBornRace extends greaterAspectBornRace {
+    private static final aspectBornRaceConfig.lesserConvergenceBorn CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).lesserConvergenceBorn;
+
     public lesserConvergenceBornRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -38,11 +41,11 @@ public class lesserConvergenceBornRace extends greaterAspectBornRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserConvergenceBorn;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserConvergenceBorn;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -67,7 +70,6 @@ public class lesserConvergenceBornRace extends greaterAspectBornRace {
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
         // Get EP Requirements, and Check for having light remains as a skill.
-        aspectBornRaceConfig.lesserConvergenceBorn config = (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserConvergenceBorn;
         return Map.of(new EvolutionRequirement() {
             public float getProgress(ManasRaceInstance raceInstance, LivingEntity entity) {
                 float progress = 0.0F;
@@ -80,14 +82,21 @@ public class lesserConvergenceBornRace extends greaterAspectBornRace {
             public Component getRequirementComponent(ManasRaceInstance instance, LivingEntity entity) {
                 return Component.translatable("trstarlight.evolution_menu.lesser_convergence_requirements");
             }
-        }, 90.0F, new EvolutionRequirement.EPRequirement(config.epRequirement), 10.0F);
+        }, 90.0F, new EvolutionRequirement.EPRequirement(CONFIG.epRequirement), 10.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .lesserConvergenceBorn.lesserConvergenceBornIntrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 }

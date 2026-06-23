@@ -14,6 +14,7 @@ import io.github.manasmods.manascore.race.api.RaceAPI;
 import io.github.manasmods.manascore.race.api.Races;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.client.TensuraClient;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.item.misc.ResetScrollItem;
@@ -37,6 +38,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class elderConvergenceBornRace extends greaterConvergenceBornRace {
+    private static final aspectBornRaceConfig.elderConvergenceBorn CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).elderConvergenceBorn;
+
     public elderConvergenceBornRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -48,11 +51,11 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -72,7 +75,13 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
     }
 
     public List<ManasRace> getNextEvolutions(ManasRaceInstance instance, LivingEntity entity) {
-        return List.of(StarlightRaces.FALSE_ASPECT_OF_REGRESSION.get());
+        if (entity instanceof Player player) {
+            StarlightPlayerAttachments data = player.getData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT.get());
+            if (!data.isAspectbornFalseReset()) {
+                return List.of(StarlightRaces.FALSE_ASPECT_OF_REGRESSION.get());
+            }
+        }
+        return List.of();
     }
 
     @Override
@@ -125,20 +134,27 @@ public class elderConvergenceBornRace extends greaterConvergenceBornRace {
 
                 player.setData(StarlightAttachments.STARLIGHT_PLAYER_ATTACHMENT, data);
 
-                System.out.println("After set: " + data.isAspectbornFalseReset());
+                // System.out.println("After set: " + data.isAspectbornFalseReset());
             });
         }
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).elderConvergenceBorn.epRequirement), 100.0F);
+        return Map.of(new EvolutionRequirement.EPRequirement(CONFIG.epRequirement), 100.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .elderConvergenceBorn.elderConvergenceBornIntrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 }

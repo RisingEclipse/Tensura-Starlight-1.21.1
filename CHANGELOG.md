@@ -12,13 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Configuration - Global Lists: [Global Effect Blacklist]
 - Configuration - Global Lists: [Global Enchantment Blacklist]
 - Configuration - Skills: [Effect Blacklists & Whitelists] for skills [Ember Remains], [Shape Forgotten], [Remnants of Ascension], and [Lethe, Lady of Phantasm]
-- Configuration - Skills: [Enabled / Disable Configuration] for all skills. Those without natural acquirements (Those that are not exclusively intrinsic, or reincarnation based) can now be toggled on or off for ease of use with servers. Keep in mind certain skills like [Memory Recreation] will need to be removed from the relevant intrinsics to be truly "disabled" even if it were disabled in config.
+- Configuration - Skills: [Enabled / Disabled Configuration] for all skills. Those without natural acquirements (Those that are not exclusively intrinsic, or reincarnation based) can now be toggled on or off for ease of use with servers. Keep in mind certain skills like [Memory Recreation] will need to be removed from the relevant intrinsics to be truly "disabled" even if it were disabled in config.
+- Configuration - Intrinsics: [Learnable Intrinsics] for all races, including the new Starborn Race. This will also extend to all future races.
 - Configuration - Ultimate Skill: [Lethe, Lady of Phantasm]
 - Configuration - Unique Skill: [Sourcery Constitution]
+- Configuration - Extra Skill: [Source Blood]
 
 - Lord-Class Ultimate Skill: [Lethe, Lady of Phantasm]
 - Unique Skill: [Sourcery Constitution]
 - Evolved Extra Skill: [Source Blood]
+
+- Race: [Starborn], a race heavily based around the solar bodies, work your way from the molecular clouds surrounding freshly born stars all the way into Supergiant Stars and Great Planets. Race idea originally by RadientFox from Stellar Prism.
 
 - Language Support - Spanish: Added by User soulnekoghost from the Starlight Discord.
 

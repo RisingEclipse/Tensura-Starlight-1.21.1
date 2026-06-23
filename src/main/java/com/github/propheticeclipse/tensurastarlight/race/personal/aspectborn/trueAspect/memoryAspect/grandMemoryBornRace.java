@@ -9,6 +9,7 @@ import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.item.misc.ResetScrollItem;
 import io.github.manasmods.tensura.menu.ReincarnationMenu;
@@ -29,6 +30,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class grandMemoryBornRace extends greaterMemoryBornRace {
+    private static final aspectBornRaceConfig.grandMemoryBorn CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).grandMemoryBorn;
+
     public grandMemoryBornRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -40,11 +43,11 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -68,7 +71,7 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        return Map.of(new EvolutionRequirement.EPRequirement((ConfigRegistry.getConfig(aspectBornRaceConfig.class)).grandMemoryBorn.epRequirement), 100.0F);
+        return Map.of(new EvolutionRequirement.EPRequirement(CONFIG.epRequirement), 100.0F);
     }
 
     @Override
@@ -120,10 +123,17 @@ public class grandMemoryBornRace extends greaterMemoryBornRace {
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .grandMemoryBorn.grandMemoryBornIntrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 }

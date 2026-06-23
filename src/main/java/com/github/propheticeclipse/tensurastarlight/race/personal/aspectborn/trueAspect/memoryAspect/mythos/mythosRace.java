@@ -14,6 +14,7 @@ import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.ability.skill.unique.PredatorSkill;
 import io.github.manasmods.tensura.config.race.HumanConfig;
@@ -41,6 +42,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class mythosRace extends aspectOfRegressionRace {
+    private static final aspectBornRaceConfig.mythos CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).mythos;
+
     public mythosRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -52,11 +55,11 @@ public class mythosRace extends aspectOfRegressionRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).mythos;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).mythos;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -80,7 +83,6 @@ public class mythosRace extends aspectOfRegressionRace {
     }
 
     public Map<EvolutionRequirement, Float> getEvolutionRequirements(ManasRaceInstance previous, LivingEntity entity) {
-        aspectBornRaceConfig.mythos config = (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).mythos;
         return Map.of(new EvolutionRequirement() {
             public float getProgress(ManasRaceInstance raceInstance, LivingEntity entity) {
                 float progress = 0.0F;
@@ -112,14 +114,21 @@ public class mythosRace extends aspectOfRegressionRace {
             public Component getRequirementComponent(ManasRaceInstance instance, LivingEntity entity) {
                 return Component.translatable("trstarlight.evolution_menu.mythos_requirements");
             }
-        }, 90.0F, new EvolutionRequirement.EPRequirement(config.epRequirement), 10.0F);
+        }, 90.0F, new EvolutionRequirement.EPRequirement(CONFIG.epRequirement), 10.0F);
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .mythos.intrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 }

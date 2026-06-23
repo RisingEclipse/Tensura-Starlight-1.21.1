@@ -15,6 +15,7 @@ import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.config.race.RaceConfig;
 import io.github.manasmods.tensura.race.template.EvolutionRequirement;
 import io.github.manasmods.tensura.registry.race.TensuraRaces;
@@ -32,6 +33,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class greaterAspectBornRace extends aspectBornRace {
+    private static final aspectBornRaceConfig.greaterAspectBorn CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).greaterAspectBorn;
+
     public greaterAspectBornRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -43,11 +46,11 @@ public class greaterAspectBornRace extends aspectBornRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).greaterAspectBorn;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -89,10 +92,17 @@ public class greaterAspectBornRace extends aspectBornRace {
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .greaterAspectBorn.greaterAspectBornIntrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 }

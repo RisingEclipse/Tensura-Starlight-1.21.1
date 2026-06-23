@@ -40,6 +40,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of("tensura:possession", "tensura:danger_sense");
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.75;
@@ -164,9 +168,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> lesserAspectBornIntrinsics = List.of("tensura:possession", "tensura:danger_sense");
 
         public double getMinAura() {
             return this.minAura;
@@ -511,6 +512,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.75;
@@ -635,9 +640,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> aspectBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -982,6 +984,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of("tensura:self_regeneration");
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -1106,9 +1112,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> greaterAspectBornIntrinsics = List.of("tensura:self_regeneration");
 
         public double getMinAura() {
             return this.minAura;
@@ -1454,6 +1457,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -1578,9 +1585,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> lesserConvergenceBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -1925,6 +1929,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -2049,9 +2057,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> convergenceBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -2396,6 +2401,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -2520,9 +2529,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> greaterConvergenceBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -2867,6 +2873,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of("tensura:divine_ki_release");
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.25;
@@ -2991,9 +3001,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> elderConvergenceBornIntrinsics = List.of("tensura:divine_ki_release");
 
         public double getMinAura() {
             return this.minAura;
@@ -3339,6 +3346,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -3463,9 +3474,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> lesserMemoryBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -3810,6 +3818,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -3934,9 +3946,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> memoryBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -4281,6 +4290,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -4405,9 +4418,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> greaterMemoryBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -4752,6 +4762,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.5;
@@ -4876,9 +4890,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> grandMemoryBornIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -5224,6 +5235,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of();
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.75;
@@ -5348,9 +5363,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> falseAspectOfRegressionIntrinsics = List.of();
 
         public double getMinAura() {
             return this.minAura;
@@ -5695,6 +5707,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of("trstarlight:memory_recreation");
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = -0.75;
@@ -5819,9 +5835,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> aspectOfRegressionIntrinsics = List.of("trstarlight:memory_recreation");
 
         public double getMinAura() {
             return this.minAura;
@@ -6166,6 +6179,10 @@ public class aspectBornRaceConfig extends ManasConfig {
         @Comment("What should the maximum Mana (MP) of this race be?")
         public double maxMagicule = (double)500.0F;
 
+        @Comment("What intrinsics should this race have?")
+        public List<String> intrinsics = List.of("trstarlight:magicule_engravement", "trstarlight:memory_recreation", "tensura:divine_ki_release");
+        @Comment("What learnable intrinsics should this race have?")
+        public List<String> learnableIntrinsics = List.of();
 
         @Comment("What should the additonal size modifier of this race be?")
         public double size = 0.0;
@@ -6290,9 +6307,6 @@ public class aspectBornRaceConfig extends ManasConfig {
         public double magicDamage = 0.0;
         public double magicProficiency = 0.0;
         public double magicResistance = 0.0;
-
-        @Comment("What intrinsics should this race have?")
-        public List<String> intrinsics = List.of("trstarlight:magicule_engravement", "trstarlight:memory_recreation", "tensura:divine_ki_release");
 
         public double getMinAura() {
             return this.minAura;

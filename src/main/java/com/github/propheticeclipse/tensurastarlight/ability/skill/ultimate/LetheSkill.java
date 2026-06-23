@@ -19,7 +19,9 @@ import io.github.manasmods.manascore.race.impl.RaceStorage;
 import io.github.manasmods.manascore.skill.api.ManasSkillInstance;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
 import io.github.manasmods.manascore.skill.impl.SkillStorage;
+import io.github.manasmods.tensura.ability.SkillHelper;
 import io.github.manasmods.tensura.ability.SkillUtils;
+import io.github.manasmods.tensura.ability.TensuraSkillInstance;
 import io.github.manasmods.tensura.ability.battlewill.utility.BattlewillArt;
 import io.github.manasmods.tensura.ability.skill.Skill;
 import io.github.manasmods.tensura.ability.skill.extra.SenseHeatSourceSkill;
@@ -97,7 +99,11 @@ public class LetheSkill extends Skill {
         // Check Mythos and Aspect of Regression For details.
         if (StarlightUtils.isMythos(entity)) {
             if (SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.VESTIGES_OF_EIDOLONS.get()) && SkillUtils.isSkillMastered(entity, StarlightUniqueSkills.REMNANTS_OF_ASCENSION.get()) && SkillUtils.isSkillMastered(entity, ExtraSkills.LAW_MANIPULATION.get())) {
-                return newEP >= CONFIG.acquirementCost && CONFIG.enabled;
+                if (!SkillUtils.hasSkillFully(entity, StarlightUltimateSkills.LETHE.get()) && CONFIG.enabled) {
+                    TensuraSkillInstance skill = new TensuraSkillInstance(StarlightUltimateSkills.LETHE.get());
+                    skill.getOrCreateTag().putBoolean("NoMagiculeCost", true);
+                    SkillHelper.learnSkill(entity, skill);
+                }
             }
         }
         return false;
@@ -352,6 +358,16 @@ public class LetheSkill extends Skill {
         }
         if (resistDegrade != null) {
             resistDegrade.removeModifier(LETHE);
+        }
+
+        if (entity.hasEffect(StarlightEffects.EXISTENCE_REGENERATION)) {
+            entity.removeEffect(StarlightEffects.EXISTENCE_REGENERATION);
+        }
+        if (entity.hasEffect(StarlightEffects.HEALTH_REGEN)) {
+            entity.removeEffect(StarlightEffects.HEALTH_REGEN);
+        }
+        if (entity.hasEffect(StarlightEffects.SPIRITUAL_REGEN)) {
+            entity.removeEffect(StarlightEffects.SPIRITUAL_REGEN);
         }
 
         AttributeHelper.removePresenceSense(entity, instance.isMastered(entity) ? CONFIG.presenceSenseLevelMastered : CONFIG.presenceSenseLevelUnmastered);

@@ -178,6 +178,26 @@
   "trstarlight.race.false_aspect_of_regression": "Regr§kes§rs§kion§r - As§kp§re§kct§r of §kRej§rec§ktion§r",
   "trstarlight.race.aspect_of_regression": "Regression - Aspect of Restoration",
   "trstarlight.race.mythos": "Mythos - Aspect of Eternity",
+  "trstarlight.race.mythos.description": "A uniquely spiritual life-form immersed within the physical plane's history.\nRewritten, Remade, lines blurred.\nA fragement which amassed into the aspect encompassing all.",
+
+  "trstarlight.race.small_molecular_cloud": "Small Molecular Cloud",
+  "trstarlight.race.small_molecular_cloud.description": "The very building blocks of the cosmic ocean.\nThe potential to be so much more despite being so miniscule.",
+  "trstarlight.race.large_molecular_cloud": "Large Molecular Cloud",
+  "trstarlight.race.stardust": "Stardust",
+
+  "trstarlight.race.small_meteoroid": "Small Meteoroid",
+  "trstarlight.race.large_meteoroid": "Large Meteoroid",
+
+  "trstarlight.race.small_comet": "Small Comet",
+  "trstarlight.race.large_comet": "Large Comet",
+
+  "trstarlight.race.small_asteroid": "Small Asteroid",
+  "trstarlight.race.large_asteroid": "Large Asteroid",
+
+  "trstarlight.race.small_moon": "Small Moon",
+  "trstarlight.race.moon": "Moon",
+  "trstarlight.race.lunaMoon": "Lady Luna",
+  "trstarlight.race.large_moon": "Large Moon",
 
   "trstarlight.evolution_menu.mythos_requirements": "Entwine yourself with Myths, mark yourself an Eternal Scourge.",
   "trstarlight.evolution_menu.lesser_convergence_requirements": "Acquire Light Remains or Vestiges of Eidolons."

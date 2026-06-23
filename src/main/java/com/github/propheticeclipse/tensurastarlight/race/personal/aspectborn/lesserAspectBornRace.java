@@ -2,6 +2,7 @@ package com.github.propheticeclipse.tensurastarlight.race.personal.aspectborn;
 
 import com.github.propheticeclipse.tensurastarlight.config.StarlightCommon;
 import com.github.propheticeclipse.tensurastarlight.config.races.aspectBornRaceConfig;
+import com.github.propheticeclipse.tensurastarlight.config.races.starbornRaceConfig;
 import com.github.propheticeclipse.tensurastarlight.race.StarlightRace;
 import com.github.propheticeclipse.tensurastarlight.registry.StarlightRaces;
 import com.sammy.malum.common.data.attachment.ProgressionData;
@@ -11,6 +12,7 @@ import io.github.manasmods.manascore.race.api.ManasRace;
 import io.github.manasmods.manascore.race.api.ManasRaceInstance;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.api.SkillAPI;
+import io.github.manasmods.tensura.ability.TensuraSkill;
 import io.github.manasmods.tensura.ability.magic.Element;
 import io.github.manasmods.tensura.ability.magic.spiritual.SpiritualMagic;
 import io.github.manasmods.tensura.config.race.RaceConfig;
@@ -30,6 +32,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class lesserAspectBornRace extends StarlightRace {
+    private static final aspectBornRaceConfig.lesserAspectBorn CONFIG = ConfigRegistry.getConfig(aspectBornRaceConfig.class).lesserAspectBorn;
+
     public lesserAspectBornRace(Difficulty difficulty) {
         super(difficulty);
     }
@@ -41,11 +45,11 @@ public class lesserAspectBornRace extends StarlightRace {
     }
 
     public RaceConfig.Default getDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserAspectBorn;
+        return CONFIG;
     }
     
     public StarlightCommon.RaceDefault getAttributeDefaultConfig() {
-        return (ConfigRegistry.getConfig(aspectBornRaceConfig.class)).lesserAspectBorn;
+        return CONFIG;
     }
 
     public Alignment getAlignment() {
@@ -69,10 +73,16 @@ public class lesserAspectBornRace extends StarlightRace {
     }
 
     public List<ManasSkill> getIntrinsicSkills(ManasRaceInstance instance, LivingEntity entity) {
-        return ConfigRegistry.getConfig(aspectBornRaceConfig.class)
-                .lesserAspectBorn.lesserAspectBornIntrinsics.stream()
+        return CONFIG.intrinsics.stream()
                 .map(id -> (ManasSkill) SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
                 .filter(Objects::nonNull)
+                .toList();
+    }
+    public List<TensuraSkill> getIntrinsicLearnable(ManasRaceInstance instance, LivingEntity entity) {
+        return CONFIG.learnableIntrinsics.stream()
+                .map((id) -> SkillAPI.getSkillRegistry().get(ResourceLocation.parse(id)))
+                .filter((skill) -> skill instanceof TensuraSkill)
+                .map((skill) -> (TensuraSkill)skill)
                 .toList();
     }
 

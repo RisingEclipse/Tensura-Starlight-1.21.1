@@ -125,6 +125,23 @@ New Race Ideas:
     Dwarf Planets ---> Large Moon -> Small Planet -> Planetary Body ---> Large Planet (Superplanet), Gas Giants
     Proto Star ---> Dwarf Star, Star, Large Star, Subgiant Star, Giant Star ---> Supergiant Star, Neutron Star
 
+    Debris Class:
+    Small Meteroid -> Large Meteoroid -> Small Comet -> Large Comet -> Small Asteroid -> Large Asteroid -> Small Moon -> Moon -> Large Moon
+    Large Asteroid -H-> Extinction Rock??
+    Moon -H-> Named Evolution: Luna (Similar to Lethe auto-naming).
+    Large Moon -H-> Planetary Class: Dwarf Planet
+
+    Planetary Class:
+    Dwarf Planet -> Small Planet -> Planetary Body -> Large Planet -> Gas Giant
+    Planetary Body -H-> Terrestrial Planet -> Earth -> Super Earth -> Mega Earth
+    Gas Giant -H-> Stellar Class: Dwarf Star
+
+    Stellar Class:
+    Dwarf Star -> Small Star -> Star -> Large Star -> Subgiant Star -> Giant Star
+    Giant Star -H-> Supergiant Star -> Hypergiant Star -> Upon death, change to become a Neutron Star or a Black Hole
+    Neutron Star -> ??? Something to do with magnets or smth? Idk Im rotting
+    Micro Black Hole -> Stellar Black Hole -> Intermediate Black Hole -> Supermassive Black Hole -> Ultramassive Black Hole
+
 ----------------
 
 Mori Scythe (Ricky!)
