@@ -25,7 +25,7 @@
   "trstarlight.skill.vestiges_of_eidolons": "Vestigios de Eidolones",
   "trstarlight.skill.vestiges_of_eidolons.description": "§oLo que se desvanece no desaparece. Lo que se ha ido aún permanece. Escucha el silencio y teje la verdad a partir de lo que queda",
 
-    "trstarlight.skill.mode.vestiges_of_eidolons.solar_echo": "Eco Solar",
+  "trstarlight.skill.mode.vestiges_of_eidolons.solar_echo": "Eco Solar",
   "trstarlight.skill.mode.vestiges_of_eidolons.judgement_of_past": "Juicio del Pasado",
   "trstarlight.skill.mode.vestiges_of_eidolons.death_bypass": "Evasión de la Muerte",
 
@@ -65,7 +65,7 @@
   "trstarlight.skill.drygmy_genetics": "Genética de Drygmy",
   "trstarlight.skill.drygmy_genetics.description": "Hereda la genética de una pequeña criatura conocida por su abundante suerte.",
 
-    "trstarlight.skill.flarecannon_genetics": "Genética de Flarecannon",
+  "trstarlight.skill.flarecannon_genetics": "Genética de Flarecannon",
   "trstarlight.skill.flarecannon_genetics.description": "Hereda la genética de una criatura de gran tamaño conocida por su cuerpo similar a un horno.",
 
   "trstarlight.skill.flashjack_genetics": "Genética de Flashjack",
@@ -122,7 +122,7 @@
   "trstarlight.skill.dead_end_rainbow_skill": "Dead End Desatado",
   "trstarlight.skill.dead_end_rainbow_skill.description": "Desatar los límites de los finales.",
 
-    "effect.trstarlight.ember_attack_improvement": "AP: Flujo de Combate",
+  "effect.trstarlight.ember_attack_improvement": "AP: Flujo de Combate",
   "effect.trstarlight.shape_forgotten_armor": "FO: Armadura Cambiante",
   "effect.trstarlight.soul_aegis": "AP: Égida del Alma",
 
@@ -177,4 +177,48 @@
 
   "trstarlight.evolution_menu.mythos_requirements": "Entrelaza tu existencia con los Mitos y márcate como un Azote Eterno.",
   "trstarlight.evolution_menu.lesser_convergence_requirements": "Adquiere La Luz Permanente o Vestigios de Eidolones."
+  "trstarlight.race.mythos.description": "Una forma de vida espiritual única, inmersa en la historia del plano físico.\nReescrita. Rehecha. Con las fronteras difuminadas.\nUn fragmento que llegó a reunir todos los aspectos en uno solo.",
+
+  "trstarlight.race.small_molecular_cloud": "Pequeña Nube Molecular",
+  "trstarlight.race.small_molecular_cloud.description": "Los cimientos mismos del océano cósmico.\nEl potencial de convertirse en algo mucho mayor, a pesar de ser tan diminuta.",
+  "trstarlight.race.large_molecular_cloud": "Gran Nube Molecular",
+  "trstarlight.race.stardust": "Polvo Estelar",
+
+  "trstarlight.race.small_meteoroid": "Meteoroide Pequeño",
+  "trstarlight.race.large_meteoroid": "Meteoroide Grande",
+  "trstarlight.race.small_comet": "Cometa Pequeño",
+  "trstarlight.race.large_comet": "Cometa Grande",
+  "trstarlight.race.small_asteroid": "Asteroide Pequeño",
+  "trstarlight.race.large_asteroid": "Asteroide Grande",
+  "trstarlight.race.small_moon": "Luna Pequeña",
+  "trstarlight.race.moon": "Luna",
+  "trstarlight.race.lady_luna": "Dama Luna",
+  "trstarlight.race.large_moon": "Gran Luna",
+
+  "trstarlight.race.dwarf_planet": "Planeta Enano",
+  "trstarlight.race.small_planet": "Planeta Pequeño",
+  "trstarlight.race.planetary_body": "Cuerpo Planetario",
+  "trstarlight.race.terrestrial_planet": "Planeta Terrestre",
+  "trstarlight.race.terra": "Terra",
+  "trstarlight.race.super_terra": "Superterra",
+  "trstarlight.race.mega_terra": "Megaterra",
+  "trstarlight.race.large_planet": "Gran Planeta",
+  "trstarlight.race.gas_giant": "Gigante Gaseoso",
+
+  "trstarlight.race.dwarf_star": "Estrella Enana",
+  "trstarlight.race.small_star": "Estrella Pequeña",
+  "trstarlight.race.star": "Estrella",
+  "trstarlight.race.large_star": "Estrella Grande",
+  "trstarlight.race.subgiant_star": "Estrella Subgigante",
+  "trstarlight.race.giant_star": "Estrella Gigante",
+  "trstarlight.race.supergiant_star": "Estrella Supergigante",
+  "trstarlight.race.hypergiant_star": "Estrella Hipergigante",
+
+  "trstarlight.race.neutron_star": "Estrella de Neutrones",
+
+  "trstarlight.race.micro_blackhole": "Microagujero Negro",
+  "trstarlight.race.stellar_blackhole": "Agujero Negro Estelar",
+  "trstarlight.race.intermediate_blackhole": "Agujero Negro Intermedio",
+  "trstarlight.race.supermassive_blackhole": "Agujero Negro Supermasivo",
+  "trstarlight.race.ultramassive_blackhole": "Agujero Negro Ultramasivo"
 }
