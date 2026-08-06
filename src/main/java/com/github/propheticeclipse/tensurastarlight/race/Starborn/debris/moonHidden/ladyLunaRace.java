@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class ladyLunaRace extends moonRace {
-    private static final starbornRaceConfig.moon CONFIG = ConfigRegistry.getConfig(starbornRaceConfig.class).moon;
-    public static final ResourceLocation MOON = ResourceLocation.fromNamespaceAndPath("trstarlight", "moon");
+    private static final starbornRaceConfig.ladyLuna CONFIG = ConfigRegistry.getConfig(starbornRaceConfig.class).ladyLuna;
+    public static final ResourceLocation LUNA = ResourceLocation.fromNamespaceAndPath("trstarlight", "lady_luna");
 
     public ladyLunaRace(Difficulty difficulty) {
         super(difficulty);

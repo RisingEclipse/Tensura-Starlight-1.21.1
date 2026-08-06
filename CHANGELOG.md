@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <details>
 <summary>CONTENT WARNING: Spoilers ahead!</summary>
-Changed Mythos' evolution conditions to be Lethe, Lady of Phantasm as opposed to Vestiges and Remnants.
+Lethe's acquirement is now based on evolving into mythos, as opposed to vice versa. When you evolve it should automatically learn Lethe by conducting the sacrifice.
 Altered Convergence-Line's False Reset to now reset spirits as well as other data.
 </details>
 

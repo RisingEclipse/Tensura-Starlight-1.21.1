@@ -440,4 +440,318 @@ public class StarlightUtils {
         }
         return false;
     }
+
+    public static boolean isStarborn(LivingEntity entity) {
+        return isDebrisClass(entity) || isPlanetaryClass(entity) || isStellarClass(entity) || isHiddenStarborn(entity) || isDust(entity);
+    }
+
+    public static boolean isDust(LivingEntity entity) {
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SMALL_MOLECULAR_CLOUD.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_MOLECULAR_CLOUD.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.STARDUST.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isDebrisClass(LivingEntity entity) {
+        return isMeteorRace(entity) || isCometRace(entity) || isAsteroidRace(entity) || isMoonRace(entity);
+    }
+
+    public static boolean isMeteorRace(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SMALL_METEOROID.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_METEOROID.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isCometRace(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SMALL_COMET.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_COMET.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isAsteroidRace(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SMALL_ASTEROID.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_ASTEROID.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isMoonRace(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SMALL_MOON.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.MOON.get()) {
+                return true;
+            }
+
+            if (isLadyLuna(entity)) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_MOON.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isLadyLuna(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.LADY_LUNA.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isPlanetaryClass(LivingEntity entity) {
+        return isGasPlanet(entity) || isMaterialPlanet(entity) || isTerrestrialPlanet(entity);
+    }
+
+    public static boolean isMaterialPlanet(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.DWARF_PLANET.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.SMALL_PLANET.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.PLANETARY_BODY.get()) {
+                return true;
+            }
+
+            if(isTerrestrialPlanet(entity)) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_PLANET.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isTerrestrialPlanet(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.TERRESTRIAL_PLANET.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.TERRA.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.SUPER_TERRA.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.MEGA_TERRA.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isGasPlanet(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.GAS_GIANT.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isStellarClass(LivingEntity entity) {
+        return isSmallerStar(entity) || isLargerStar(entity) || isNeutronStar(entity) || isBlackhole(entity);
+    }
+
+    public static boolean isSmallerStar(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.DWARF_STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.SMALL_STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.LARGE_STAR.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isLargerStar(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.SUBGIANT_STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.GIANT_STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.SUPERGIANT_STAR.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.HYPERGIANT_STAR.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isNeutronStar(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.NEUTRON_STAR.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isBlackhole(LivingEntity entity) {
+
+        Races storage = RaceAPI.getRaceFrom(entity);
+        Optional<ManasRaceInstance> optional = storage.getRace();
+        if (optional.isPresent()) {
+            ManasRaceInstance instance = optional.get();
+
+            if (instance.getRace() == StarlightRaces.MICRO_BLACKHOLE.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.STELLAR_BLACKHOLE.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.INTERMEDIATE_BLACKHOLE.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.SUPERMASSIVE_BLACKHOLE.get()) {
+                return true;
+            }
+
+            if (instance.getRace() == StarlightRaces.ULTRAMASSIVE_BLACKHOLE.get()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static boolean isHiddenStarborn(LivingEntity entity) {
+        return isLadyLuna(entity) || isTerrestrialPlanet(entity) || isNeutronStar(entity) || isBlackhole(entity);
+    }
 }

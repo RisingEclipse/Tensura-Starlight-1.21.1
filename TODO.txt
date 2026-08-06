@@ -131,16 +131,45 @@ New Race Ideas:
     Moon -H-> Named Evolution: Luna (Similar to Lethe auto-naming).
     Large Moon -H-> Planetary Class: Dwarf Planet
 
+    // Moon -> Luna Conditions
+    Meet Gravity Requirement
+    ????????????
+
+    // Large Moon -> Dwarf Planet (Collision)
+    Meet Gravity Requirement
+    Have Certain EP
+    Have enough health
+
     Planetary Class:
     Dwarf Planet -> Small Planet -> Planetary Body -> Large Planet -> Gas Giant
     Planetary Body -H-> Terrestrial Planet -> Earth -> Super Earth -> Mega Earth
     Gas Giant -H-> Stellar Class: Dwarf Star
+
+    // Planetary Body -> Terrestrial (
+    Meet Gravity Req ( 0.08 / 3.2 == Approximate Earth Gravity)
+    Have earth manip / dom?
+
+    // Gas Giant -> Dwarf Star (Stellification)
+    Meet Gravity Req
+    Have Gravity Manipulation / Domination
+    Have Flame Manipulation / Domination
+    Have Flame Resistance and Heat Resistance or Thermal Fluctuation or Heat Nullification
+    Die by taking fire/flame damage from any source.
 
     Stellar Class:
     Dwarf Star -> Small Star -> Star -> Large Star -> Subgiant Star -> Giant Star
     Giant Star -H-> Supergiant Star -> Hypergiant Star -> Upon death, change to become a Neutron Star or a Black Hole
     Neutron Star -> ??? Something to do with magnets or smth? Idk Im rotting
     Micro Black Hole -> Stellar Black Hole -> Intermediate Black Hole -> Supermassive Black Hole -> Ultramassive Black Hole
+
+    // Giant Star -> Supergiant
+
+    // Hyper Giant -> Neutron // Blackhole
+    Have an extreme amount of gravity while dying as a Hypergiant Star
+
+    Some gravity mechanics? scaling based on how much your player gravity is?
+
+    Some Interesting way of using mass accumulation to debuff enemies?
 
 ----------------
 

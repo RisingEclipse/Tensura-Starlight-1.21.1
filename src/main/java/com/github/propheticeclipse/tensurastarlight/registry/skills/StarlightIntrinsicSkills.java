@@ -5,6 +5,7 @@ import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.luck
 import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.malignantBodySkill;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.soulPlundererSkill;
 import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.malum.wardedSoulSkill;
+import com.github.propheticeclipse.tensurastarlight.ability.skill.intrinsic.starborn.massAccumulationSkill;
 import dev.architectury.registry.registries.RegistrySupplier;
 import io.github.manasmods.manascore.skill.api.ManasSkill;
 import io.github.manasmods.manascore.skill.impl.SkillRegistry;
@@ -29,6 +30,8 @@ public class StarlightIntrinsicSkills {
     public static final RegistrySupplier<ManasSkill> MALIGNANT_BODY = register("malignant_body", malignantBodySkill::new);
 
     public static final RegistrySupplier<ManasSkill> LUCKY = register("lucky", luckySkill::new);
+
+    public static final RegistrySupplier<ManasSkill> MASS_ACCUMULATION = register("mass_accumulation", massAccumulationSkill::new);
 
     private static <E extends ManasSkill> RegistrySupplier<E> register(String name, Supplier<E> supplier) {
         return SkillRegistry.SKILLS.register(ResourceLocation.fromNamespaceAndPath("trstarlight", name), supplier);

@@ -117,23 +117,34 @@
   "trstarlight.skill.spirit_sorcerer.description": "A hundred spirits contained within your well of authority, all to die for you.",
 
   "trstarlight.skill.lucky": "Lucky",
-  "trstarlight.skill.lucky.description": "Lucky",
+  "trstarlight.skill.lucky.description": "You are inherently lucky.",
 
-  "trstarlight.skill.dead_end_rainbow_skill": "Unleashed Dead End",
-  "trstarlight.skill.dead_end_rainbow_skill.description": "To unleash the limits of endings.",
+  "trstarlight.skill.abnormally_lucky": "Abnormally Lucky",
+  "trstarlight.skill.abnormally_lucky.description": "Your luck practically warps chance around you.",
+
+  "trstarlight.skill.unleashed_dead_end": "Unleashed Dead End",
+  "trstarlight.skill.unleashed_dead_end.description": "To unleash the limits of endings.",
 
   "trstarlight.skill.source_blood": "Source Blood",
   "trstarlight.skill.source_blood.description": "What flows through your veins is blood no longer, but concentrated source empowering your very being.",
 
   "effect.trstarlight.ember_attack_improvement": "ER: Combat Flow",
+  "effect.trstarlight.ember_attack_improvement.description": "Increases your Attack based on the configured values.",
   "effect.trstarlight.shape_forgotten_armor": "SF: Shifting Armor",
+  "effect.trstarlight.shape_forgotten_armor.description": "Increases your Armor and Flat Damage Negation based on the configured values.",
   "effect.trstarlight.soul_aegis": "SS: Soul Aegis",
+  "effect.trstarlight.soul_aegis.description": "Reduce Soul Ward and Gain Malignant Aegis and Arcane Resonance in exchange.",
 
   "effect.trstarlight.existence_regeneration": "Existence Regeneration",
+  "effect.trstarlight.existence_regeneration.description": "Regenerate EP (MP and AP) rapidly.",
   "effect.trstarlight.existence_drain": "Existence Drain",
+  "effect.trstarlight.existence_drain.description": "Drain EP (MP and AP) rapidly.",
   "effect.trstarlight.health_regen": "Health Regeneration",
+  "effect.trstarlight.health_regen.description": "Regenerate HP rapidly.",
   "effect.trstarlight.spiritual_regen": "Spiritual Health Regeneration",
+  "effect.trstarlight.spiritual_regen.description": "Regenerate SHP rapidly.",
   "effect.trstarlight.source_blood_rejuvenation": "Source Blood Rejuvenation",
+  "effect.trstarlight.source_blood_rejuvenation.description": "Regenerate HP or Source based on your health.",
 
   "trstarlight.skill.mode.default": "No Actives",
 
@@ -187,17 +198,41 @@
 
   "trstarlight.race.small_meteoroid": "Small Meteoroid",
   "trstarlight.race.large_meteoroid": "Large Meteoroid",
-
   "trstarlight.race.small_comet": "Small Comet",
   "trstarlight.race.large_comet": "Large Comet",
-
   "trstarlight.race.small_asteroid": "Small Asteroid",
   "trstarlight.race.large_asteroid": "Large Asteroid",
-
   "trstarlight.race.small_moon": "Small Moon",
   "trstarlight.race.moon": "Moon",
-  "trstarlight.race.lunaMoon": "Lady Luna",
+  "trstarlight.race.lady_luna": "Lady Luna",
   "trstarlight.race.large_moon": "Large Moon",
+
+  "trstarlight.race.dwarf_planet": "Dwarf Planet",
+  "trstarlight.race.small_planet": "Small Planet",
+  "trstarlight.race.planetary_body": "Planetary Body",
+  "trstarlight.race.terrestrial_planet": "Terrestrial Planet",
+  "trstarlight.race.terra": "Terra",
+  "trstarlight.race.super_terra": "Super Terra",
+  "trstarlight.race.mega_terra": "Mega Terra",
+  "trstarlight.race.large_planet": "Large Planet",
+  "trstarlight.race.gas_giant": "Gas Giant",
+
+  "trstarlight.race.dwarf_star": "Dwarf Star",
+  "trstarlight.race.small_star": "Small Star",
+  "trstarlight.race.star": "Star",
+  "trstarlight.race.large_star": "Large Star",
+  "trstarlight.race.subgiant_star": "Subgiant Star",
+  "trstarlight.race.giant_star": "Giant Star",
+  "trstarlight.race.supergiant_star": "Supergiant Star",
+  "trstarlight.race.hypergiant_star": "Hypergiant Star",
+
+  "trstarlight.race.neutron_star": "Neutron Star",
+
+  "trstarlight.race.micro_blackhole": "Micro Blackhole",
+  "trstarlight.race.stellar_blackhole": "Stellar Blackhole",
+  "trstarlight.race.intermediate_blackhole": "Intermediate Blackhole",
+  "trstarlight.race.supermassive_blackhole": "Supermassive Blackhole",
+  "trstarlight.race.ultramassive_blackhole": "Ultramassive Blackhole",
 
   "trstarlight.evolution_menu.mythos_requirements": "Entwine yourself with Myths, mark yourself an Eternal Scourge.",
   "trstarlight.evolution_menu.lesser_convergence_requirements": "Acquire Light Remains or Vestiges of Eidolons."

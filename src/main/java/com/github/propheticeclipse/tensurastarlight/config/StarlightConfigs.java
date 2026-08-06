@@ -26,6 +26,7 @@ public class StarlightConfigs {
         ConfigRegistry.registerConfig(new arsnouveauSeriesSkillConfig());
         ConfigRegistry.registerConfig(new genericIntrinsicSkillConfig());
         ConfigRegistry.registerConfig(new malumSeriesSkillConfig());
+        ConfigRegistry.registerConfig(new starbornIntrinsicSkillConfig());
         // Races
         ConfigRegistry.registerConfig(new aspectBornRaceConfig());
         ConfigRegistry.registerConfig(new starbornRaceConfig());
